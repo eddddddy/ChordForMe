@@ -177,6 +177,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 import be.tarsos.dsp.AudioDispatcher;
@@ -254,6 +256,90 @@ public class MainActivity extends AppCompatActivity {
                 detectedNotes.remove(note);
             }
         }
+    }
+
+    // produces an ArrayList of the detected notes, sorted in increasing order by pitch
+    private ArrayList<String> sortNotes() {
+
+        ArrayList<String> sortedNotes = new ArrayList<>();
+        ArrayList<String> unsortedNotes = new ArrayList<>();
+
+        // locals
+        class CompareNotes {
+
+            HashMap<String,Integer> noteOrder = new HashMap();
+            private void initialize() {
+
+                noteOrder.put("C",0);
+                noteOrder.put("C#",1);
+                noteOrder.put("D",2);
+                noteOrder.put("D#",3);
+                noteOrder.put("E",4);
+                noteOrder.put("F",5);
+                noteOrder.put("F#",6);
+                noteOrder.put("G",7);
+                noteOrder.put("G#",8);
+                noteOrder.put("A",9);
+                noteOrder.put("A#",10);
+                noteOrder.put("B",11);
+
+            }
+
+            // produces true if note1 is lower than note2, else false
+            private boolean compareNotes(String note1, String note2) {
+
+                int octave1 = Character.getNumericValue(note1.charAt(note1.length()-1));
+                int octave2 = Character.getNumericValue(note2.charAt(note2.length()-1));
+                String pitch1 = note1.substring(0,note1.length()-1);
+                String pitch2 = note2.substring(0,note2.length()-1);
+                initialize();
+
+                if (octave1 < octave2) {
+                    return true;
+                } else if (octave1 > octave2) {
+                    return false;
+                } else {
+                    if (noteOrder.get(pitch1) < noteOrder.get(pitch2)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+            }
+
+            // produces the lowest note in a (non-empty) list
+            private String lowestNote(ArrayList<String> notes) {
+
+                String currentLowest = notes.get(0);
+
+                for (String note : notes) {
+                    if (compareNotes(note,currentLowest)) {
+                        currentLowest = note;
+                    }
+                }
+
+                return currentLowest;
+
+            }
+
+        }
+
+        for (String note : detectedNotes.keySet()) {
+            unsortedNotes.add(note);
+        }
+
+        // for all practical purposes, this list will be of relatively small size, whence quicksort is unnecessary
+        while (! (unsortedNotes.size() == 0)) {
+
+            String currentLowest = new CompareNotes().lowestNote(unsortedNotes);
+            sortedNotes.add(currentLowest);
+            unsortedNotes.remove(currentLowest);
+
+        }
+
+        return sortedNotes;
+
     }
 
     private String findNote(float pitch){
@@ -1094,7 +1180,7 @@ public class MainActivity extends AppCompatActivity {
 
         iterate = new PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.FFT_YIN, samplingRate, bufferSize, pdh);
         filter = new BandPass(center,diameter,samplingRate);
-        noise = new NoiseGenerator(0.2);
+        noise = new NoiseGenerator(0.01);
 
         // add the filter first, then pad it with noise, then see if it still recognizes a pitch
         dispatcher.addAudioProcessor(filter);
