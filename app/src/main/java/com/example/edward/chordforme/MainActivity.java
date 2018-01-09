@@ -187,6 +187,7 @@ import be.tarsos.dsp.io.android.AudioDispatcherFactory;
 import be.tarsos.dsp.pitch.PitchDetectionHandler;
 import be.tarsos.dsp.pitch.PitchDetectionResult;
 import be.tarsos.dsp.pitch.PitchProcessor;
+import be.tarsos.dsp.synthesis.NoiseGenerator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -196,13 +197,8 @@ public class MainActivity extends AppCompatActivity {
 
     private int samplingRate = 22050;
     private int bufferSize = 1024;
-    private AudioDispatcher dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(samplingRate, bufferSize, 0);
-
-    private float probabilityThreshold = 0.99f;
-    private float orderProbabilityThreshold = 0.99f;
-    private float familyProbabilityThreshold = 0.9f;
-    private float genusProbabilityThreshold = 0.9f;
-    private float speciesProbabilityThreshold = 0.9f;
+    private AudioDispatcher dispatcher;
+    private float probabilityThreshold = 0.9f;
 
     private String orderLoopState = "A";
     private String familyLoopState = "A";
@@ -210,8 +206,14 @@ public class MainActivity extends AppCompatActivity {
     private String speciesLoopState = "A";
     private String loopState = "O";
     private ConcurrentHashMap<String,Integer> detectedNotes = new ConcurrentHashMap();
+    private boolean searchInProgress = false;
+    private boolean filterReplaceInProgress = false;
 
-    private AudioProcessor stack1;
+    private AudioProcessor filter;
+    private AudioProcessor noise;
+    private AudioProcessor iterate;
+
+    // TODO: consider using noise generator
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -350,36 +352,27 @@ public class MainActivity extends AppCompatActivity {
     private void searchOrders(float probability) {
 
         if (orderLoopState.equals("A")) {
-            if (probability > orderProbabilityThreshold) {
-                //replaceFilters(33.68f,56.64f); // TODO: order A -> family A
-                //loopState = "F";
-                detectedNotes.put("a",0);
-                replaceFilters(160.19f,761.99f);
-                orderLoopState = "B";
+            if (probability > probabilityThreshold) {
+                replaceFilters(33.68f,56.64f); // TODO: order A -> family A
+                loopState = "F";
             } else {
                 replaceFilters(160.19f,761.99f); // TODO: order B
                 loopState = "O";
                 orderLoopState = "B";
             }
         } else if (orderLoopState.equals("B")) {
-            if (probability > orderProbabilityThreshold) {
-                //replaceFilters(160.19f,269.40f); // TODO: order B -> family A
-                //loopState = "F";
-                detectedNotes.put("b",0);
-                replaceFilters(761.99f,3624.66f);
-                orderLoopState = "B";
+            if (probability > probabilityThreshold) {
+                replaceFilters(160.19f,269.40f); // TODO: order B -> family A
+                loopState = "F";
             } else {
                 replaceFilters(761.99f,3624.66f); // TODO: order C
                 loopState = "O";
                 orderLoopState = "C";
             }
         } else if (orderLoopState.equals("C")) {
-            if (probability > orderProbabilityThreshold) {
-                //replaceFilters(761.99f,1281.51f); // TODO: order C -> family A
-                //loopState = "F";
-                detectedNotes.put("c",0);
-                replaceFilters(33.68f,160.19f);
-                orderLoopState = "B";
+            if (probability > probabilityThreshold) {
+                replaceFilters(761.99f,1281.51f); // TODO: order C -> family A
+                loopState = "F";
             } else {
                 replaceFilters(33.68f,160.19f); // TODO: order A
                 loopState = "O";
@@ -388,6 +381,8 @@ public class MainActivity extends AppCompatActivity {
                 pruneNotes();
             }
         }
+
+        searchInProgress = false;
 
     }
 
@@ -474,6 +469,8 @@ public class MainActivity extends AppCompatActivity {
                 familyLoopState = "A";
             }
         }
+
+        searchInProgress = false;
 
     }
 
@@ -711,6 +708,8 @@ public class MainActivity extends AppCompatActivity {
                 genusLoopState = "A";
             }
         }
+
+        searchInProgress = false;
 
     }
 
@@ -1028,6 +1027,8 @@ public class MainActivity extends AppCompatActivity {
             speciesLoopState = "A";
         }
 
+        searchInProgress = false;
+
     }
 
     PitchDetectionHandler pdh = new PitchDetectionHandler() {
@@ -1040,56 +1041,77 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
 
-                    TextView textView = findViewById(R.id.displayInfo);
-                    String notesToDisplay = "";
+                    // Checks to see if no other processes are currently in progress. This is crucial.
+                    if (! (searchInProgress || filterReplaceInProgress)) {
 
-                    if (loopState.equals("O")) {
-                        searchOrders(probability);
-                    } else if (loopState.equals("F")) {
-                        searchFamilies(probability);
-                    } else if (loopState.equals("G")) {
-                        searchGenera(probability);
-                    } else if (loopState.equals("S")) {
-                        searchSpecies(probability,pitch);
+                        searchInProgress = true;
+                        filterReplaceInProgress = true;
+
+                        TextView textView = findViewById(R.id.displayInfo);
+                        String notesToDisplay = "";
+
+                        if (loopState.equals("O")) {
+                            searchOrders(probability);
+                        } else if (loopState.equals("F")) {
+                            searchFamilies(probability);
+                        } else if (loopState.equals("G")) {
+                            searchGenera(probability);
+                        } else if (loopState.equals("S")) {
+                            searchSpecies(probability,pitch);
+                        }
+
+                        for (String note : detectedNotes.keySet()) {
+                            notesToDisplay = notesToDisplay + note;
+                        }
+
+                        textView.setText(notesToDisplay);
                     }
-
-                    for (String note : detectedNotes.keySet()) {
-                        notesToDisplay = notesToDisplay + note;
-                    }
-
-                    textView.setText(notesToDisplay);
 
                 }
             });
         }
     };
 
-
     private void replaceFilters(float minFrequency, float maxFrequency) {
+
+        // When replacing BandPass filters, we want to remove and re-add the PitchProcessor so it
+        // executes last.
 
         float center = (minFrequency + maxFrequency) / 2f;
         float diameter = maxFrequency - minFrequency;
 
-        // TODO: test if adding stack1 4 times instead of adding 4 separate stacks produces the same result
-
-        if (! (stack1==null)) {
-            dispatcher.removeAudioProcessor(stack1);
+        if (! (iterate == null)) {
+            dispatcher.removeAudioProcessor(iterate);
         }
 
-        stack1 = new BandPass(center, diameter, samplingRate);
-        dispatcher.addAudioProcessor(stack1);
-        dispatcher.addAudioProcessor(new PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.FFT_YIN, samplingRate, bufferSize, pdh));
+        if (! (noise == null)) {
+            dispatcher.removeAudioProcessor(noise);
+        }
+
+        if (! (filter == null)) {
+            dispatcher.removeAudioProcessor(filter);
+        }
+
+        iterate = new PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.FFT_YIN, samplingRate, bufferSize, pdh);
+        filter = new BandPass(center,diameter,samplingRate);
+        noise = new NoiseGenerator(0.2);
+
+        // add the filter first, then pad it with noise, then see if it still recognizes a pitch
+        dispatcher.addAudioProcessor(filter);
+        dispatcher.addAudioProcessor(noise);
+        dispatcher.addAudioProcessor(iterate);
+
+        filterReplaceInProgress = false;
 
     }
 
     private void startRecording(){
 
-        // TODO: try to make the pitch estimation happen after the frequency filtering
-        // AudioProcessor iterate = new PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.FFT_YIN, samplingRate, bufferSize, pdh);
+        dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(samplingRate, bufferSize, 0);
 
         replaceFilters(33.68f,160.19f); // TODO: order A
-
         new Thread(dispatcher).start();
+
     }
 
 }
