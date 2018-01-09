@@ -10,7 +10,6 @@ public class ChordLibrary {
     private String chordClassificationScheme;
     private String key;
     private List<String> notes = Arrays.asList("C","C#","D","D#","E","F","F#","G","G#","A","A#","B");
-
     private String chordName;
 
     /*
