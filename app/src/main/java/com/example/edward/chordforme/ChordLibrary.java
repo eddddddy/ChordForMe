@@ -97,7 +97,6 @@ public class ChordLibrary {
         this.sortedNotes = sortedNotes;
         this.chordClassificationScheme = "abs";
 
-        trim();
         findChord();
     }
 
@@ -106,16 +105,7 @@ public class ChordLibrary {
         this.chordClassificationScheme = "key";
         this.key = key;
 
-        trim();
         findChord();
-    }
-
-    // removes the octaves from sortedNotes
-    private void trim() {
-        for (int i = 0; i < sortedNotes.size(); i++) {
-            String currentNote = sortedNotes.get(i);
-            sortedNotes.set(i,currentNote.substring(0,currentNote.length()-1));
-        }
     }
 
     // the main method for this class; any new chords should be implemented here (the logic is straightforward)

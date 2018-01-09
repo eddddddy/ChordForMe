@@ -258,14 +258,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // produces an ArrayList of the detected notes, sorted in increasing order by pitch
+    // produces an ArrayList of the detected notes (without octaves and without duplicates), sorted in increasing order by pitch
     private ArrayList<String> sortNotes() {
 
         ArrayList<String> sortedNotes = new ArrayList<>();
         ArrayList<String> unsortedNotes = new ArrayList<>();
 
         // locals
-        class CompareNotes {
+        class SortNotes {
 
             HashMap<String,Integer> noteOrder = new HashMap();
             private void initialize() {
@@ -323,6 +323,21 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+            // produces an ArrayList with note name duplicates removed
+            private ArrayList<String> removeDuplicates(ArrayList<String> notes) {
+
+                ArrayList<String> newNotes = new ArrayList<>();
+
+                for (String note : notes) {
+                    if(! newNotes.contains(note)) {
+                        newNotes.add(note);
+                    }
+                }
+
+                return newNotes;
+
+            }
+
         }
 
         for (String note : detectedNotes.keySet()) {
@@ -332,13 +347,13 @@ public class MainActivity extends AppCompatActivity {
         // for all practical purposes, this list will be of relatively small size, whence quicksort is unnecessary
         while (! (unsortedNotes.size() == 0)) {
 
-            String currentLowest = new CompareNotes().lowestNote(unsortedNotes);
-            sortedNotes.add(currentLowest);
+            String currentLowest = new SortNotes().lowestNote(unsortedNotes);
+            sortedNotes.add(currentLowest.substring(0,currentLowest.length()-1));
             unsortedNotes.remove(currentLowest);
 
         }
 
-        return sortedNotes;
+        return new SortNotes().removeDuplicates(sortedNotes);
 
     }
 
