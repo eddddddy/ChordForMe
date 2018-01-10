@@ -12,15 +12,16 @@ public class ChordLibrary {
     private String key;
     private List<String> notes = Arrays.asList("C","C#","D","D#","E","F","F#","G","G#","A","A#","B");
     private HashMap<String,String> enharmonics = new HashMap<String,String>() {{
-        put("C#","Db");put("D#","Eb");put("F#","Gb");put("G#","Ab");put("A#","Bb");
+        put("C","B#");put("C#","Db");put("D","D");put("D#","Eb");put("E","Fb");put("F","E#");
+        put("F#","Gb");put("G","G");put("G#","Ab");put("A","A");put("A#","Bb");put("B","Cb");
     }};
     private HashMap<String,Integer> majorKeySignatures = new HashMap<String,Integer>() {{
         put("C",0);put("C#",7);put("Db",5);put("D",2);put("D#",9);put("Eb",3);put("E",4);put("Fb",8);put("E#",11);put("F",1);put("F#",6);
-        put("Gb",6);put("G",1);put("G#",8);put("Ab",4);put("A",3);put("A#",10);put("Bb",2);put("B",5);put("Cb",7);put("B#",12);
+        put("Gb",6);put("G",1);put("G#",8);put("Ab",4);put("A",3);put("A#",10);put("Bb",2);put("B",5);put("Cb",7);put("B#",12);put("H",99);
     }};
     private HashMap<String,Integer> minorKeySignatures = new HashMap<String,Integer>() {{
         put("C",3);put("C#",4);put("Db",8);put("D",1);put("D#",6);put("Eb",6);put("E",1);put("Fb",11);put("F",4);put("E#",8);put("F#",3);
-        put("Gb",9);put("G",2);put("G#",5);put("Ab",7);put("A",0);put("A#",7);put("Bb",5);put("B",2);put("Cb",10);put("B#",9);
+        put("Gb",9);put("G",2);put("G#",5);put("Ab",7);put("A",0);put("A#",7);put("Bb",5);put("B",2);put("Cb",10);put("B#",9);put("H",99);
     }};
     private String chordName;
 
@@ -42,16 +43,16 @@ public class ChordLibrary {
     |      G E C      |            C/G             |               I2                 |               vi2                |                2                 |      |
     |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|     ---
     |      A C E      |                            |                                  |                                  |                                  |      |
-    |        or       |            Am/A            |               VI0                |               IV0                |                0                 |      |  minor root position
+    |        or       |            Am/A            |              VIm0                |              IVm0                |                0                 |      |  minor root position
     |      A E C      |                            |                                  |                                  |                                  |      |
     |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|     ---
-    |      C E A      |            Am/C            |               VI1                |               IV1                |                2                 |      |
+    |      C E A      |            Am/C            |              VIm1                |              IVm1                |                2                 |      |
     |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|      |  minor first inversion
-    |      C A E      |            Am/C            |               VI1                |               IV1                |                1                 |      |
+    |      C A E      |            Am/C            |              VIm1                |              IVm1                |                1                 |      |
     |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|     ---
-    |      E A C      |            Am/E            |               VI2                |               IV2                |                1                 |      |
+    |      E A C      |            Am/E            |              VIm2                |              IVm2                |                1                 |      |
     |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|      |  minor second inversion
-    |      E C A      |            Am/E            |               VI2                |               IV2                |                2                 |      |
+    |      E C A      |            Am/E            |              VIm2                |              IVm2                |                2                 |      |
     |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|     ---
     |    D# G A# C#   |                            |                                  |                                  |                                  |      |
     |        or       |                            |                                  |                                  |                                  |      |
@@ -101,6 +102,20 @@ public class ChordLibrary {
     |        or       |           Eb7/Db           |              iii73               |              VII73               |                2                 |      |
     |    C# A# D# G   |                            |                                  |                                  |                                  |      |
     |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|     ---
+    |      D F# A#    |           Daug/D           |              IIaug0              |             viiaug0              |                0                 |      |  augmented (always root position)
+    |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|     ---
+    |      F G# B     |                            |                                  |                                  |                                  |      |
+    |        or       |           Fdim/F           |              IVdim0              |              iidim0              |                0                 |      |  diminished root position
+    |      F B G#     |                            |                                  |                                  |                                  |      |
+    |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|     ---
+    |      G# B F     |          Fdim/Ab           |              IVdim1              |              iidim1              |                2                 |      |
+    |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|      |  diminished first inversion
+    |      G# F B     |          Fdim/Ab           |              IVdim1              |              iidim1              |                1                 |      |
+    |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|     ---
+    |      B F G#     |          Fdim/B            |              IVdim2              |              iidim2              |                1                 |      |
+    |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|      |  diminished second inversion
+    |      B G# F     |          Fdim/B            |              IVdim2              |              iidim2              |                2                 |      |
+    |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|     ---
 
 
     */
@@ -120,7 +135,31 @@ public class ChordLibrary {
         findChord();
     }
 
+    // produces whichever enharmonic chord is more common
+    private String enharmonize(String rootNote, String chordType) {
+
+        String rootNoteEnharmonic = enharmonics.get(rootNote);
+
+        if (chordType.equals("major")) {
+            if (majorKeySignatures.get(rootNote) <= majorKeySignatures.get(rootNoteEnharmonic)) {
+                return rootNote;
+            } else {
+                return rootNoteEnharmonic;
+            }
+        } else if (chordType.equals("minor")) {
+            if (minorKeySignatures.get(rootNote) <= minorKeySignatures.get(rootNoteEnharmonic)) {
+                return rootNote;
+            } else {
+                return rootNoteEnharmonic;
+            }
+        } else {
+            return rootNote;
+        }
+
+    }
+
     // the main method for this class; any new chords should be implemented here (the logic is straightforward)
+    // might need additional processing to meet user's preferences (flats or sharps, etc.)
     private void findChord() {
 
         // TODO: add key elifs
@@ -188,6 +227,12 @@ public class ChordLibrary {
             else if ((interval1 == 8) && (interval2 == 5)) {
                 if (chordClassificationScheme.equals("abs")) {
                     chordName = sortedNotes.get(2) + "m/" + sortedNotes.get(0);
+                }
+            }
+            // augmented triad (ex. D F# A#)
+            else if ((interval1 == 4) && (interval2 == 8)) {
+                if (chordClassificationScheme.equals("abs")) {
+                    chordName = sortedNotes.get(0) + "aug/" + sortedNotes.get(0);
                 }
             }
 
