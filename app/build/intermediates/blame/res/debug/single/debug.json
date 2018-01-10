@@ -1576,6 +1576,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_display.xml.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\layout\\fragment_display.xml"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_screen_simple_overlay_action_mode.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
@@ -1614,6 +1618,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_alternate.xml.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\layout\\activity_alternate.xml"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_longpressed_holo.9.png.flat",
