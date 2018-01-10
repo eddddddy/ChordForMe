@@ -2,6 +2,7 @@ package com.example.edward.chordforme;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class ChordLibrary {
@@ -10,6 +11,17 @@ public class ChordLibrary {
     private String chordClassificationScheme;
     private String key;
     private List<String> notes = Arrays.asList("C","C#","D","D#","E","F","F#","G","G#","A","A#","B");
+    private HashMap<String,String> enharmonics = new HashMap<String,String>() {{
+        put("C#","Db");put("D#","Eb");put("F#","Gb");put("G#","Ab");put("A#","Bb");
+    }};
+    private HashMap<String,Integer> majorKeySignatures = new HashMap<String,Integer>() {{
+        put("C",0);put("C#",7);put("Db",5);put("D",2);put("D#",9);put("Eb",3);put("E",4);put("Fb",8);put("E#",11);put("F",1);put("F#",6);
+        put("Gb",6);put("G",1);put("G#",8);put("Ab",4);put("A",3);put("A#",10);put("Bb",2);put("B",5);put("Cb",7);put("B#",12);
+    }};
+    private HashMap<String,Integer> minorKeySignatures = new HashMap<String,Integer>() {{
+        put("C",3);put("C#",4);put("Db",8);put("D",1);put("D#",6);put("Eb",6);put("E",1);put("Fb",11);put("F",4);put("E#",8);put("F#",3);
+        put("Gb",9);put("G",2);put("G#",5);put("Ab",7);put("A",0);put("A#",7);put("Bb",5);put("B",2);put("Cb",10);put("B#",9);
+    }};
     private String chordName;
 
     /*
@@ -120,61 +132,61 @@ public class ChordLibrary {
 
             // major chord in proper or improper root position (ex. C E G) (ex. C G E)
             if (((interval1 == 4) && (interval2 == 7)) || ((interval1 == 7) && (interval2 == 4))) {
-                if (chordClassificationScheme == "abs") {
+                if (chordClassificationScheme.equals("abs")) {
                     chordName = sortedNotes.get(0) + "/" + sortedNotes.get(0);
                 }
             }
             // major chord in proper first inversion (ex. E G C)
             else if ((interval1 == 3) && (interval2 == 8)) {
-                if (chordClassificationScheme == "abs") {
+                if (chordClassificationScheme.equals("abs")) {
                     chordName = sortedNotes.get(2) + "/" + sortedNotes.get(0);
                 }
             }
             // major chord in improper first inversion (ex. E C G)
             else if ((interval1 == 8) && (interval2 == 3)) {
-                if (chordClassificationScheme == "abs") {
+                if (chordClassificationScheme.equals("abs")) {
                     chordName = sortedNotes.get(1) + "/" + sortedNotes.get(0);
                 }
             }
             // major chord in proper second inversion (ex. G C E)
             else if ((interval1 == 5) && (interval2 == 9)) {
-                if (chordClassificationScheme == "abs") {
+                if (chordClassificationScheme.equals("abs")) {
                     chordName = sortedNotes.get(1) + "/" + sortedNotes.get(0);
                 }
             }
             // major chord in improper second inversion (ex. G E C)
             else if ((interval1 == 9) && (interval2 == 5)) {
-                if (chordClassificationScheme == "abs") {
+                if (chordClassificationScheme.equals("abs")) {
                     chordName = sortedNotes.get(2) + "/" + sortedNotes.get(0);
                 }
             }
             // minor chord in proper or improper root position (ex. A C E) (ex. A E C)
             else if (((interval1 == 3) && (interval2 == 7)) || ((interval1 == 7) && (interval2 == 3))) {
-                if (chordClassificationScheme == "abs") {
+                if (chordClassificationScheme.equals("abs")) {
                     chordName = sortedNotes.get(0) + "m/" + sortedNotes.get(0);
                 }
             }
             // minor chord in proper first inversion (ex. C E A)
             else if ((interval1 == 4) && (interval2 == 9)) {
-                if (chordClassificationScheme == "abs") {
+                if (chordClassificationScheme.equals("abs")) {
                     chordName = sortedNotes.get(2) + "m/" + sortedNotes.get(0);
                 }
             }
             // minor chord in improper first inversion (ex. C A E)
             else if ((interval1 == 9) && (interval2 == 4)) {
-                if (chordClassificationScheme == "abs") {
+                if (chordClassificationScheme.equals("abs")) {
                     chordName = sortedNotes.get(1) + "m/" + sortedNotes.get(0);
                 }
             }
             // minor chord in proper second inversion (ex. E A C)
             else if ((interval1 == 5) && (interval2 == 8)) {
-                if (chordClassificationScheme == "abs") {
+                if (chordClassificationScheme.equals("abs")) {
                     chordName = sortedNotes.get(1) + "m/" + sortedNotes.get(0);
                 }
             }
             // minor chord in improper second inversion (ex. E C A)
             else if ((interval1 == 8) && (interval2 == 5)) {
-                if (chordClassificationScheme == "abs") {
+                if (chordClassificationScheme.equals("abs")) {
                     chordName = sortedNotes.get(2) + "m/" + sortedNotes.get(0);
                 }
             }
@@ -187,7 +199,80 @@ public class ChordLibrary {
             int interval2 = (notes.indexOf(sortedNotes.get(2)) - notes.indexOf(sortedNotes.get(0)) + 12) % 12;
             int interval3 = (notes.indexOf(sortedNotes.get(3)) - notes.indexOf(sortedNotes.get(0)) + 12) % 12;
 
-            // dominant 7th chord in root position
+            // dominant 7th chord in root position (ex. D# G A# C#) (ex. D# G C# A#) (ex. D# A# G C#) (ex. D# A# C# G) (ex. D# C# G A#) (ex. D# C# A# G)
+            if (((interval1 == 4) && (interval2 == 7) && (interval3 == 10)) ||
+                    ((interval1 == 4) && (interval2 == 10) && (interval3 == 7)) ||
+                    ((interval1 == 7) && (interval2 == 4) && (interval3 == 10)) ||
+                    ((interval1 == 7) && (interval2 == 10) && (interval3 == 4)) ||
+                    ((interval1 == 10) && (interval2 == 4) && (interval3 == 7)) ||
+                    ((interval1 == 10) && (interval2 == 7) && (interval3 == 4))) {
+                if (chordClassificationScheme.equals("abs")) {
+                    chordName = sortedNotes.get(0) + "7/" + sortedNotes.get(0);
+                }
+            }
+            // dominant 7th chord in type one first inversion (ex. G A# C# D#) (ex. G C# A# D#)
+            else if (((interval1 == 3) && (interval2 == 6) && (interval3 == 8)) ||
+                    ((interval1 == 6) && (interval2 == 3) && (interval3 == 8))) {
+                if (chordClassificationScheme.equals("abs")) {
+                    chordName = sortedNotes.get(3) + "7/" + sortedNotes.get(0);
+                }
+            }
+            // dominant 7th chord in type two first inversion (ex. G A# D# C#) (ex. G C# D# A#)
+            else if (((interval1 == 3) && (interval2 == 8) && (interval3 == 6)) ||
+                    ((interval1 == 6) && (interval2 == 8) && (interval3 == 3))) {
+                if (chordClassificationScheme.equals("abs")) {
+                    chordName = sortedNotes.get(2) + "7/" + sortedNotes.get(0);
+                }
+            }
+            // dominant 7th chord in type three first inversion (ex. G D# A# C#) (ex. G D# C# A#)
+            else if (((interval1 == 8) && (interval2 == 3) && (interval3 == 6)) ||
+                    ((interval1 == 8) && (interval2 == 6) && (interval3 == 3))) {
+                if (chordClassificationScheme.equals("abs")) {
+                    chordName = sortedNotes.get(1) + "7/" + sortedNotes.get(0);
+                }
+            }
+            // dominant 7th chord in type one second inversion (ex. A# C# D# G) (ex. A# G D# C#)
+            else if (((interval1 == 3) && (interval2 == 5) && (interval3 == 9)) ||
+                    ((interval1 == 9) && (interval2 == 5) && (interval3 == 3))) {
+                if (chordClassificationScheme.equals("abs")) {
+                    chordName = sortedNotes.get(2) + "7/" + sortedNotes.get(0);
+                }
+            }
+            // dominant 7th chord in type two second inversion (ex. A# D# C# G) (ex. A# D# G C#)
+            else if (((interval1 == 5) && (interval2 == 3) && (interval3 == 9)) ||
+                    ((interval1 == 5) && (interval2 == 9) && (interval3 == 3))) {
+                if (chordClassificationScheme.equals("abs")) {
+                    chordName = sortedNotes.get(1) + "7/" + sortedNotes.get(0);
+                }
+            }
+            // dominant 7th chord in type three second inversion (ex. A# C# G D#) (ex. A# G C# D#)
+            else if (((interval1 == 3) && (interval2 == 9) && (interval3 == 5)) ||
+                    ((interval1 == 9) && (interval2 == 3) && (interval3 == 5))) {
+                if (chordClassificationScheme.equals("abs")) {
+                    chordName = sortedNotes.get(3) + "7/" + sortedNotes.get(0);
+                }
+            }
+            // dominant 7th chord in type one third inversion (ex. C# D# G A#) (ex. C# D# A# G)
+            else if (((interval1 == 2) && (interval2 == 6) && (interval3 == 9)) ||
+                    ((interval1 == 2) && (interval2 == 9) && (interval3 == 6))) {
+                if (chordClassificationScheme.equals("abs")) {
+                    chordName = sortedNotes.get(1) + "7/" + sortedNotes.get(0);
+                }
+            }
+            // dominant 7th chord in type two third inversion (ex. C# G A# D#) (ex. C# A# G D#)
+            else if (((interval1 == 6) && (interval2 == 9) && (interval3 == 2)) ||
+                    ((interval1 == 9) && (interval2 == 6) && (interval3 == 2))) {
+                if (chordClassificationScheme.equals("abs")) {
+                    chordName = sortedNotes.get(3) + "7/" + sortedNotes.get(0);
+                }
+            }
+            // dominant 7th chord in type three third inversion (ex. C# G D# A#) (ex. C# A# D# G)
+            else if (((interval1 == 6) && (interval2 == 2) && (interval3 == 9)) ||
+                    ((interval1 == 9) && (interval2 == 2) && (interval3 == 6))) {
+                if (chordClassificationScheme.equals("abs")) {
+                    chordName = sortedNotes.get(2) + "7/" + sortedNotes.get(0);
+                }
+            }
 
         }
 
