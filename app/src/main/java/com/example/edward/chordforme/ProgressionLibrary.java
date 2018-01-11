@@ -3,6 +3,8 @@ package com.example.edward.chordforme;
 import java.util.Arrays;
 import java.util.List;
 
+// This is where the magic happens
+
 public class ProgressionLibrary {
 
     private String startKey;
@@ -103,108 +105,152 @@ public class ProgressionLibrary {
 
     private class Progression {
 
-        List<String> chordsInProgression;
-        List<String> chordsInKeyedProgression = Arrays.asList();
+        int numOfChords;
+        String first;
+        String second;
+        String third;
+        String fourth;
+        String fifth;
+        String sixth;
+        String seventh;
+        String eighth;
 
         public Progression(String first) {
 
-            List<String> formChordsInProgression = Arrays.asList();
-            formChordsInProgression.add(first);
-            this.chordsInProgression = formChordsInProgression;
+            this.first = first;
+            this.numOfChords = 1;
 
         }
 
         public Progression(String first, String second) {
 
-            List<String> formChordsInProgression = Arrays.asList();
-            formChordsInProgression.add(first);
-            formChordsInProgression.add(second);
-            this.chordsInProgression = formChordsInProgression;
+            this.first = first;
+            this.second = second;
+            this.numOfChords = 2;
 
         }
 
         public Progression(String first, String second, String third) {
 
-            List<String> formChordsInProgression = Arrays.asList();
-            formChordsInProgression.add(first);
-            formChordsInProgression.add(second);
-            formChordsInProgression.add(third);
-            this.chordsInProgression = formChordsInProgression;
+            this.first = first;
+            this.second = second;
+            this.third = third;
+            this.numOfChords = 3;
 
         }
 
         public Progression(String first, String second, String third, String fourth) {
 
-            List<String> formChordsInProgression = Arrays.asList();
-            formChordsInProgression.add(first);
-            formChordsInProgression.add(second);
-            formChordsInProgression.add(third);
-            formChordsInProgression.add(fourth);
-            this.chordsInProgression = formChordsInProgression;
+            this.first = first;
+            this.second = second;
+            this.third = third;
+            this.fourth = fourth;
+            this.numOfChords = 4;
 
         }
 
         public Progression(String first, String second, String third, String fourth, String fifth) {
 
-            List<String> formChordsInProgression = Arrays.asList();
-            formChordsInProgression.add(first);
-            formChordsInProgression.add(second);
-            formChordsInProgression.add(third);
-            formChordsInProgression.add(fourth);
-            formChordsInProgression.add(fifth);
-            this.chordsInProgression = formChordsInProgression;
+            this.first = first;
+            this.second = second;
+            this.third = third;
+            this.fourth = fourth;
+            this.fifth = fifth;
+            this.numOfChords = 5;
 
         }
 
         public Progression(String first, String second, String third, String fourth, String fifth, String sixth) {
 
-            List<String> formChordsInProgression = Arrays.asList();
-            formChordsInProgression.add(first);
-            formChordsInProgression.add(second);
-            formChordsInProgression.add(third);
-            formChordsInProgression.add(fourth);
-            formChordsInProgression.add(fifth);
-            formChordsInProgression.add(sixth);
-            this.chordsInProgression = formChordsInProgression;
+            this.first = first;
+            this.second = second;
+            this.third = third;
+            this.fourth = fourth;
+            this.fifth = fifth;
+            this.sixth = sixth;
+            this.numOfChords = 6;
 
         }
 
         public Progression(String first, String second, String third, String fourth, String fifth, String sixth, String seventh) {
 
-            List<String> formChordsInProgression = Arrays.asList();
-            formChordsInProgression.add(first);
-            formChordsInProgression.add(second);
-            formChordsInProgression.add(third);
-            formChordsInProgression.add(fourth);
-            formChordsInProgression.add(fifth);
-            formChordsInProgression.add(sixth);
-            formChordsInProgression.add(seventh);
-            this.chordsInProgression = formChordsInProgression;
+            this.first = first;
+            this.second = second;
+            this.third = third;
+            this.fourth = fourth;
+            this.fifth = fifth;
+            this.sixth = sixth;
+            this.seventh = seventh;
+            this.numOfChords = 7;
 
         }
 
         public Progression(String first, String second, String third, String fourth, String fifth, String sixth, String seventh, String eighth) {
 
-            List<String> formChordsInProgression = Arrays.asList();
-            formChordsInProgression.add(first);
-            formChordsInProgression.add(second);
-            formChordsInProgression.add(third);
-            formChordsInProgression.add(fourth);
-            formChordsInProgression.add(fifth);
-            formChordsInProgression.add(sixth);
-            formChordsInProgression.add(seventh);
-            formChordsInProgression.add(eighth);
-            this.chordsInProgression = formChordsInProgression;
+            this.first = first;
+            this.second = second;
+            this.third = third;
+            this.fourth = fourth;
+            this.fifth = fifth;
+            this.sixth = sixth;
+            this.seventh = seventh;
+            this.eighth = eighth;
+            this.numOfChords = 8;
 
         }
 
-        // never call this
-        public List<String> getProgression() {
-            return chordsInProgression;
+        // never call this; the memory is better used elsewhere
+        public String[] getProgression() {
+
+            if (numOfChords == 1) {
+                return new String[] {first};
+            } else if (numOfChords == 2) {
+                return new String[] {first, second};
+            } else if (numOfChords == 3) {
+                return new String[] {first, second, third};
+            } else if (numOfChords == 4) {
+                return new String[] {first, second, third, fourth};
+            } else if (numOfChords == 5) {
+                return new String[] {first, second, third, fourth, fifth};
+            } else if (numOfChords == 6) {
+                return new String[] {first, second, third, fourth, fifth, sixth};
+            } else if (numOfChords == 7) {
+                return new String[] {first, second, third, fourth, fifth, sixth, seventh};
+            } else if (numOfChords == 8) {
+                return new String[] {first, second, third, fourth, fifth, sixth, seventh, eighth};
+            }
+            // this will never be called
+            else {
+                return new String[]{};
+            }
+
         }
 
-        public List<String> getKeyedProgression(String key) {
-            return chordsInKeyedProgression;
+        // never call this either
+        public List<String> getKeyedProgression(String tonic) {
+
+        }
+
+        // converts a chord built on an interval above a particular tonic note to a chord built on a key (ex. A, v70 -> D#70)
+        private String translateFromTonic(String tonic, String chord) {
+
+            List<String> numerals = Arrays.asList("I","ii","II","iii","III","IV","v","V","vi","VI","vii","VII");
+            String chordRoot;
+            String otherStuff;
+
+            if (!(chord.substring(1,2).equals("i") || chord.substring(1,2).equals("I") || chord.substring(1,2).equals("v") || chord.substring(1,2).equals("V"))) {
+                chordRoot = chord.substring(0,1);
+                otherStuff = chord.substring(1);
+            } else if (!(chord.substring(2,3).equals("i") || chord.substring(2,3).equals("I") || chord.substring(2,3).equals("v") || chord.substring(2,3).equals("V"))){
+                chordRoot = chord.substring(0,2);
+                otherStuff = chord.substring(2);
+            } else {
+                chordRoot = chord.substring(0,3);
+                otherStuff = chord.substring(3);
+            }
+
+            return notes.get((notes.indexOf(tonic) + numerals.indexOf(chordRoot)) % 12) + otherStuff;
+
         }
 
     }
