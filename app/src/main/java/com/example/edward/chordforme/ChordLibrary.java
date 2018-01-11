@@ -27,6 +27,10 @@ public class ChordLibrary {
 
     /*
 
+    Despite convention, the capitalization of the Roman numerals in the key forms represent the interval from the tonic, not the chord type. For example, iii0
+    denotes a major chord built on the note a minor third above the tonic (Eb if C), not a minor chord built on the note a major third above the tonic. And Vm0
+    denotes a minor chord build on the note a perfect fifth above the tonic (G if C).
+
     |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|
     |      Chord      |      chordName if abs      |      chordName if key and C      |      chordName if key and E      |      Position of Chord Root      |
     |-----------------|----------------------------|----------------------------------|----------------------------------|----------------------------------|     ---
