@@ -330,6 +330,7 @@ public class ProgressionLibrary {
     }
 
     // Easier readability; see, I DO care about readability!
+    // not really
     private class Key {
 
         String key;
@@ -512,6 +513,138 @@ public class ProgressionLibrary {
             else if (key.equals("Bb")) {return "D#";}
             else if (key.equals("B")) {return "Dx";}
             else if (key.equals("Cb")) {return "En";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String diminishedFourthAboveTonic() {
+
+            if (key.equals("C")) {return "Fb";}
+            else if (key.equals("C#")) {return "Fn";}
+            else if (key.equals("Db")) {return "Gbb";}
+            else if (key.equals("D")) {return "Gb";}
+            else if (key.equals("Eb")) {return "Abb";}
+            else if (key.equals("E")) {return "Ab";}
+            else if (key.equals("F")) {return "Bbb";}
+            else if (key.equals("F#")) {return "Bb";}
+            else if (key.equals("Gb")) {return "Cbb";}
+            else if (key.equals("G")) {return "Cb";}
+            else if (key.equals("Ab")) {return "Dbb";}
+            else if (key.equals("A")) {return "Db";}
+            else if (key.equals("Bb")) {return "Ebb";}
+            else if (key.equals("B")) {return "Eb";}
+            else if (key.equals("Cb")) {return "Fbb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String perfectFourthAboveTonic() {
+
+            if (key.equals("C")) {return "F";}
+            else if (key.equals("C#")) {return "F#";}
+            else if (key.equals("Db")) {return "Gb";}
+            else if (key.equals("D")) {return "G";}
+            else if (key.equals("Eb")) {return "Ab";}
+            else if (key.equals("E")) {return "A";}
+            else if (key.equals("F")) {return "Bb";}
+            else if (key.equals("F#")) {return "B";}
+            else if (key.equals("Gb")) {return "Cb";}
+            else if (key.equals("G")) {return "C";}
+            else if (key.equals("Ab")) {return "Db";}
+            else if (key.equals("A")) {return "D";}
+            else if (key.equals("Bb")) {return "Eb";}
+            else if (key.equals("B")) {return "E";}
+            else if (key.equals("Cb")) {return "Fb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String augmentedFourthAboveTonic() {
+
+            if (key.equals("C")) {return "F#";}
+            else if (key.equals("C#")) {return "Fx";}
+            else if (key.equals("Db")) {return "Gn";}
+            else if (key.equals("D")) {return "G#";}
+            else if (key.equals("Eb")) {return "An";}
+            else if (key.equals("E")) {return "A#";}
+            else if (key.equals("F")) {return "Bn";}
+            else if (key.equals("F#")) {return "B#";}
+            else if (key.equals("Gb")) {return "Cn";}
+            else if (key.equals("G")) {return "C#";}
+            else if (key.equals("Ab")) {return "Dn";}
+            else if (key.equals("A")) {return "D#";}
+            else if (key.equals("Bb")) {return "En";}
+            else if (key.equals("B")) {return "E#";}
+            else if (key.equals("Cb")) {return "Fn";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String diminishedFifthAboveTonic() {
+
+            if (key.equals("C")) {return "Gb";}
+            else if (key.equals("C#")) {return "Gn";}
+            else if (key.equals("Db")) {return "Abb";}
+            else if (key.equals("D")) {return "Ab";}
+            else if (key.equals("Eb")) {return "Bbb";}
+            else if (key.equals("E")) {return "Bb";}
+            else if (key.equals("F")) {return "Cb";}
+            else if (key.equals("F#")) {return "Cn";}
+            else if (key.equals("Gb")) {return "Dbb";}
+            else if (key.equals("G")) {return "Db";}
+            else if (key.equals("Ab")) {return "Ebb";}
+            else if (key.equals("A")) {return "Eb";}
+            else if (key.equals("Bb")) {return "Fb";}
+            else if (key.equals("B")) {return "Fn";}
+            else if (key.equals("Cb")) {return "Gbb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String perfectFifthAboveTonic() {
+
+            if (key.equals("C")) {return "G";}
+            else if (key.equals("C#")) {return "G#";}
+            else if (key.equals("Db")) {return "Ab";}
+            else if (key.equals("D")) {return "A";}
+            else if (key.equals("Eb")) {return "Bb";}
+            else if (key.equals("E")) {return "B";}
+            else if (key.equals("F")) {return "C";}
+            else if (key.equals("F#")) {return "C#";}
+            else if (key.equals("Gb")) {return "Db";}
+            else if (key.equals("G")) {return "D";}
+            else if (key.equals("Ab")) {return "Eb";}
+            else if (key.equals("A")) {return "E";}
+            else if (key.equals("Bb")) {return "F";}
+            else if (key.equals("B")) {return "F#";}
+            else if (key.equals("Cb")) {return "Gb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String augmentedFifthAboveTonic() {
+
+            if (key.equals("C")) {return "G#";}
+            else if (key.equals("C#")) {return "Gx";}
+            else if (key.equals("Db")) {return "An";}
+            else if (key.equals("D")) {return "A#";}
+            else if (key.equals("Eb")) {return "Bn";}
+            else if (key.equals("E")) {return "B#";}
+            else if (key.equals("F")) {return "C#";}
+            else if (key.equals("F#")) {return "Cx";}
+            else if (key.equals("Gb")) {return "Dn";}
+            else if (key.equals("G")) {return "D#";}
+            else if (key.equals("Ab")) {return "En";}
+            else if (key.equals("A")) {return "E#";}
+            else if (key.equals("Bb")) {return "F#";}
+            else if (key.equals("B")) {return "Fx";}
+            else if (key.equals("Cb")) {return "Gn";}
             // will never get here
             else {return "";}
 
