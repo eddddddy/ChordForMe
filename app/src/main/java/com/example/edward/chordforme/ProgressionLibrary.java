@@ -14,6 +14,22 @@ public class ProgressionLibrary {
     private int keyInterval;
     private List<String> notes = Arrays.asList("C","C#","D","D#","E","F","F#","G","G#","A","A#","B");
 
+    private Key keyOfC = new Key("C");
+    private Key keyOfG = new Key("G");
+    private Key keyOfD = new Key("D");
+    private Key keyOfA = new Key("A");
+    private Key keyOfE = new Key("E");
+    private Key keyOfB = new Key("B");
+    private Key keyOfFsharp = new Key("F#");
+    private Key keyOfCsharp = new Key("C#");
+    private Key keyOfF = new Key("F");
+    private Key keyOfBflat = new Key("Bb");
+    private Key keyOfEflat = new Key("Eb");
+    private Key keyOfAflat = new Key("Ab");
+    private Key keyOfDflat = new Key("Db");
+    private Key keyOfGflat = new Key("Gb");
+    private Key keyOfCflat = new Key("Cb");
+
     /**
      * Like the ChordLibrary class, the Roman numerals represent an interval above the tonic.
      *
@@ -221,13 +237,71 @@ public class ProgressionLibrary {
             }
             // this will never be called
             else {
-                return new String[]{};
+                return new String[] {};
             }
 
         }
 
         // never call this either
-        public List<String> getKeyedProgression(String tonic) {
+        public String[] getKeyedProgression(String tonic) {
+
+            if (numOfChords == 1) {
+                return new String[] {
+                        translateFromTonic(tonic, first)};
+            } else if (numOfChords == 2) {
+                return new String[] {
+                        translateFromTonic(tonic, first),
+                        translateFromTonic(tonic, second)};
+            } else if (numOfChords == 3) {
+                return new String[] {
+                        translateFromTonic(tonic, first),
+                        translateFromTonic(tonic, second),
+                        translateFromTonic(tonic, third)};
+            } else if (numOfChords == 4) {
+                return new String[] {
+                        translateFromTonic(tonic, first),
+                        translateFromTonic(tonic, second),
+                        translateFromTonic(tonic, third),
+                        translateFromTonic(tonic, fourth)};
+            } else if (numOfChords == 5) {
+                return new String[] {
+                        translateFromTonic(tonic, first),
+                        translateFromTonic(tonic, second),
+                        translateFromTonic(tonic, third),
+                        translateFromTonic(tonic, fourth),
+                        translateFromTonic(tonic, fifth)};
+            } else if (numOfChords == 6) {
+                return new String[] {
+                        translateFromTonic(tonic, first),
+                        translateFromTonic(tonic, second),
+                        translateFromTonic(tonic, third),
+                        translateFromTonic(tonic, fourth),
+                        translateFromTonic(tonic, fifth),
+                        translateFromTonic(tonic, sixth)};
+            } else if (numOfChords == 7) {
+                return new String[] {
+                        translateFromTonic(tonic, first),
+                        translateFromTonic(tonic, second),
+                        translateFromTonic(tonic, third),
+                        translateFromTonic(tonic, fourth),
+                        translateFromTonic(tonic, fifth),
+                        translateFromTonic(tonic, sixth),
+                        translateFromTonic(tonic, seventh)};
+            }  else if (numOfChords == 8) {
+                return new String[] {
+                        translateFromTonic(tonic, first),
+                        translateFromTonic(tonic, second),
+                        translateFromTonic(tonic, third),
+                        translateFromTonic(tonic, fourth),
+                        translateFromTonic(tonic, fifth),
+                        translateFromTonic(tonic, sixth),
+                        translateFromTonic(tonic, seventh),
+                        translateFromTonic(tonic, eighth)};
+            }
+            // this will never be called
+            else {
+                return new String[] {};
+            }
 
         }
 
@@ -250,6 +324,196 @@ public class ProgressionLibrary {
             }
 
             return notes.get((notes.indexOf(tonic) + numerals.indexOf(chordRoot)) % 12) + otherStuff;
+
+        }
+
+    }
+
+    // Easier readability; see, I DO care about readability!
+    private class Key {
+
+        String key;
+        public Key(String key) {
+            this.key = key;
+        }
+
+        public String tonic() {
+            return key;
+        }
+
+        public String diminishedSecondAboveTonic() {
+
+            if (key.equals("C")) {return "Dbb";}
+            else if (key.equals("C#")) {return "Dnb";}
+            else if (key.equals("Db")) {return "Ebbb";}
+            else if (key.equals("D")) {return "Ebb";}
+            else if (key.equals("Eb")) {return "Fbb";}
+            else if (key.equals("E")) {return "Fnb";}
+            else if (key.equals("F")) {return "Gbb";}
+            else if (key.equals("F#")) {return "Gnb";}
+            else if (key.equals("Gb")) {return "Abbb";}
+            else if (key.equals("G")) {return "Abb";}
+            else if (key.equals("Ab")) {return "Bbbb";}
+            else if (key.equals("A")) {return "Bbb";}
+            else if (key.equals("Bb")) {return "Cbb";}
+            else if (key.equals("B")) {return "Cnb";}
+            else if (key.equals("Cb")) {return "Dbbb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String minorSecondAboveTonic() {
+
+            if (key.equals("C")) {return "Db";}
+            else if (key.equals("C#")) {return "Dn";}
+            else if (key.equals("Db")) {return "Ebb";}
+            else if (key.equals("D")) {return "Eb";}
+            else if (key.equals("Eb")) {return "Fb";}
+            else if (key.equals("E")) {return "Fn";}
+            else if (key.equals("F")) {return "Gb";}
+            else if (key.equals("F#")) {return "Gn";}
+            else if (key.equals("Gb")) {return "Abb";}
+            else if (key.equals("G")) {return "Ab";}
+            else if (key.equals("Ab")) {return "Bbb";}
+            else if (key.equals("A")) {return "Bb";}
+            else if (key.equals("Bb")) {return "Cb";}
+            else if (key.equals("B")) {return "Cn";}
+            else if (key.equals("Cb")) {return "Dbb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String majorSecondAboveTonic() {
+
+            if (key.equals("C")) {return "D";}
+            else if (key.equals("C#")) {return "D#";}
+            else if (key.equals("Db")) {return "Eb";}
+            else if (key.equals("D")) {return "E";}
+            else if (key.equals("Eb")) {return "F";}
+            else if (key.equals("E")) {return "F#";}
+            else if (key.equals("F")) {return "G";}
+            else if (key.equals("F#")) {return "G#";}
+            else if (key.equals("Gb")) {return "Ab";}
+            else if (key.equals("G")) {return "A";}
+            else if (key.equals("Ab")) {return "Bb";}
+            else if (key.equals("A")) {return "B";}
+            else if (key.equals("Bb")) {return "C";}
+            else if (key.equals("B")) {return "C#";}
+            else if (key.equals("Cb")) {return "Db";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String augmentedSecondAboveTonic() {
+
+            if (key.equals("C")) {return "D#";}
+            else if (key.equals("C#")) {return "Dx";}
+            else if (key.equals("Db")) {return "En";}
+            else if (key.equals("D")) {return "E#";}
+            else if (key.equals("Eb")) {return "F#";}
+            else if (key.equals("E")) {return "Fx";}
+            else if (key.equals("F")) {return "G#";}
+            else if (key.equals("F#")) {return "Gx";}
+            else if (key.equals("Gb")) {return "An";}
+            else if (key.equals("G")) {return "A#";}
+            else if (key.equals("Ab")) {return "Bn";}
+            else if (key.equals("A")) {return "B#";}
+            else if (key.equals("Bb")) {return "C#";}
+            else if (key.equals("B")) {return "Cx";}
+            else if (key.equals("Cb")) {return "Dn";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String diminishedThirdAboveTonic() {
+
+            if (key.equals("C")) {return "Ebb";}
+            else if (key.equals("C#")) {return "Enb";}
+            else if (key.equals("Db")) {return "Fbb";}
+            else if (key.equals("D")) {return "Fnb";}
+            else if (key.equals("Eb")) {return "Gbb";}
+            else if (key.equals("E")) {return "Gnb";}
+            else if (key.equals("F")) {return "Abb";}
+            else if (key.equals("F#")) {return "Anb";}
+            else if (key.equals("Gb")) {return "Bbbb";}
+            else if (key.equals("G")) {return "Bbb";}
+            else if (key.equals("Ab")) {return "Cbb";}
+            else if (key.equals("A")) {return "Cnb";}
+            else if (key.equals("Bb")) {return "Dbb";}
+            else if (key.equals("B")) {return "Dnb";}
+            else if (key.equals("Cb")) {return "Ebbb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String minorThirdAboveTonic() {
+
+            if (key.equals("C")) {return "Eb";}
+            else if (key.equals("C#")) {return "En";}
+            else if (key.equals("Db")) {return "Fb";}
+            else if (key.equals("D")) {return "Fn";}
+            else if (key.equals("Eb")) {return "Gb";}
+            else if (key.equals("E")) {return "Gn";}
+            else if (key.equals("F")) {return "Ab";}
+            else if (key.equals("F#")) {return "An";}
+            else if (key.equals("Gb")) {return "Bbb";}
+            else if (key.equals("G")) {return "Bb";}
+            else if (key.equals("Ab")) {return "Cb";}
+            else if (key.equals("A")) {return "Cn";}
+            else if (key.equals("Bb")) {return "Db";}
+            else if (key.equals("B")) {return "Dn";}
+            else if (key.equals("Cb")) {return "Ebb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String majorThirdAboveTonic() {
+
+            if (key.equals("C")) {return "E";}
+            else if (key.equals("C#")) {return "E#";}
+            else if (key.equals("Db")) {return "F";}
+            else if (key.equals("D")) {return "F#";}
+            else if (key.equals("Eb")) {return "G";}
+            else if (key.equals("E")) {return "G#";}
+            else if (key.equals("F")) {return "A";}
+            else if (key.equals("F#")) {return "A#";}
+            else if (key.equals("Gb")) {return "Bb";}
+            else if (key.equals("G")) {return "B";}
+            else if (key.equals("Ab")) {return "C";}
+            else if (key.equals("A")) {return "C#";}
+            else if (key.equals("Bb")) {return "D";}
+            else if (key.equals("B")) {return "D#";}
+            else if (key.equals("Cb")) {return "Eb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String augmentedThirdAboveTonic() {
+
+            if (key.equals("C")) {return "E#";}
+            else if (key.equals("C#")) {return "Ex";}
+            else if (key.equals("Db")) {return "F#";}
+            else if (key.equals("D")) {return "Fx";}
+            else if (key.equals("Eb")) {return "G#";}
+            else if (key.equals("E")) {return "Gx";}
+            else if (key.equals("F")) {return "A#";}
+            else if (key.equals("F#")) {return "Ax";}
+            else if (key.equals("Gb")) {return "Bn";}
+            else if (key.equals("G")) {return "B#";}
+            else if (key.equals("Ab")) {return "C#";}
+            else if (key.equals("A")) {return "Cx";}
+            else if (key.equals("Bb")) {return "D#";}
+            else if (key.equals("B")) {return "Dx";}
+            else if (key.equals("Cb")) {return "En";}
+            // will never get here
+            else {return "";}
 
         }
 
