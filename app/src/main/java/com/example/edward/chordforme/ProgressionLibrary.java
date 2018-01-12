@@ -650,6 +650,72 @@ public class ProgressionLibrary {
 
         }
 
+        public String diminishedSixthAboveTonic() {
+
+            if (key.equals("C")) {return "Abb";}
+            else if (key.equals("C#")) {return "Anb";}
+            else if (key.equals("Db")) {return "Bbbb";}
+            else if (key.equals("D")) {return "Bbb";}
+            else if (key.equals("Eb")) {return "Cbb";}
+            else if (key.equals("E")) {return "Cnb";}
+            else if (key.equals("F")) {return "Dbb";}
+            else if (key.equals("F#")) {return "Dnb";}
+            else if (key.equals("Gb")) {return "Ebbb";}
+            else if (key.equals("G")) {return "Ebb";}
+            else if (key.equals("Ab")) {return "Fbb";}
+            else if (key.equals("A")) {return "Fnb";}
+            else if (key.equals("Bb")) {return "Gbb";}
+            else if (key.equals("B")) {return "Gnb";}
+            else if (key.equals("Cb")) {return "Abbb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String minorSixthAboveTonic() {
+
+            if (key.equals("C")) {return "Ab";}
+            else if (key.equals("C#")) {return "An";}
+            else if (key.equals("Db")) {return "Bbb";}
+            else if (key.equals("D")) {return "Bb";}
+            else if (key.equals("Eb")) {return "Cb";}
+            else if (key.equals("E")) {return "Cn";}
+            else if (key.equals("F")) {return "Db";}
+            else if (key.equals("F#")) {return "Dn";}
+            else if (key.equals("Gb")) {return "Ebb";}
+            else if (key.equals("G")) {return "Eb";}
+            else if (key.equals("Ab")) {return "Fb";}
+            else if (key.equals("A")) {return "Fn";}
+            else if (key.equals("Bb")) {return "Gb";}
+            else if (key.equals("B")) {return "Gn";}
+            else if (key.equals("Cb")) {return "Abb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String majorSixthAboveTonic() {
+
+            if (key.equals("C")) {return "A";}
+            else if (key.equals("C#")) {return "A#";}
+            else if (key.equals("Db")) {return "Bb";}
+            else if (key.equals("D")) {return "B";}
+            else if (key.equals("Eb")) {return "C";}
+            else if (key.equals("E")) {return "C#";}
+            else if (key.equals("F")) {return "D";}
+            else if (key.equals("F#")) {return "D#";}
+            else if (key.equals("Gb")) {return "Eb";}
+            else if (key.equals("G")) {return "E";}
+            else if (key.equals("Ab")) {return "F";}
+            else if (key.equals("A")) {return "F#";}
+            else if (key.equals("Bb")) {return "G";}
+            else if (key.equals("B")) {return "G#";}
+            else if (key.equals("Cb")) {return "Ab";}
+            // will never get here
+            else {return "";}
+
+        }
+
     }
 
     private void findKeyInterval() {
