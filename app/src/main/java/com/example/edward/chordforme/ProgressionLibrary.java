@@ -1,7 +1,10 @@
 package com.example.edward.chordforme;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 // This is where the magic happens
 
@@ -336,10 +339,6 @@ public class ProgressionLibrary {
         String key;
         public Key(String key) {
             this.key = key;
-        }
-
-        public String tonic() {
-            return key;
         }
 
         public String diminishedSecondAboveTonic() {
@@ -713,6 +712,262 @@ public class ProgressionLibrary {
             else if (key.equals("Cb")) {return "Ab";}
             // will never get here
             else {return "";}
+
+        }
+
+        public String augmentedSixthAboveTonic() {
+
+            if (key.equals("C")) {return "A#";}
+            else if (key.equals("C#")) {return "Ax";}
+            else if (key.equals("Db")) {return "Bn";}
+            else if (key.equals("D")) {return "B#";}
+            else if (key.equals("Eb")) {return "C#";}
+            else if (key.equals("E")) {return "Cx";}
+            else if (key.equals("F")) {return "D#";}
+            else if (key.equals("F#")) {return "Dx";}
+            else if (key.equals("Gb")) {return "En";}
+            else if (key.equals("G")) {return "E#";}
+            else if (key.equals("Ab")) {return "F#";}
+            else if (key.equals("A")) {return "Fx";}
+            else if (key.equals("Bb")) {return "G#";}
+            else if (key.equals("B")) {return "Gx";}
+            else if (key.equals("Cb")) {return "An";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String diminishedSeventhAboveTonic() {
+
+            if (key.equals("C")) {return "Bbb";}
+            else if (key.equals("C#")) {return "Bnb";}
+            else if (key.equals("Db")) {return "Cbb";}
+            else if (key.equals("D")) {return "Cnb";}
+            else if (key.equals("Eb")) {return "Dbb";}
+            else if (key.equals("E")) {return "Dnb";}
+            else if (key.equals("F")) {return "Ebb";}
+            else if (key.equals("F#")) {return "Enb";}
+            else if (key.equals("Gb")) {return "Fbb";}
+            else if (key.equals("G")) {return "Fnb";}
+            else if (key.equals("Ab")) {return "Gbb";}
+            else if (key.equals("A")) {return "Gnb";}
+            else if (key.equals("Bb")) {return "Abb";}
+            else if (key.equals("B")) {return "Anb";}
+            else if (key.equals("Cb")) {return "Bbbb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String minorSeventhAboveTonic() {
+
+            if (key.equals("C")) {return "Bb";}
+            else if (key.equals("C#")) {return "Bn";}
+            else if (key.equals("Db")) {return "Cb";}
+            else if (key.equals("D")) {return "Cn";}
+            else if (key.equals("Eb")) {return "Db";}
+            else if (key.equals("E")) {return "Dn";}
+            else if (key.equals("F")) {return "Eb";}
+            else if (key.equals("F#")) {return "En";}
+            else if (key.equals("Gb")) {return "Fb";}
+            else if (key.equals("G")) {return "Fn";}
+            else if (key.equals("Ab")) {return "Gb";}
+            else if (key.equals("A")) {return "Gn";}
+            else if (key.equals("Bb")) {return "Ab";}
+            else if (key.equals("B")) {return "An";}
+            else if (key.equals("Cb")) {return "Bbb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String majorSeventhAboveTonic() {
+
+            if (key.equals("C")) {return "B";}
+            else if (key.equals("C#")) {return "B#";}
+            else if (key.equals("Db")) {return "C";}
+            else if (key.equals("D")) {return "C#";}
+            else if (key.equals("Eb")) {return "D";}
+            else if (key.equals("E")) {return "D#";}
+            else if (key.equals("F")) {return "E";}
+            else if (key.equals("F#")) {return "E#";}
+            else if (key.equals("Gb")) {return "F";}
+            else if (key.equals("G")) {return "F#";}
+            else if (key.equals("Ab")) {return "G";}
+            else if (key.equals("A")) {return "G#";}
+            else if (key.equals("Bb")) {return "A";}
+            else if (key.equals("B")) {return "A#";}
+            else if (key.equals("Cb")) {return "Bb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String augmentedSeventhAboveTonic() {
+
+            if (key.equals("C")) {return "B#";}
+            else if (key.equals("C#")) {return "Bx";}
+            else if (key.equals("Db")) {return "C#";}
+            else if (key.equals("D")) {return "Cx";}
+            else if (key.equals("Eb")) {return "D#";}
+            else if (key.equals("E")) {return "Dx";}
+            else if (key.equals("F")) {return "E#";}
+            else if (key.equals("F#")) {return "Ex";}
+            else if (key.equals("Gb")) {return "F#";}
+            else if (key.equals("G")) {return "Fx";}
+            else if (key.equals("Ab")) {return "G#";}
+            else if (key.equals("A")) {return "Gx";}
+            else if (key.equals("Bb")) {return "A#";}
+            else if (key.equals("B")) {return "Ax";}
+            else if (key.equals("Cb")) {return "Bn";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String diminishedOctaveAboveTonic() {
+
+            if (key.equals("C")) {return "Cb";}
+            else if (key.equals("C#")) {return "Cn";}
+            else if (key.equals("Db")) {return "Dbb";}
+            else if (key.equals("D")) {return "Db";}
+            else if (key.equals("Eb")) {return "Ebb";}
+            else if (key.equals("E")) {return "Eb";}
+            else if (key.equals("F")) {return "Fb";}
+            else if (key.equals("F#")) {return "Fn";}
+            else if (key.equals("Gb")) {return "Gbb";}
+            else if (key.equals("G")) {return "Gb";}
+            else if (key.equals("Ab")) {return "Abb";}
+            else if (key.equals("A")) {return "Ab";}
+            else if (key.equals("Bb")) {return "Bbb";}
+            else if (key.equals("B")) {return "Bb";}
+            else if (key.equals("Cb")) {return "Cbb";}
+            // will never get here
+            else {return "";}
+
+        }
+
+        public String perfectOctaveAboveTonic() {
+
+            return key;
+
+        }
+
+        public String augmentedOctaveAboveTonic() {
+
+            if (key.equals("C")) {return "C#";}
+            else if (key.equals("C#")) {return "Cx";}
+            else if (key.equals("Db")) {return "Dn";}
+            else if (key.equals("D")) {return "D#";}
+            else if (key.equals("Eb")) {return "En";}
+            else if (key.equals("E")) {return "E#";}
+            else if (key.equals("F")) {return "F#";}
+            else if (key.equals("F#")) {return "Fx";}
+            else if (key.equals("Gb")) {return "Gn";}
+            else if (key.equals("G")) {return "G#";}
+            else if (key.equals("Ab")) {return "An";}
+            else if (key.equals("A")) {return "A#";}
+            else if (key.equals("Bb")) {return "Bn";}
+            else if (key.equals("B")) {return "B#";}
+            else if (key.equals("Cb")) {return "Cn";}
+            // will never get here
+            else {return "";}
+
+        }
+
+    }
+
+    // I'm just gonna keep justifying these classes with readability. I don't care if you believe me.
+    private class Chord {
+
+        String chord;
+        public Chord(String chord) {
+            this.chord = chord;
+        }
+
+        private ArrayList<String> randomizeVoicing(String[] optionalNotes, String[] requiredNotes, int extent) {
+
+            int numOfAddedNotes = new Random().nextInt(optionalNotes.length + extent + 1);
+
+            // add required notes
+            ArrayList<String> randomizedVoicing = new ArrayList<>();
+            for (String note : requiredNotes) {
+                randomizedVoicing.add(note);
+            }
+            Collections.shuffle(randomizedVoicing);
+
+            // add random notes in random positions
+            ArrayList<String> notesToAdd = new ArrayList<>(Arrays.asList(optionalNotes));
+            notesToAdd.addAll(new ArrayList<>(Arrays.asList(requiredNotes)));
+            Random randomGenerator = new Random();
+            int numOfTotalNotes = notesToAdd.size();
+            for (int i = 0; i < numOfAddedNotes; i++) {
+                randomizedVoicing.add(randomGenerator.nextInt(randomizedVoicing.size() + 1), notesToAdd.get(randomGenerator.nextInt(numOfTotalNotes)));
+            }
+
+            return randomizedVoicing;
+
+        }
+
+        public ArrayList<String> getNotes(Key key) {
+
+            if (chord.equals("majorTriadOnTonicRootPosition")) {
+
+                ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.perfectOctaveAboveTonic()));
+
+                notesInChord.addAll(randomizeVoicing(
+                        new String[] {
+                                key.perfectOctaveAboveTonic()
+                        },
+                        new String[] {
+                                key.majorThirdAboveTonic(),
+                                key.perfectFifthAboveTonic()
+                        }, 1));
+
+                return notesInChord;
+
+            } else if (chord.equals("majorTriadOnTonicFirstInversion")) {
+
+                ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.majorThirdAboveTonic()));
+
+                notesInChord.addAll(randomizeVoicing(
+                        new String[] {
+                                key.majorThirdAboveTonic()
+                        },
+                        new String[] {
+                                key.perfectFifthAboveTonic(),
+                                key.perfectOctaveAboveTonic()
+                        }, 1));
+
+                return notesInChord;
+
+            } else if (chord.equals("majorTriadOnTonicSecondInversion")) {
+
+                ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.perfectFifthAboveTonic()));
+
+                notesInChord.addAll(randomizeVoicing(
+                        new String[] {
+                                key.perfectFifthAboveTonic()
+                        },
+                        new String[] {
+                                key.perfectOctaveAboveTonic(),
+                                key.majorThirdAboveTonic()
+                        }, 1));
+
+                return notesInChord;
+
+            } else if (chord.equals("majorTriadOnFlattenedSupertonicRootPositionFirstVoicing")) {
+
+                return new ArrayList<>(Arrays.asList(
+                        key.minorSecondAboveTonic(),
+                        key.perfectFourthAboveTonic(),
+                        key.minorSixthAboveTonic()));
+
+            }
+            // will never get here
+            else {
+                return new ArrayList<>();
+            }
 
         }
 
