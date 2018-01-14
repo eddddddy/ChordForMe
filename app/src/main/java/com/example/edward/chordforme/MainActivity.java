@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
     private int samplingRate = 22050;
     private int bufferSize = 1024;
     private AudioDispatcher dispatcher;
-    private float probabilityThreshold = 0.9f;
+    private float probabilityThreshold = 0.0f;
 
     private String orderLoopState = "A";
     private String familyLoopState = "A";
@@ -1195,7 +1195,7 @@ public class MainActivity extends AppCompatActivity {
 
         iterate = new PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.FFT_YIN, samplingRate, bufferSize, pdh);
         filter = new BandPass(center,diameter,samplingRate);
-        noise = new NoiseGenerator(0.01);
+        noise = new NoiseGenerator(0.005f);
 
         // add the filter first, then pad it with noise, then see if it still recognizes a pitch
         dispatcher.addAudioProcessor(filter);
