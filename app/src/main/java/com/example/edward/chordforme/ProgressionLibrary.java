@@ -2396,6 +2396,64 @@ public class ProgressionLibrary {
                 } else {
                     return new ArrayList<>();
                 }
+            } else if (chordType.equals("dominantSeventh")) {
+                if (chordRoot.equals("tonic")) {
+                    if (inversion == 0) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.perfectOctaveAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.perfectOctaveAboveTonic(),
+                                        key.perfectFifthAboveTonic()
+                                },
+                                new String[]{
+                                        key.majorThirdAboveTonic(),
+                                        key.minorSeventhAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 1) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.majorThirdAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.majorThirdAboveTonic(),
+                                        key.perfectFifthAboveTonic()
+                                },
+                                new String[]{
+                                        key.perfectOctaveAboveTonic(),
+                                        key.minorSeventhAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 2) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.perfectFifthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.perfectFifthAboveTonic()
+                                },
+                                new String[]{
+                                        key.perfectOctaveAboveTonic(),
+                                        key.majorThirdAboveTonic(),
+                                        key.minorSeventhAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 3) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.minorSeventhAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.minorSeventhAboveTonic(),
+                                        key.perfectFifthAboveTonic()
+                                },
+                                new String[]{
+                                        key.perfectOctaveAboveTonic(),
+                                        key.majorThirdAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else {
+                        return new ArrayList<>();
+                    }
+                }
+
+                else {
+                    return new ArrayList<>();
+                }
             }
             // will never get here
             else {
