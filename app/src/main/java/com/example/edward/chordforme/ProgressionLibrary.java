@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class ProgressionLibrary {
 
-    // Order of sharps: F# C# G# D# A# E# B# Fx Cx Gx Dx Ax Ex Bx
-    // Order of flats: Bb Eb Ab Db Gb Cb Fb Bbb Ebb Abb Dbb Gbb Cbb Fbb
+    // Order of sharps: F# C# G# D# A# E# B# Fx Cx Gx Dx Ax
+    // Order of flats: Bb Eb Ab Db Gb Cb Fb Bbb Ebb Abb Dbb
     private Key keyOfC = new Key("C");
     private Key keyOfG = new Key("G");
     private Key keyOfD = new Key("D");
@@ -18,6 +18,11 @@ public class ProgressionLibrary {
     private Key keyOfB = new Key("B");
     private Key keyOfFsharp = new Key("F#");
     private Key keyOfCsharp = new Key("C#");
+    private Key keyOfGsharp = new Key("G#");
+    private Key keyOfDsharp = new Key("D#");
+    private Key keyOfAsharp = new Key("A#");
+    private Key keyOfEsharp = new Key("E#");
+    private Key keyOfBsharp = new Key("B#");
     private Key keyOfF = new Key("F");
     private Key keyOfBflat = new Key("Bb");
     private Key keyOfEflat = new Key("Eb");
@@ -25,6 +30,8 @@ public class ProgressionLibrary {
     private Key keyOfDflat = new Key("Db");
     private Key keyOfGflat = new Key("Gb");
     private Key keyOfCflat = new Key("Cb");
+    private Key keyOfFflat = new Key("Fb");
+
     private Key keyOfAm = new Key("Am");
     private Key keyOfEm = new Key("Em");
     private Key keyOfBm = new Key("Bm");
@@ -33,6 +40,8 @@ public class ProgressionLibrary {
     private Key keyOfGsharpm = new Key("G#m");
     private Key keyOfDsharpm = new Key("D#m");
     private Key keyOfAsharpm = new Key("A#m");
+    private Key keyOfEsharpm = new Key("E#m");
+    private Key keyOfBsharpm = new Key("B#m");
     private Key keyOfDm = new Key("Dm");
     private Key keyOfGm = new Key("Gm");
     private Key keyOfCm = new Key("Cm");
@@ -40,15 +49,45 @@ public class ProgressionLibrary {
     private Key keyOfBflatm = new Key("Bbm");
     private Key keyOfEflatm = new Key("Ebm");
     private Key keyOfAflatm = new Key("Abm");
+    private Key keyOfDflatm = new Key("Dbm");
+    private Key keyOfGflatm = new Key("Gbm");
+    private Key keyOfCflatm = new Key("Cbm");
+    private Key keyOfFflatm = new Key("Fbm");
 
-    // TODO: add minor keys
+    private List<String> majorKeysAsStrings = Arrays.asList("C", "G", "D", "A", "E", "B", "F#", "C#", "F", "Bb", "Eb", "Ab", "Db", "Gb", "Cb");
+    private List<String> minorKeysAsStrings = Arrays.asList("Am", "Em", "Bm", "F#m", "C#m", "G#m", "D#m", "A#m", "Dm", "Gm", "Cm", "Fm", "Bbm", "Ebm", "Abm");
+
     private List<Progression> generalProgressions = Arrays.asList(
             new Progression(
+                    "major",
                     new Chord("major", "tonic", 0),
                     new Chord("major", "subdominant", 2),
                     new Chord("dominantSeventh", "dominant", 1),
-                    new Chord("major", "tonic", 0))
+                    new Chord("major", "tonic", 0)
+            )
     );
+
+    // Waltz in B minor, Op. 69 No. 2
+    private List<Progression> chopinOp69No2 = Arrays.asList(
+            new Progression("minor", new Chord("minor", "tonic", 0), new Chord("dominantSeventh", "dominant", 2), new Chord("dominantSeventh", "dominant", 1), new Chord("minor", "tonic", 0)),
+            new Progression("minor", new Chord("minor", "tonic", 0), new Chord("diminishedSeventh", "sharpenedSubmediant", 1), new Chord("minor", "subdominant", 2), new Chord("minorSixth", "subdominant", 2), new Chord("dominantSeventh", "dominant", "tonicPedal")),
+            new Progression("minor", new Chord("minor", "tonic", 0), new Chord("dominantSeventh", "dominant", 2), new Chord("dominantSeventh", "dominant", 0), new Chord("minor", "tonic", 0)),
+            new Progression("minor", new Chord("minor", "tonic", 1), new Chord("minorSixth", "subdominant", 0), new Chord("minor", "tonic", 2), new Chord("dominantSeventh", "dominant", 0), new Chord("minor", "tonic", 0)),
+            new Progression("major", new Chord("minor", "submediant", 1), new Chord("dominantSeventh", "dominant", 1), new Chord("major", "tonic", 0), new Chord("dominantSeventh", "dominant", 0), new Chord("major", "tonic", 0)),
+            new Progression("major", new Chord("dominantSeventh", "dominant", 1), new Chord("major", "tonic", 0), new Chord("minor", "supertonic", 1), new Chord("dominantSeventh", "mediant", 0), new Chord("minorSixth", "supertonic", "mediantPedal")),
+            new Progression("major", new Chord("dominantSeventh", "mediant", 0), new Chord("minor", "submediant", 0), new Chord("dominantSeventh", "dominant", 0), new Chord("major", "tonic", 0)),
+            new Progression("major", new Chord("dominantSeventh", "dominant", 1), new Chord("major", "tonic", 0), new Chord("minor", "supertonic", 1), new Chord("dominantSeventh", "mediant", 0), new Chord("dominantSeventh", "mediant", 1)),
+            new Progression("major", new Chord("major", "tonic", 0), new Chord("dominantNinth", "dominant", 1), new Chord("dominantSeventh", "dominant", 1), new Chord("major", "tonic", 0), new Chord("dominantNinth", "dominant", 1), new Chord("dominantSeventh", "dominant", 1)),
+            new Progression("major", new Chord("major", "tonic", 0), new Chord("dominantSeventh", "dominant", 0), new Chord("major", "tonic", 0), new Chord("dominantSeventh", "dominant", 0)),
+            new Progression("major", new Chord("major", "tonic", 0), new Chord("minor", "submediant", 1), new Chord("major", "dominant", 2), new Chord("dominantSeventh", "supertonic", 0), new Chord("dominantSeventh", "dominant", 0)),
+            new Progression("major", new Chord("major", "tonic", 0), new Chord("dominantNinth", "dominant", 0), new Chord("dominantSeventh", "dominant", 0), new Chord("major", "tonic", 0), new Chord("dominantNinth", "dominant", 0), new Chord("dominantSeventh", "dominant", 0)),
+            new Progression("minor", new Chord("minor", "tonic", 0), new Chord("dominantMinorNinth", "dominant", 0), new Chord("dominantSeventh", "dominant", 0), new Chord("minor", "tonic", 0), new Chord("dominantMinorNinth", "dominant", 0), new Chord("dominantSeventh", "dominant", 0)),
+            new Progression("minor", new Chord("minor", "tonic", 0), new Chord("dominantSeventh", "dominant", "tonicPedal"), new Chord("minor", "tonic", 0), new Chord("major", "submediant", 0), new Chord("dominantSeventh", "supertonic", "submediantPedal"), new Chord("major", "dominant", 0), new Chord("dominantSeventh", "dominant", 0))
+    );
+    // notes:
+    // scale positions depend on the keyType of the progression
+    // new Chord("minorSixth", "supertonic", "mediantPedal") is a minor sixth ninth chord in 4th inversion
+    // new Chord("dominantSeventh", "dominant", "tonicPedal") is a dominant seventh chord pedaled on a tonic minor triad
 
     public ProgressionLibrary() {
 
@@ -57,6 +96,7 @@ public class ProgressionLibrary {
     private class Progression {
 
         int numOfChords;
+        String keyType;
         Chord first;
         Chord second;
         Chord third;
@@ -70,23 +110,26 @@ public class ProgressionLibrary {
         Chord eleventh;
         Chord twelfth;
 
-        public Progression(Chord first) {
+        public Progression(String keyType, Chord first) {
 
+            this.keyType = keyType;
             this.first = first;
             this.numOfChords = 1;
 
         }
 
-        public Progression(Chord first, Chord second) {
+        public Progression(String keyType, Chord first, Chord second) {
 
+            this.keyType = keyType;
             this.first = first;
             this.second = second;
             this.numOfChords = 2;
 
         }
 
-        public Progression(Chord first, Chord second, Chord third) {
+        public Progression(String keyType, Chord first, Chord second, Chord third) {
 
+            this.keyType = keyType;
             this.first = first;
             this.second = second;
             this.third = third;
@@ -94,8 +137,9 @@ public class ProgressionLibrary {
 
         }
 
-        public Progression(Chord first, Chord second, Chord third, Chord fourth) {
+        public Progression(String keyType, Chord first, Chord second, Chord third, Chord fourth) {
 
+            this.keyType = keyType;
             this.first = first;
             this.second = second;
             this.third = third;
@@ -104,8 +148,9 @@ public class ProgressionLibrary {
 
         }
 
-        public Progression(Chord first, Chord second, Chord third, Chord fourth, Chord fifth) {
+        public Progression(String keyType, Chord first, Chord second, Chord third, Chord fourth, Chord fifth) {
 
+            this.keyType = keyType;
             this.first = first;
             this.second = second;
             this.third = third;
@@ -115,8 +160,9 @@ public class ProgressionLibrary {
 
         }
 
-        public Progression(Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth) {
+        public Progression(String keyType, Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth) {
 
+            this.keyType = keyType;
             this.first = first;
             this.second = second;
             this.third = third;
@@ -127,8 +173,9 @@ public class ProgressionLibrary {
 
         }
 
-        public Progression(Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh) {
+        public Progression(String keyType, Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh) {
 
+            this.keyType = keyType;
             this.first = first;
             this.second = second;
             this.third = third;
@@ -140,8 +187,9 @@ public class ProgressionLibrary {
 
         }
 
-        public Progression(Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh, Chord eighth) {
+        public Progression(String keyType, Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh, Chord eighth) {
 
+            this.keyType = keyType;
             this.first = first;
             this.second = second;
             this.third = third;
@@ -154,8 +202,9 @@ public class ProgressionLibrary {
 
         }
 
-        public Progression(Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh, Chord eighth, Chord ninth) {
+        public Progression(String keyType, Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh, Chord eighth, Chord ninth) {
 
+            this.keyType = keyType;
             this.first = first;
             this.second = second;
             this.third = third;
@@ -169,8 +218,9 @@ public class ProgressionLibrary {
 
         }
 
-        public Progression(Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh, Chord eighth, Chord ninth, Chord tenth) {
+        public Progression(String keyType, Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh, Chord eighth, Chord ninth, Chord tenth) {
 
+            this.keyType = keyType;
             this.first = first;
             this.second = second;
             this.third = third;
@@ -185,8 +235,9 @@ public class ProgressionLibrary {
 
         }
 
-        public Progression(Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh, Chord eighth, Chord ninth, Chord tenth, Chord eleventh) {
+        public Progression(String keyType, Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh, Chord eighth, Chord ninth, Chord tenth, Chord eleventh) {
 
+            this.keyType = keyType;
             this.first = first;
             this.second = second;
             this.third = third;
@@ -202,8 +253,9 @@ public class ProgressionLibrary {
 
         }
 
-        public Progression(Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh, Chord eighth, Chord ninth, Chord tenth, Chord eleventh, Chord twelfth) {
+        public Progression(String keyType, Chord first, Chord second, Chord third, Chord fourth, Chord fifth, Chord sixth, Chord seventh, Chord eighth, Chord ninth, Chord tenth, Chord eleventh, Chord twelfth) {
 
+            this.keyType = keyType;
             this.first = first;
             this.second = second;
             this.third = third;
@@ -220,117 +272,293 @@ public class ProgressionLibrary {
 
         }
 
-        // never call this; the memory is better used elsewhere
-        /* public String[] getProgression() {
+        public int getNumOfChords() {
+            return numOfChords;
+        }
 
-            if (numOfChords == 1) {
-                return new String[] {first};
-            } else if (numOfChords == 2) {
-                return new String[] {first, second};
-            } else if (numOfChords == 3) {
-                return new String[] {first, second, third};
-            } else if (numOfChords == 4) {
-                return new String[] {first, second, third, fourth};
-            } else if (numOfChords == 5) {
-                return new String[] {first, second, third, fourth, fifth};
-            } else if (numOfChords == 6) {
-                return new String[] {first, second, third, fourth, fifth, sixth};
-            } else if (numOfChords == 7) {
-                return new String[] {first, second, third, fourth, fifth, sixth, seventh};
-            } else if (numOfChords == 8) {
-                return new String[] {first, second, third, fourth, fifth, sixth, seventh, eighth};
-            }
-            // this will never be called
-            else {
-                return new String[] {};
-            }
+        public String getKeyType() {
+            return keyType;
+        }
 
-        }*/
+        public ArrayList<ArrayList<String>> getChords(Key key) {
 
-        // never call this either
-        /*public String[] getKeyedProgression(String tonic) {
+            ArrayList<ArrayList<String>> chords = new ArrayList<>();
 
-            if (numOfChords == 1) {
-                return new String[] {
-                        translateFromTonic(tonic, first)};
-            } else if (numOfChords == 2) {
-                return new String[] {
-                        translateFromTonic(tonic, first),
-                        translateFromTonic(tonic, second)};
-            } else if (numOfChords == 3) {
-                return new String[] {
-                        translateFromTonic(tonic, first),
-                        translateFromTonic(tonic, second),
-                        translateFromTonic(tonic, third)};
-            } else if (numOfChords == 4) {
-                return new String[] {
-                        translateFromTonic(tonic, first),
-                        translateFromTonic(tonic, second),
-                        translateFromTonic(tonic, third),
-                        translateFromTonic(tonic, fourth)};
-            } else if (numOfChords == 5) {
-                return new String[] {
-                        translateFromTonic(tonic, first),
-                        translateFromTonic(tonic, second),
-                        translateFromTonic(tonic, third),
-                        translateFromTonic(tonic, fourth),
-                        translateFromTonic(tonic, fifth)};
-            } else if (numOfChords == 6) {
-                return new String[] {
-                        translateFromTonic(tonic, first),
-                        translateFromTonic(tonic, second),
-                        translateFromTonic(tonic, third),
-                        translateFromTonic(tonic, fourth),
-                        translateFromTonic(tonic, fifth),
-                        translateFromTonic(tonic, sixth)};
-            } else if (numOfChords == 7) {
-                return new String[] {
-                        translateFromTonic(tonic, first),
-                        translateFromTonic(tonic, second),
-                        translateFromTonic(tonic, third),
-                        translateFromTonic(tonic, fourth),
-                        translateFromTonic(tonic, fifth),
-                        translateFromTonic(tonic, sixth),
-                        translateFromTonic(tonic, seventh)};
-            }  else if (numOfChords == 8) {
-                return new String[] {
-                        translateFromTonic(tonic, first),
-                        translateFromTonic(tonic, second),
-                        translateFromTonic(tonic, third),
-                        translateFromTonic(tonic, fourth),
-                        translateFromTonic(tonic, fifth),
-                        translateFromTonic(tonic, sixth),
-                        translateFromTonic(tonic, seventh),
-                        translateFromTonic(tonic, eighth)};
-            }
-            // this will never be called
-            else {
-                return new String[] {};
-            }
+            if (this.keyType.equals(key.getKeyType())) {
 
-        }*/
+                if (this.keyType.equals("major")) {
 
-        // converts a chord built on an interval above a particular tonic note to a chord built on a key (ex. A, v70 -> D#70)
-        /*private String translateFromTonic(String tonic, String chord) {
+                    if (numOfChords == 1) {
 
-            List<String> numerals = Arrays.asList("I","ii","II","iii","III","IV","v","V","vi","VI","vii","VII");
-            String chordRoot;
-            String otherStuff;
+                        chords.add(first.getNotesInMajorKey(key));
+                        return chords;
 
-            if (!(chord.substring(1,2).equals("i") || chord.substring(1,2).equals("I") || chord.substring(1,2).equals("v") || chord.substring(1,2).equals("V"))) {
-                chordRoot = chord.substring(0,1);
-                otherStuff = chord.substring(1);
-            } else if (!(chord.substring(2,3).equals("i") || chord.substring(2,3).equals("I") || chord.substring(2,3).equals("v") || chord.substring(2,3).equals("V"))){
-                chordRoot = chord.substring(0,2);
-                otherStuff = chord.substring(2);
+                    } else if (numOfChords == 2) {
+
+                        chords.add(first.getNotesInMajorKey(key));
+                        chords.add(second.getNotesInMajorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 3) {
+
+                        chords.add(first.getNotesInMajorKey(key));
+                        chords.add(second.getNotesInMajorKey(key));
+                        chords.add(third.getNotesInMajorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 4) {
+
+                        chords.add(first.getNotesInMajorKey(key));
+                        chords.add(second.getNotesInMajorKey(key));
+                        chords.add(third.getNotesInMajorKey(key));
+                        chords.add(fourth.getNotesInMajorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 5) {
+
+                        chords.add(first.getNotesInMajorKey(key));
+                        chords.add(second.getNotesInMajorKey(key));
+                        chords.add(third.getNotesInMajorKey(key));
+                        chords.add(fourth.getNotesInMajorKey(key));
+                        chords.add(fifth.getNotesInMajorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 6) {
+
+                        chords.add(first.getNotesInMajorKey(key));
+                        chords.add(second.getNotesInMajorKey(key));
+                        chords.add(third.getNotesInMajorKey(key));
+                        chords.add(fourth.getNotesInMajorKey(key));
+                        chords.add(fifth.getNotesInMajorKey(key));
+                        chords.add(sixth.getNotesInMajorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 7) {
+
+                        chords.add(first.getNotesInMajorKey(key));
+                        chords.add(second.getNotesInMajorKey(key));
+                        chords.add(third.getNotesInMajorKey(key));
+                        chords.add(fourth.getNotesInMajorKey(key));
+                        chords.add(fifth.getNotesInMajorKey(key));
+                        chords.add(sixth.getNotesInMajorKey(key));
+                        chords.add(seventh.getNotesInMajorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 8) {
+
+                        chords.add(first.getNotesInMajorKey(key));
+                        chords.add(second.getNotesInMajorKey(key));
+                        chords.add(third.getNotesInMajorKey(key));
+                        chords.add(fourth.getNotesInMajorKey(key));
+                        chords.add(fifth.getNotesInMajorKey(key));
+                        chords.add(sixth.getNotesInMajorKey(key));
+                        chords.add(seventh.getNotesInMajorKey(key));
+                        chords.add(eighth.getNotesInMajorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 9) {
+
+                        chords.add(first.getNotesInMajorKey(key));
+                        chords.add(second.getNotesInMajorKey(key));
+                        chords.add(third.getNotesInMajorKey(key));
+                        chords.add(fourth.getNotesInMajorKey(key));
+                        chords.add(fifth.getNotesInMajorKey(key));
+                        chords.add(sixth.getNotesInMajorKey(key));
+                        chords.add(seventh.getNotesInMajorKey(key));
+                        chords.add(eighth.getNotesInMajorKey(key));
+                        chords.add(ninth.getNotesInMajorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 10) {
+
+                        chords.add(first.getNotesInMajorKey(key));
+                        chords.add(second.getNotesInMajorKey(key));
+                        chords.add(third.getNotesInMajorKey(key));
+                        chords.add(fourth.getNotesInMajorKey(key));
+                        chords.add(fifth.getNotesInMajorKey(key));
+                        chords.add(sixth.getNotesInMajorKey(key));
+                        chords.add(seventh.getNotesInMajorKey(key));
+                        chords.add(eighth.getNotesInMajorKey(key));
+                        chords.add(ninth.getNotesInMajorKey(key));
+                        chords.add(tenth.getNotesInMajorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 11) {
+
+                        chords.add(first.getNotesInMajorKey(key));
+                        chords.add(second.getNotesInMajorKey(key));
+                        chords.add(third.getNotesInMajorKey(key));
+                        chords.add(fourth.getNotesInMajorKey(key));
+                        chords.add(fifth.getNotesInMajorKey(key));
+                        chords.add(sixth.getNotesInMajorKey(key));
+                        chords.add(seventh.getNotesInMajorKey(key));
+                        chords.add(eighth.getNotesInMajorKey(key));
+                        chords.add(ninth.getNotesInMajorKey(key));
+                        chords.add(tenth.getNotesInMajorKey(key));
+                        chords.add(eleventh.getNotesInMajorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 12) {
+
+                        chords.add(first.getNotesInMajorKey(key));
+                        chords.add(second.getNotesInMajorKey(key));
+                        chords.add(third.getNotesInMajorKey(key));
+                        chords.add(fourth.getNotesInMajorKey(key));
+                        chords.add(fifth.getNotesInMajorKey(key));
+                        chords.add(sixth.getNotesInMajorKey(key));
+                        chords.add(seventh.getNotesInMajorKey(key));
+                        chords.add(eighth.getNotesInMajorKey(key));
+                        chords.add(ninth.getNotesInMajorKey(key));
+                        chords.add(tenth.getNotesInMajorKey(key));
+                        chords.add(eleventh.getNotesInMajorKey(key));
+                        chords.add(twelfth.getNotesInMajorKey(key));
+                        return chords;
+
+                    } else {
+                        return chords;
+                    }
+
+                } else if (this.keyType.equals("minor")) {
+
+                    if (numOfChords == 1) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 2) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        chords.add(second.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 3) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        chords.add(second.getNotesInMinorKey(key));
+                        chords.add(third.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 4) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        chords.add(second.getNotesInMinorKey(key));
+                        chords.add(third.getNotesInMinorKey(key));
+                        chords.add(fourth.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 5) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        chords.add(second.getNotesInMinorKey(key));
+                        chords.add(third.getNotesInMinorKey(key));
+                        chords.add(fourth.getNotesInMinorKey(key));
+                        chords.add(fifth.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 6) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        chords.add(second.getNotesInMinorKey(key));
+                        chords.add(third.getNotesInMinorKey(key));
+                        chords.add(fourth.getNotesInMinorKey(key));
+                        chords.add(fifth.getNotesInMinorKey(key));
+                        chords.add(sixth.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 7) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        chords.add(second.getNotesInMinorKey(key));
+                        chords.add(third.getNotesInMinorKey(key));
+                        chords.add(fourth.getNotesInMinorKey(key));
+                        chords.add(fifth.getNotesInMinorKey(key));
+                        chords.add(sixth.getNotesInMinorKey(key));
+                        chords.add(seventh.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 8) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        chords.add(second.getNotesInMinorKey(key));
+                        chords.add(third.getNotesInMinorKey(key));
+                        chords.add(fourth.getNotesInMinorKey(key));
+                        chords.add(fifth.getNotesInMinorKey(key));
+                        chords.add(sixth.getNotesInMinorKey(key));
+                        chords.add(seventh.getNotesInMinorKey(key));
+                        chords.add(eighth.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 9) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        chords.add(second.getNotesInMinorKey(key));
+                        chords.add(third.getNotesInMinorKey(key));
+                        chords.add(fourth.getNotesInMinorKey(key));
+                        chords.add(fifth.getNotesInMinorKey(key));
+                        chords.add(sixth.getNotesInMinorKey(key));
+                        chords.add(seventh.getNotesInMinorKey(key));
+                        chords.add(eighth.getNotesInMinorKey(key));
+                        chords.add(ninth.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 10) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        chords.add(second.getNotesInMinorKey(key));
+                        chords.add(third.getNotesInMinorKey(key));
+                        chords.add(fourth.getNotesInMinorKey(key));
+                        chords.add(fifth.getNotesInMinorKey(key));
+                        chords.add(sixth.getNotesInMinorKey(key));
+                        chords.add(seventh.getNotesInMinorKey(key));
+                        chords.add(eighth.getNotesInMinorKey(key));
+                        chords.add(ninth.getNotesInMinorKey(key));
+                        chords.add(tenth.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 11) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        chords.add(second.getNotesInMinorKey(key));
+                        chords.add(third.getNotesInMinorKey(key));
+                        chords.add(fourth.getNotesInMinorKey(key));
+                        chords.add(fifth.getNotesInMinorKey(key));
+                        chords.add(sixth.getNotesInMinorKey(key));
+                        chords.add(seventh.getNotesInMinorKey(key));
+                        chords.add(eighth.getNotesInMinorKey(key));
+                        chords.add(ninth.getNotesInMinorKey(key));
+                        chords.add(tenth.getNotesInMinorKey(key));
+                        chords.add(eleventh.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else if (numOfChords == 12) {
+
+                        chords.add(first.getNotesInMinorKey(key));
+                        chords.add(second.getNotesInMinorKey(key));
+                        chords.add(third.getNotesInMinorKey(key));
+                        chords.add(fourth.getNotesInMinorKey(key));
+                        chords.add(fifth.getNotesInMinorKey(key));
+                        chords.add(sixth.getNotesInMinorKey(key));
+                        chords.add(seventh.getNotesInMinorKey(key));
+                        chords.add(eighth.getNotesInMinorKey(key));
+                        chords.add(ninth.getNotesInMinorKey(key));
+                        chords.add(tenth.getNotesInMinorKey(key));
+                        chords.add(eleventh.getNotesInMinorKey(key));
+                        chords.add(twelfth.getNotesInMinorKey(key));
+                        return chords;
+
+                    } else {
+                        return chords;
+                    }
+
+                } else {
+                    return chords;
+                }
+
             } else {
-                chordRoot = chord.substring(0,3);
-                otherStuff = chord.substring(3);
+                return chords;
             }
 
-            return notes.get((notes.indexOf(tonic) + numerals.indexOf(chordRoot)) % 12) + otherStuff;
-
-        }*/
+        }
 
     }
 
@@ -338,31 +566,59 @@ public class ProgressionLibrary {
     private class Key {
 
         String key;
+        String keyType;
 
         public Key(String key) {
+
             this.key = key;
+            if (majorKeysAsStrings.contains(key)) {
+                this.keyType = "major";
+            } else if (minorKeysAsStrings.contains(key)) {
+                this.keyType = "minor";
+            }
+
         }
 
         public String diminishedSecondAboveTonic() {
-            if (key.equals("C") || key.equals("Cm")) {return "Dbb";}
-            else if (key.equals("C#") || key.equals("C#m")) {return "Dnb";}
-            else if (key.equals("Db")) {return "Ebbb";}
-            else if (key.equals("D") || key.equals("Dm")) {return "Ebb";}
-            else if (key.equals("D#m")) {return "Enb";}
-            else if (key.equals("Eb") || key.equals("Ebm")) {return "Fbb";}
-            else if (key.equals("E") || key.equals("Em")) {return "Fnb";}
-            else if (key.equals("F") || key.equals("Fm")) {return "Gbb";}
-            else if (key.equals("F#") || key.equals("F#m")) {return "Gnb";}
-            else if (key.equals("Gb")) {return "Abbb";}
-            else if (key.equals("G") || key.equals("Gm")) {return "Abb";}
-            else if (key.equals("G#m")) {return "Anb";}
-            else if (key.equals("Ab") || key.equals("Abm")) {return "Bbbb";}
-            else if (key.equals("A") || key.equals("Am")) {return "Bbb";}
-            else if (key.equals("A#m")) {return "Bnb";}
-            else if (key.equals("Bb") || key.equals("Bbm")) {return "Cbb";}
-            else if (key.equals("B") || key.equals("Bm")) {return "Cnb";}
-            else if (key.equals("Cb")) {return "Dbbb";}
-            else {return "";}
+            if (key.equals("C") || key.equals("Cm")) {
+                return "Dbb";
+            } else if (key.equals("C#") || key.equals("C#m")) {
+                return "Dnb";
+            } else if (key.equals("Db")) {
+                return "Ebbb";
+            } else if (key.equals("D") || key.equals("Dm")) {
+                return "Ebb";
+            } else if (key.equals("D#m")) {
+                return "Enb";
+            } else if (key.equals("Eb") || key.equals("Ebm")) {
+                return "Fbb";
+            } else if (key.equals("E") || key.equals("Em")) {
+                return "Fnb";
+            } else if (key.equals("F") || key.equals("Fm")) {
+                return "Gbb";
+            } else if (key.equals("F#") || key.equals("F#m")) {
+                return "Gnb";
+            } else if (key.equals("Gb")) {
+                return "Abbb";
+            } else if (key.equals("G") || key.equals("Gm")) {
+                return "Abb";
+            } else if (key.equals("G#m")) {
+                return "Anb";
+            } else if (key.equals("Ab") || key.equals("Abm")) {
+                return "Bbbb";
+            } else if (key.equals("A") || key.equals("Am")) {
+                return "Bbb";
+            } else if (key.equals("A#m")) {
+                return "Bnb";
+            } else if (key.equals("Bb") || key.equals("Bbm")) {
+                return "Cbb";
+            } else if (key.equals("B") || key.equals("Bm")) {
+                return "Cnb";
+            } else if (key.equals("Cb")) {
+                return "Dbbb";
+            } else {
+                return "";
+            }
         }
 
         public String minorSecondAboveTonic() {
@@ -1291,52 +1547,53 @@ public class ProgressionLibrary {
 
         }
 
+        public String getKeyType() {
+            return keyType;
+        }
+
     }
 
     /**
-
-     Chord.getNotes(Key key) currently has no support for pedaled chords and no support for minor keys
-
-     Chromatic note names (major key): sharpened subtonic / tonic
-                                       sharpened tonic / flattened supertonic
-                                       supertonic
-                                       sharpened supertonic / flattened mediant
-                                       mediant / flattened subdominant
-                                       sharpened mediant / subdominant
-                                       sharpened subdominant / flattened dominant
-                                       dominant
-                                       sharpened dominant / flattened submediant
-                                       submediant
-                                       sharpened submediant / flattened subtonic
-                                       subtonic / flattened tonic
-
-     Chromatic note names (minor key): tonic
-                                       sharpened tonic / flattened supertonic
-                                       supertonic / flattened mediant
-                                       sharpened supertonic / mediant
-                                       sharpened mediant / flattened subdominant
-                                       subdominant
-                                       sharpened subdominant / flattened dominant
-                                       dominant / flattened submediant
-                                       sharpened dominant / submediant
-                                       sharpened submediant / flattened subtonic
-                                       subtonic
-                                       sharpened subtonic / flattened tonic
-
-     These are the chords currently supported. All inversions of these chords are also supported
-     unless otherwise stated.
-
-     Major Chords: tonic, flattened supertonic, supertonic, flattened mediant, mediant, subdominant,
-                   sharpened subdominant, flattened dominant, dominant, flattened submediant, submediant,
-                   flattened subtonic, subtonic
-     Minor Chords: tonic, flattened supertonic, supertonic, flattened mediant, mediant, subdominant,
-                   sharpened subdominant, flattened dominant, dominant, flattened submediant, submediant,
-                   flattened subtonic, subtonic
-     Dominant Seventh Chords: tonic, flattened supertonic, supertonic, flattened mediant, mediant,
-                              subdominant, dominant, flattened submediant, submediant, flattened subtonic,
-                              subtonic
-
-
+     * Chord.getNotes(Key key) currently has no support for pedaled chords and no support for minor keys
+     * <p>
+     * Chromatic note names (major key): sharpened subtonic / tonic
+     * sharpened tonic / flattened supertonic
+     * supertonic
+     * sharpened supertonic / flattened mediant
+     * mediant / flattened subdominant
+     * sharpened mediant / subdominant
+     * sharpened subdominant / flattened dominant
+     * dominant
+     * sharpened dominant / flattened submediant
+     * submediant
+     * sharpened submediant / flattened subtonic
+     * subtonic / flattened tonic
+     * <p>
+     * Chromatic note names (minor key): tonic
+     * sharpened tonic / flattened supertonic
+     * supertonic / flattened mediant
+     * sharpened supertonic / mediant
+     * sharpened mediant / flattened subdominant
+     * subdominant
+     * sharpened subdominant / flattened dominant
+     * dominant / flattened submediant
+     * sharpened dominant / submediant
+     * sharpened submediant / flattened subtonic
+     * subtonic
+     * sharpened subtonic / flattened tonic
+     * <p>
+     * These are the chords currently supported. All inversions of these chords are also supported
+     * unless otherwise stated.
+     * <p>
+     * Major Chords: tonic, flattened supertonic, supertonic, flattened mediant, mediant, subdominant,
+     * sharpened subdominant, flattened dominant, dominant, flattened submediant, submediant,
+     * flattened subtonic, subtonic
+     * Minor Chords: tonic, flattened supertonic, supertonic, flattened mediant, mediant, subdominant,
+     * sharpened subdominant, flattened dominant, dominant, flattened submediant, submediant,
+     * flattened subtonic, subtonic
+     * Dominant Seventh Chords: tonic, flattened supertonic, supertonic, flattened mediant, mediant,
+     * subdominant, dominant, flattened submediant, submediant, flattened subtonic,
+     * subtonic
      **/
 
     private class Chord {
@@ -1385,7 +1642,7 @@ public class ProgressionLibrary {
 
         }
 
-        public ArrayList<String> getNotes(Key key) {
+        public ArrayList<String> getNotesInMajorKey(Key key) {
             if (chordType.equals("major")) {
                 if (chordRoot.equals("tonic")) {
                     if (inversion == 0) {
@@ -2937,6 +3194,10 @@ public class ProgressionLibrary {
             else {
                 return new ArrayList<>();
             }
+        }
+
+        public ArrayList<String> getNotesInMinorKey(Key key) {
+            return new ArrayList<>();
         }
     }
 
