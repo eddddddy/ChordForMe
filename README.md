@@ -1,2 +1,2 @@
 # About ChordForMe
-This application is still in progress. It detects what chords you play. That's pretty much it. 
+This application is still in progress, and is more of a hobby than something that's planned to be released.
