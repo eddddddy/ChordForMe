@@ -12,16 +12,16 @@ public class ChordLibrary {
     private String key;
     private List<String> notes = Arrays.asList("C","C#","D","D#","E","F","F#","G","G#","A","A#","B");
     private HashMap<String,String> enharmonics = new HashMap<String,String>() {{
-        put("C","B#");put("C#","Db");put("D","D");put("D#","Eb");put("E","Fb");put("F","E#");
-        put("F#","Gb");put("G","G");put("G#","Ab");put("A","A");put("A#","Bb");put("B","Cb");
+        put("C","C");put("C#","C#");put("Db","C#");put("D","D");put("D#","D#");put("Eb","D#");put("E","E");put("Fb","E");put("E#","F");put("F","F");put("F#","F#");
+        put("Gb","F#");put("G","G");put("G#","G#");put("Ab","G#");put("A","A");put("A#","A#");put("Bb","A#");put("B","B");put("Cb","B");put("B#","C");
     }};
     private HashMap<String,Integer> majorKeySignatures = new HashMap<String,Integer>() {{
         put("C",0);put("C#",7);put("Db",5);put("D",2);put("D#",9);put("Eb",3);put("E",4);put("Fb",8);put("E#",11);put("F",1);put("F#",6);
-        put("Gb",6);put("G",1);put("G#",8);put("Ab",4);put("A",3);put("A#",10);put("Bb",2);put("B",5);put("Cb",7);put("B#",12);put("H",99);
+        put("Gb",6);put("G",1);put("G#",8);put("Ab",4);put("A",3);put("A#",10);put("Bb",2);put("B",5);put("Cb",7);put("B#",12);
     }};
     private HashMap<String,Integer> minorKeySignatures = new HashMap<String,Integer>() {{
         put("C",3);put("C#",4);put("Db",8);put("D",1);put("D#",6);put("Eb",6);put("E",1);put("Fb",11);put("F",4);put("E#",8);put("F#",3);
-        put("Gb",9);put("G",2);put("G#",5);put("Ab",7);put("A",0);put("A#",7);put("Bb",5);put("B",2);put("Cb",10);put("B#",9);put("H",99);
+        put("Gb",9);put("G",2);put("G#",5);put("Ab",7);put("A",0);put("A#",7);put("Bb",5);put("B",2);put("Cb",10);put("B#",9);
     }};
     private String chordName;
 
@@ -139,6 +139,7 @@ public class ChordLibrary {
         findChord();
     }
 
+    /*
     // produces whichever enharmonic chord is more common
     private String enharmonize(String rootNote, String chordType) {
 
@@ -161,6 +162,7 @@ public class ChordLibrary {
         }
 
     }
+    */
 
     // the main method for this class; any new chords should be implemented here (the logic is straightforward)
     // might need additional processing to meet user's preferences (flats or sharps, etc.)

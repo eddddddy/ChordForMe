@@ -89,6 +89,59 @@ public class ProgressionLibrary {
     // new Chord("minorSixth", "supertonic", "mediantPedal") is a minor sixth ninth chord in 4th inversion
     // new Chord("dominantSeventh", "dominant", "tonicPedal") is a dominant seventh chord pedaled on a tonic minor triad
 
+    // Waltz in C# minor, Op. 64 No. 2
+    private List<Progression> chopinOp64no2 = Arrays.asList(
+            // 1-4
+            new Progression(
+                    "minor",
+                    new Chord("minor", "tonic", 0),
+                    new Chord("dominantSeventh", "supertonic", 0),
+                    new Chord("dominantMinorNinth", "dominant", 0),
+                    new Chord("dominantSeventh", "dominant", 0),
+                    new Chord("dominantMinorNinth", "dominant", "tonicPedal"),
+                    new Chord("minor", "tonic", 0)
+            ),
+            // 5-8
+            new Progression(
+                    "minor",
+                    new Chord("major", "submediant", 2),
+                    new Chord("diminishedSeventh", "supertonic", "mediantPedal"),
+                    new Chord("dominantNinth", "mediant", 0),
+                    new Chord("dominantSeventh", "mediant", 0),
+                    new Chord("majorNinth", "flattenedSupertonic", 2),
+                    new Chord("major", "submediant", "supertonicPedal") // I have no idea what this chord is
+            ),
+            // 9-12
+            new Progression(
+                    "minor",
+                    new Chord("dominantMinorNinth", "dominant", 0),
+                    new Chord("dominantSeventh", "dominant", 0),
+                    new Chord("minor", "tonic", 0),
+                    new Chord("minor", "subdominant", 2),
+                    new Chord("dominantNinth", "subtonic", 0),
+                    new Chord("dominantSeventh", "subtonic", 0),
+                    new Chord("major", "mediant", 0),
+                    new Chord("minorSixth", "tonic", 1)
+            ),
+            // 13-16
+            new Progression(
+                    "minor",
+                    new Chord("minor", "dominant", 2),
+                    new Chord("dominantSeventh", "supertonic", 0),
+                    new Chord("dominantSeventh", "dominant", 0)
+            ),
+            // 17-24 identical to 1-8
+            // 25-28
+            new Progression(
+                    "minor",
+                    new Chord("dominantMinorNinth", "dominant", 0),
+                    new Chord("dominantSeventh", "dominant", 0),
+                    new Chord("dominantSeventh", "tonic", 0)
+            )
+    );
+    // notes:
+    // root note and inversion of diminished seventh chords are chosen arbitrarily
+
     public ProgressionLibrary() {
 
     }
@@ -1588,12 +1641,17 @@ public class ProgressionLibrary {
      * Major Chords: tonic, flattened supertonic, supertonic, flattened mediant, mediant, subdominant,
      * sharpened subdominant, flattened dominant, dominant, flattened submediant, submediant,
      * flattened subtonic, subtonic
+     * <p>
      * Minor Chords: tonic, flattened supertonic, supertonic, flattened mediant, mediant, subdominant,
      * sharpened subdominant, flattened dominant, dominant, flattened submediant, submediant,
      * flattened subtonic, subtonic
+     * <p>
      * Dominant Seventh Chords: tonic, flattened supertonic, supertonic, flattened mediant, mediant,
      * subdominant, dominant, flattened submediant, submediant, flattened subtonic,
      * subtonic
+     * <p>
+     * Augmented Chord: tonic, flattened supertonic, supertonic, flattened mediant, mediant, subdominant,
+     * flattened dominant, dominant
      **/
 
     private class Chord {
@@ -3187,6 +3245,308 @@ public class ProgressionLibrary {
                         return new ArrayList<>();
                     }
                 } else {
+                    return new ArrayList<>();
+                }
+            } else if (chordType.equals("augmented")) {
+                if (chordRoot.equals("tonic")) {
+                    if (inversion == 0) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.perfectOctaveAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.perfectOctaveAboveTonic()
+                                },
+                                new String[]{
+                                        key.majorThirdAboveTonic(),
+                                        key.augmentedFifthAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 1) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.majorThirdAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.majorThirdAboveTonic()
+                                },
+                                new String[]{
+                                        key.augmentedFifthAboveTonic(),
+                                        key.perfectOctaveAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 2) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.augmentedFifthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.augmentedFifthAboveTonic()
+                                },
+                                new String[]{
+                                        key.perfectOctaveAboveTonic(),
+                                        key.majorThirdAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else {
+                        return new ArrayList<>();
+                    }
+                } else if (chordRoot.equals("flattenedSupertonic")) {
+                    if (inversion == 0) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.minorSecondAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.minorSecondAboveTonic()
+                                },
+                                new String[]{
+                                        key.perfectFourthAboveTonic(),
+                                        key.majorSixthAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 1) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.perfectFourthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.perfectFourthAboveTonic()
+                                },
+                                new String[]{
+                                        key.majorSixthAboveTonic(),
+                                        key.minorSecondAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 2) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.majorSixthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.majorSixthAboveTonic()
+                                },
+                                new String[]{
+                                        key.minorSecondAboveTonic(),
+                                        key.perfectFourthAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else {
+                        return new ArrayList<>();
+                    }
+                } else if (chordRoot.equals("supertonic")) {
+                    if (inversion == 0) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.majorSecondAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.majorSecondAboveTonic()
+                                },
+                                new String[]{
+                                        key.augmentedFourthAboveTonic(),
+                                        key.augmentedSixthAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 1) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.augmentedFourthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.augmentedFourthAboveTonic()
+                                },
+                                new String[]{
+                                        key.augmentedSixthAboveTonic(),
+                                        key.majorSecondAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 2) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.augmentedSixthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.augmentedSixthAboveTonic()
+                                },
+                                new String[]{
+                                        key.majorSecondAboveTonic(),
+                                        key.augmentedFourthAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else {
+                        return new ArrayList<>();
+                    }
+                } else if (chordRoot.equals("flattenedMediant")) {
+                    if (inversion == 0) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.minorThirdAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.minorThirdAboveTonic()
+                                },
+                                new String[]{
+                                        key.perfectFifthAboveTonic(),
+                                        key.majorSeventhAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 1) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.perfectFifthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.perfectFifthAboveTonic()
+                                },
+                                new String[]{
+                                        key.majorSeventhAboveTonic(),
+                                        key.minorThirdAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 2) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.majorSeventhAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.majorSeventhAboveTonic()
+                                },
+                                new String[]{
+                                        key.minorThirdAboveTonic(),
+                                        key.perfectFifthAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else {
+                        return new ArrayList<>();
+                    }
+                } else if (chordRoot.equals("mediant")) {
+                    if (inversion == 0) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.majorThirdAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.majorThirdAboveTonic()
+                                },
+                                new String[]{
+                                        key.augmentedFifthAboveTonic(),
+                                        key.augmentedSeventhAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 1) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.augmentedFifthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.augmentedFifthAboveTonic()
+                                },
+                                new String[]{
+                                        key.augmentedSeventhAboveTonic(),
+                                        key.majorThirdAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 2) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.augmentedSeventhAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.augmentedSeventhAboveTonic()
+                                },
+                                new String[]{
+                                        key.majorThirdAboveTonic(),
+                                        key.augmentedFifthAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else {
+                        return new ArrayList<>();
+                    }
+                } else if (chordRoot.equals("subdominant")) {
+                    if (inversion == 0) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.perfectFourthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.perfectFourthAboveTonic()
+                                },
+                                new String[]{
+                                        key.majorSixthAboveTonic(),
+                                        key.augmentedOctaveAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 1) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.majorSixthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.majorSixthAboveTonic()
+                                },
+                                new String[]{
+                                        key.augmentedOctaveAboveTonic(),
+                                        key.perfectFourthAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 2) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.augmentedOctaveAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.augmentedOctaveAboveTonic()
+                                },
+                                new String[]{
+                                        key.perfectFourthAboveTonic(),
+                                        key.majorSixthAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else {
+                        return new ArrayList<>();
+                    }
+                } else if (chordRoot.equals("flattenedDominant")) {
+                    if (inversion == 0) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.diminishedFifthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.diminishedFifthAboveTonic()
+                                },
+                                new String[]{
+                                        key.minorSeventhAboveTonic(),
+                                        key.majorSecondAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 1) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.minorSeventhAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.minorSeventhAboveTonic()
+                                },
+                                new String[]{
+                                        key.majorSecondAboveTonic(),
+                                        key.diminishedFifthAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 2) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.majorSecondAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.majorSecondAboveTonic()
+                                },
+                                new String[]{
+                                        key.diminishedFifthAboveTonic(),
+                                        key.minorSeventhAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else {
+                        return new ArrayList<>();
+                    }
+                } else if (chordRoot.equals("dominant")) {
+                    if (inversion == 0) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.perfectFifthAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.perfectFifthAboveTonic()
+                                },
+                                new String[]{
+                                        key.majorSeventhAboveTonic(),
+                                        key.augmentedSecondAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 1) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.majorSeventhAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.majorSeventhAboveTonic()
+                                },
+                                new String[]{
+                                        key.augmentedSecondAboveTonic(),
+                                        key.perfectFifthAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else if (inversion == 2) {
+                        ArrayList<String> notesInChord = new ArrayList<>(Arrays.asList(key.augmentedSecondAboveTonic()));
+                        notesInChord.addAll(randomizeVoicing(
+                                new String[]{
+                                        key.augmentedSecondAboveTonic()
+                                },
+                                new String[]{
+                                        key.perfectFifthAboveTonic(),
+                                        key.majorSeventhAboveTonic()
+                                }, 1));
+                        return notesInChord;
+                    } else {
+                        return new ArrayList<>();
+                    }
+                }
+                //
+                else {
                     return new ArrayList<>();
                 }
             }
