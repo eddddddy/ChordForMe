@@ -16,7 +16,7 @@ Need different code for training and for deployment
 
 public class AlternateActivity extends AppCompatActivity {
 
-    InputStream Ab5root = getResources().openRawResource(R.raw.A_flat_major_A_flat_fifth_octave);
+    InputStream Ab5root = getResources().openRawResource(R.raw.a_flat_major_a_flat_fifth_octave);
 
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
     private String[] permissions = {Manifest.permission.RECORD_AUDIO};
