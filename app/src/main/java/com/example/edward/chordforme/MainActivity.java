@@ -170,6 +170,7 @@ order C: 761.99f,3624.66f
 package com.example.edward.chordforme;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -222,6 +223,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ActivityCompat.requestPermissions(this,permissions,REQUEST_RECORD_AUDIO_PERMISSION);
+
+        Intent intent = new Intent(this, AlternateActivity.class);
+        startActivity(intent);
 
     }
 
