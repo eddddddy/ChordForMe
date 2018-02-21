@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import java.io.InputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
+import android.util.Log;
 
 /*
 
@@ -16,7 +18,7 @@ Need different code for training and for deployment
 
 public class AlternateActivity extends AppCompatActivity {
 
-    InputStream Ab5root = getResources().openRawResource(R.raw.a_flat_major_a_flat_fifth_octave);
+    InputStream Ab5root;
 
     //private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
     //private String[] permissions = {Manifest.permission.RECORD_AUDIO};
@@ -25,9 +27,11 @@ public class AlternateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alternate);
+        System.out.println("hi");
         //ActivityCompat.requestPermissions(this,permissions,REQUEST_RECORD_AUDIO_PERMISSION);
 
-        System.out.println(getBytes(Ab5root));
+        Ab5root = getResources().openRawResource(R.raw.a_flat_major_a_flat_fifth_octave);
+        getBytes(Ab5root);
 
     }
 
@@ -35,22 +39,47 @@ public class AlternateActivity extends AppCompatActivity {
 
     }
 
-    private String getBytes(InputStream is) {
+    // skip the first 2048 bytes, and get as many full blocks of 2048 bytes in between leaving at least 1024 bytes at the end
+    private void getBytes(InputStream is) {
 
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        int[] t = new int[2048];
 
-        byte buf[] = new byte[1024];
-        int len;
+        // skip the first 2048 bytes
         try {
-            while ((len = is.read(buf)) != -1) {
-                outputStream.write(buf, 0, len);
+
+            is.skip(2048);
+
+            while (is.available() > 3072) {
+
+                for (int i = 0; i < 2048; i++) {
+                    t[i] = is.read();
+                }
+
+                int[] a = new int[512];
+                int[] b = new int[512];
+                int[] c = new int[512];
+                int[] d = new int[512];
+
+                for (int i = 0; i < 512; i++) {
+                    a[i] = t[i];
+                    b[i] = t[i + 512];
+                    c[i] = t[i + 1024];
+                    d[i] = t[i + 1536];
+                }
+
+                System.out.println(Arrays.toString(a));
+                System.out.println(Arrays.toString(b));
+                System.out.println(Arrays.toString(c));
+                System.out.println(Arrays.toString(d));
+
+
             }
-            outputStream.close();
+
             is.close();
+
         } catch (IOException e) {
 
         }
-        return outputStream.toString();
 
     }
 
