@@ -8,6 +8,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_c_major_c_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\c_major_c_second_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_action.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\8f105ba34bfda8da86390ecc2004bbde\\res\\layout\\notification_action.xml"
     },
@@ -68,6 +72,10 @@
         "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_g_major_g_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\g_major_g_second_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
@@ -80,6 +88,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_g_major_g_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\g_major_g_third_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\8f105ba34bfda8da86390ecc2004bbde\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
     },
@@ -88,28 +100,36 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\abc_ic_search_api_material.xml"
     },
     {
-        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
     },
     {
-        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_edittext.xml.flat",
-        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color-v23\\abc_tint_edittext.xml"
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_radio_material.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_edittext.xml.flat",
+        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color-v23\\abc_tint_edittext.xml"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxxhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_g_major_g_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\g_major_g_sixth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_flat_major_a_flat_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_flat_major_a_flat_fifth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_mode_bar.xml.flat",
@@ -124,24 +144,24 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
-        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
-        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_list_pressed_holo_dark.9.png"
-    },
-    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
@@ -180,12 +200,12 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
-        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
-    },
-    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_holo_dark.xml.flat",
@@ -204,6 +224,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_major_b_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_major_b_first_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_longpressed_holo.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png"
     },
@@ -212,12 +236,20 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_sharp_major_f_sharp_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_sharp_major_f_sharp_third_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_btn_colored_material.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_major_e_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_major_e_first_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_material_dark.xml.flat",
@@ -236,24 +268,28 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_switch_thumb_material.xml.flat",
-        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\abc_switch_thumb_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_seek_thumb.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color\\abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_switch_thumb_material.xml.flat",
+        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_popup_enter.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\anim\\abc_popup_enter.xml"
     },
     {
-        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
-        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_dark.9.png"
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_flat_major_e_flat_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_flat_major_e_flat_second_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\8f105ba34bfda8da86390ecc2004bbde\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_color_highlight_material.xml.flat",
@@ -264,12 +300,32 @@
         "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
-        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_flat_major_e_flat_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_flat_major_e_flat_fifth_octave.wav"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_major_d_seventh_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_major_d_seventh_octave.wav"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_major_d_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_major_d_sixth_octave.wav"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_c_major_c_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\c_major_c_fourth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_major_e_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_major_e_fifth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -288,6 +344,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color\\abc_tint_switch_track.xml"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_major_b_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_major_b_sixth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
     },
@@ -298,6 +358,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\8f105ba34bfda8da86390ecc2004bbde\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_major_a_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_major_a_third_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
@@ -314,6 +378,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_c_major_c_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\c_major_c_fifth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
@@ -348,6 +416,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_sharp_major_f_sharp_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_sharp_major_f_sharp_sixth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
     },
@@ -372,12 +444,12 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
-        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
-    },
-    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_alert_dialog_material.xml.flat",
@@ -416,6 +488,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_flat_major_b_flat_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_flat_major_b_flat_first_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_edittext.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color\\abc_tint_edittext.xml"
     },
@@ -426,6 +502,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_spinner.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color-v23\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_flat_major_b_flat_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_flat_major_b_flat_sixth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow.xml.flat",
@@ -444,6 +524,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_flat_major_d_flat_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_flat_major_d_flat_third_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
@@ -456,8 +540,20 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_major_f_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_major_f_fifth_octave.wav"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_g_major_g_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\g_major_g_first_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_longpressed_holo.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_major_b_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_major_b_second_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -466,6 +562,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_major_f_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_major_f_second_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -478,6 +578,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_thumb_material.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_major_a_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_major_a_sixth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_voice_search_api_material.xml.flat",
@@ -496,8 +600,16 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_flat_major_b_flat_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_flat_major_b_flat_fourth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ratingbar_material.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_major_b_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_major_b_fifth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
@@ -536,6 +648,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_c_major_c_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\c_major_c_first_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
@@ -558,6 +674,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_arrow_drop_right_black_24dp.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_flat_major_d_flat_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_flat_major_d_flat_sixth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
@@ -600,6 +720,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\8f105ba34bfda8da86390ecc2004bbde\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_major_e_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_major_e_sixth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_default_mtrl_shape.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
@@ -614,6 +738,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_major_d_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_major_d_fourth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
@@ -654,6 +782,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_major_f_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_major_f_first_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -720,6 +852,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_flat_major_b_flat_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_flat_major_b_flat_fifth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
@@ -736,8 +872,16 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_major_d_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_major_d_third_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_flat_major_e_flat_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_flat_major_e_flat_fourth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
@@ -760,6 +904,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_flat_major_d_flat_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_flat_major_d_flat_fourth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_expanded_menu_layout.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\layout\\abc_expanded_menu_layout.xml"
     },
@@ -774,6 +922,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_alert_dialog_button_bar_material.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_flat_major_e_flat_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_flat_major_e_flat_first_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_select_dialog_singlechoice_material.xml.flat",
@@ -824,6 +976,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_flat_major_a_flat_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_flat_major_a_flat_third_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\8f105ba34bfda8da86390ecc2004bbde\\res\\layout-v21\\notification_action_tombstone.xml"
     },
@@ -832,8 +988,24 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_flat_major_d_flat_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_flat_major_d_flat_first_octave.wav"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_c_major_c_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\c_major_c_sixth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_item_background_holo_dark.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_sharp_major_f_sharp_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_sharp_major_f_sharp_fifth_octave.wav"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_major_e_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_major_e_second_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_black_36dp.png.flat",
@@ -848,8 +1020,16 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_major_d_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_major_d_fifth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow_custom.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\644570d24b75be694293cc22276d9b24\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_major_a_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_major_a_second_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_cancel_action.xml.flat",
@@ -920,6 +1100,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_flat_major_a_flat_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_flat_major_a_flat_second_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_hint_foreground_material_dark.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color\\abc_hint_foreground_material_dark.xml"
     },
@@ -964,6 +1148,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color\\abc_tint_btn_checkable.xml"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_flat_major_e_flat_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_flat_major_e_flat_third_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
@@ -990,6 +1178,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_major_f_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_major_f_sixth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_activity_chooser_view_list_item.xml.flat",
@@ -1020,8 +1212,16 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_major_e_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_major_e_fourth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_custom.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\644570d24b75be694293cc22276d9b24\\res\\layout\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_sharp_major_f_sharp_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_sharp_major_f_sharp_fourth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
@@ -1050,6 +1250,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_screen_content_include.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_flat_major_a_flat_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_flat_major_a_flat_fourth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_fade_out.xml.flat",
@@ -1088,6 +1292,14 @@
         "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_flat_major_a_flat_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_flat_major_a_flat_sixth_octave.wav"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_major_a_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_major_a_fourth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\8f105ba34bfda8da86390ecc2004bbde\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
     },
@@ -1102,6 +1314,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_flat_major_d_flat_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_flat_major_d_flat_fifth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -1128,6 +1344,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_sharp_major_f_sharp_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_sharp_major_f_sharp_first_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
     },
@@ -1140,12 +1360,20 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color-v23\\abc_tint_default.xml"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_sharp_major_f_sharp_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_sharp_major_f_sharp_second_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_major_a_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_major_a_fifth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_checkbox.xml.flat",
@@ -1174,6 +1402,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_major_e_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_major_e_third_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
@@ -1210,6 +1442,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_c_major_c_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\c_major_c_third_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
@@ -1260,6 +1496,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\8f105ba34bfda8da86390ecc2004bbde\\res\\layout\\notification_template_part_time.xml"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_major_d_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_major_d_second_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_abc_control_background_material.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-v23\\abc_control_background_material.xml"
     },
@@ -1282,6 +1522,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_flat_major_b_flat_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_flat_major_b_flat_third_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
@@ -1364,6 +1608,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_flat_major_a_flat_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_flat_major_a_flat_first_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
@@ -1424,6 +1672,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_major_f_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_major_f_fourth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
@@ -1444,6 +1696,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_major_d_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_major_d_first_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_list_longpressed_holo.9.png"
     },
@@ -1460,8 +1716,20 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_flat_major_d_flat_seventh_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_flat_major_d_flat_seventh_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_major_b_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_major_b_fourth_octave.wav"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_flat_major_b_flat_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_flat_major_b_flat_second_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
@@ -1480,6 +1748,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_g_major_g_fifth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\g_major_g_fifth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
@@ -1488,8 +1760,16 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color\\switch_thumb_material_light.xml"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_g_major_g_fourth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\g_major_g_fourth_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_d_flat_major_d_flat_second_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\d_flat_major_d_flat_second_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
@@ -1518,6 +1798,14 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-mdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_a_major_a_first_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\a_major_a_first_octave.wav"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_f_major_f_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\f_major_f_third_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
@@ -1600,12 +1888,20 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_b_major_b_third_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\b_major_b_third_octave.wav"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_e_flat_major_e_flat_sixth_octave.wav.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\e_flat_major_e_flat_sixth_octave.wav"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_fade_in.xml.flat",

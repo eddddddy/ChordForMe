@@ -241,7 +241,9 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         else {
-            startRecording();
+            //startRecording();
+            Intent intent = new Intent(this, AlternateActivity.class);
+            startActivity(intent);
         }
 
     }

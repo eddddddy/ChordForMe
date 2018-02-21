@@ -18,14 +18,14 @@ public class AlternateActivity extends AppCompatActivity {
 
     InputStream Ab5root = getResources().openRawResource(R.raw.a_flat_major_a_flat_fifth_octave);
 
-    private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
-    private String[] permissions = {Manifest.permission.RECORD_AUDIO};
+    //private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
+    //private String[] permissions = {Manifest.permission.RECORD_AUDIO};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alternate);
-        ActivityCompat.requestPermissions(this,permissions,REQUEST_RECORD_AUDIO_PERMISSION);
+        //ActivityCompat.requestPermissions(this,permissions,REQUEST_RECORD_AUDIO_PERMISSION);
 
         System.out.println(getBytes(Ab5root));
 
