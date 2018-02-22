@@ -1,0 +1,25 @@
+line 30
+line 116
+line 233
+line 280
+line 351
+line 455
+line 532
+line 629
+line 695
+line 780
+line 857
+line 911
+
+Chord Type              Output                Example
+--------------------------------------------------------------- 
+Major                     -                      C
+Minor                     m                      Am
+Dominant seventh          7                      G7
+Major seventh             maj7                   Dmaj7
+Minor seventh             min7                   Emin7
+Minor major seventh       mm7                    Cmm7
+Augmented                 aug                    Baug
+Diminished                dim                    C#dim
+Diminished seventh        dim7                   Fdim7
+Half-diminished seventh   dimm7                  G#dimm7
