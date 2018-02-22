@@ -5,24 +5,24 @@
     build-mode="COLD"
     density="xhdpi"
     format="10"
-    ir-eligibility="FIELD_TYPE_CHANGE"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.0.1"
-    timestamp="1519274752042"
+    timestamp="1519318094990"
     token="-6539973365385509201"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="511" />
+        duration="303" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="81" />
+        duration="55" />
     <task
         name="verifier"
-        duration="29" />
+        duration="7" />
 
     <artifact
         location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
@@ -33,7 +33,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1519274148529"
+        timestamp="1519317592736"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
@@ -74,8 +74,17 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="FIELD_TYPE_CHANGE"
-        timestamp="1519274752042"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1519318004201"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\outputs\apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1519318094990"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\slices\slice_7.apk"

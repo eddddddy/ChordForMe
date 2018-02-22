@@ -30,7 +30,7 @@ public class AlternateActivity extends AppCompatActivity {
         System.out.println("hi");
         //ActivityCompat.requestPermissions(this,permissions,REQUEST_RECORD_AUDIO_PERMISSION);
 
-        chord = getResources().openRawResource(R.raw.b_flat_major_b_flat_fifth_octave);
+        chord = getResources().openRawResource(R.raw.g_major_g_fifth_octave);
         getBytes(chord);
 
     }
