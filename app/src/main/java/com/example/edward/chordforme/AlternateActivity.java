@@ -18,7 +18,7 @@ Need different code for training and for deployment
 
 public class AlternateActivity extends AppCompatActivity {
 
-    InputStream Ab5root;
+    InputStream chord;
 
     //private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
     //private String[] permissions = {Manifest.permission.RECORD_AUDIO};
@@ -30,8 +30,8 @@ public class AlternateActivity extends AppCompatActivity {
         System.out.println("hi");
         //ActivityCompat.requestPermissions(this,permissions,REQUEST_RECORD_AUDIO_PERMISSION);
 
-        Ab5root = getResources().openRawResource(R.raw.a_flat_major_a_flat_fifth_octave);
-        getBytes(Ab5root);
+        chord = getResources().openRawResource(R.raw.b_flat_major_b_flat_fifth_octave);
+        getBytes(chord);
 
     }
 
@@ -44,7 +44,6 @@ public class AlternateActivity extends AppCompatActivity {
 
         int[] t = new int[2048];
 
-        // skip the first 2048 bytes
         try {
 
             is.skip(2048);

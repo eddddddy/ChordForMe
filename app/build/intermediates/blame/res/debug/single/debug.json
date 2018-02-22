@@ -440,10 +440,6 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\color\\abc_tint_default.xml"
     },
     {
-        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_bytearrays.txt.flat",
-        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\bytearrays.txt"
-    },
-    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
     },
@@ -1192,6 +1188,10 @@
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_out.txt.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\out.txt"
+    },
+    {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
@@ -1418,6 +1418,10 @@
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_dark.xml.flat",
         "source": "C:\\Users\\Edward\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\4a0a0cc7f693c9f6abcf768177297cc5\\res\\drawable\\tooltip_frame_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\raw_in.txt.flat",
+        "source": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\src\\main\\res\\raw\\in.txt"
     },
     {
         "merged": "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_48dp.png.flat",
