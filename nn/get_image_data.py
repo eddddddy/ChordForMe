@@ -1,23 +1,31 @@
 import os
-import tensorflow as tf
+import imageio
+import numpy as np
+
+def preprocess_image(image):
+    for i in range(4):
+        del image[0]
+        del image[-1]
+    for i in range(216):
+        for j in range(3):
+            del image[i][0]
+            del image[i][-1]
+        for j in range(3):
+            del image[i][0]
+    for i in range(216):
+        for j in range(332):
+            del image[i][j][3]
 
 files = [file[:-4] for file in os.listdir("images")]
 filepaths = ["images\\" + file + ".png" for file in files]
-images = []
+train_images = []
+train_chord_root_labels = []
+train_chord_type_labels = []
+train_root_note_labels = []
 
-filename_queue = tf.train.string_input_producer(tf.convert_to_tensor(filepaths, dtype=tf.string), shuffle=False)
-image_reader = tf.WholeFileReader()
-filename, image_file = image_reader.read(filename_queue)
-image = tf.image.decode_png(image_file, channels=3)
-image = tf.image.crop_to_bounding_box(image, 5, 5, 216, 332)
+for i in range(len(files)):
+    image = imageio.imread(filepaths[i]).tolist()
+    preprocess_image(image)
+    train_images.append(image)
 
-with tf.Session() as sess:
-    tf.local_variables_initializer().run()
-    coord = tf.train.Coordinator()
-    threads = tf.train.start_queue_runners(coord=coord)
-    for i in range(len(files)):
-        image_tensor = image.eval()
-        images.append(image_tensor.tolist())
-    images = tf.convert_to_tensor(images, dtype=tf.float32).eval()
-    coord.request_stop()
-    coord.join(threads)
+train_images = np.array(train_images)

@@ -15,10 +15,11 @@ def cnn_model_fn(features, labels, mode):
     logits = tf.layers.dense(inputs=dropout, units=12)
 
     predictions = {"classes": tf.argmax(input=logits, axis=1), "probabilities": tf.nn.softmax(logits, name="softmax_")}
-    loss = tf.losses.sparse_softmax_cross_entropy(labels=labels, logits=logits)
 
     if mode == tf.estimator.ModeKeys.PREDICT:
         return tf.estimator.EstimatorSpec(mode=mode, predictions=predictions)
+
+    loss = tf.losses.sparse_softmax_cross_entropy(labels=labels, logits=logits)
 
     if mode == tf.estimator.ModeKeys.TRAIN:
         optimizer = tf.train_GradientDescentOptimizer(learning_rate=0.001)
@@ -34,7 +35,10 @@ def main(argv):
     train_labels = get_image_data.
     test_data = get_image_data.
     test_labels = get_image_data.
-    classifier = tf.estimator.Estimator(model_fn=cnn_model_fn, model_dir="C:\\Users\\James Jiang\\Documents\\ChordForMe\\nn")
+
+	checkpoint_cfg = tf.estimator.RunConfig(save_checkpoints_secs=5*60, keep_checkpoint_max=5)
+
+    classifier = tf.estimator.Estimator(model_fn=cnn_model_fn, model_dir="C:\\Users\\James Jiang\\Documents\\ChordForMe\\nn", config=checkpoint_cfg)
     to_log = {"probabilities": "softmax_"}
     logging_hook = tf.train.LoggingTensorHook(tensors=to_log, every_n_iter=50)
 
