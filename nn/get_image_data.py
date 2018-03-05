@@ -37,7 +37,8 @@ for i in range(len(filepaths)):
     image = preprocess_image(image)
     random_num = random.randint(0, 9)
 
-    if True:
+    #train data
+    if random_num != 5:
         image_data_str = ""
         for j in range(len(image)):
             image_data_str += " ".join([str(k) for k in image[j][0]])
@@ -70,7 +71,8 @@ for i in range(len(filepaths)):
             train_root_note_labels_file.write(str(translate.note_to_index(filename_components[-2].upper() + "#")) + "\n")
         else:
             train_root_note_labels_file.write(str(translate.note_to_index(filename_components[-1].upper())) + "\n")
-    """
+
+    #test data
     else:
         image_data_str = ""
         for j in range(len(image)):
@@ -104,7 +106,7 @@ for i in range(len(filepaths)):
             test_root_note_labels_file.write(str(translate.note_to_index(filename_components[-2].upper() + "#")) + "\n")
         else:
             test_root_note_labels_file.write(str(translate.note_to_index(filename_components[-1].upper())) + "\n")
-    """
+
 
 train_data_file.close()
 train_chord_root_labels_file.close()

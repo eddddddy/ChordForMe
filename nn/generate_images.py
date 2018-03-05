@@ -3,11 +3,10 @@ import matplotlib.pyplot as plt
 from scipy import signal
 from scipy.io import wavfile
 
-#directories_list = ["major_root\\", "major_first_inversion\\", "major_second_inversion\\", "minor_root\\", "minor_first_inversion\\", "minor_second_inversion\\", "dominant_seventh_root\\"]
-directories_list = ["dominant_seventh_first_inversion\\", "dominant_seventh_second_inversion\\", "dominant_seventh_third_inversion\\"]
+directories_list = ["major_root\\", "major_first_inversion\\", "major_second_inversion\\", "minor_root\\", "minor_first_inversion\\", "minor_second_inversion\\",
+                    "dominant_seventh_root\\", "dominant_seventh_first_inversion\\", "dominant_seventh_second_inversion\\", "dominant_seventh_third_inversion\\"]
 
 for directory in directories_list:
-    print(directory)
     audio_files = os.listdir("chordrecordings\\" + directory)
     for file in audio_files:
         sample_rate, samples = wavfile.read("chordrecordings\\" + directory + file)
