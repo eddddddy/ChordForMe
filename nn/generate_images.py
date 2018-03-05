@@ -4,6 +4,7 @@ from scipy import signal
 from scipy.io import wavfile
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 fileroot1 = "C:\\Users\\James Jiang\\Documents\\ChordForMe\\"
 fileroot2 = "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\"
 
@@ -11,6 +12,10 @@ fileroot2 = "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\"
 '''
 
 directories_list = ["major_root\\", "major_first_inversion\\", "major_second_inversion\\", "minor_root\\", "dominant_seventh_root\\"]
+=======
+#directories_list = ["major_root\\", "major_first_inversion\\", "major_second_inversion\\", "minor_root\\", "minor_first_inversion\\", "minor_second_inversion\\", "dominant_seventh_root\\"]
+directories_list = ["dominant_seventh_first_inversion\\", "dominant_seventh_second_inversion\\", "dominant_seventh_third_inversion\\"]
+>>>>>>> 8f5d50b67b2dddc9d7752a9fdb97b8f0c65a32ff
 =======
 #directories_list = ["major_root\\", "major_first_inversion\\", "major_second_inversion\\", "minor_root\\", "minor_first_inversion\\", "minor_second_inversion\\", "dominant_seventh_root\\"]
 directories_list = ["dominant_seventh_first_inversion\\", "dominant_seventh_second_inversion\\", "dominant_seventh_third_inversion\\"]
@@ -29,6 +34,7 @@ for directory in directories_list:
             ax = plt.gca()
             ax.get_xaxis().set_visible(False)
             ax.get_yaxis().set_visible(False)
+<<<<<<< HEAD
 <<<<<<< HEAD
             plt.savefig("C:\\Users\\James Jiang\\Documents\\ChordForMe\\nn\\images\\" + file[:-4] + "_" + str(i) + ".png", bbox_inches="tight", pad_inches=0)
 
@@ -55,6 +61,9 @@ def genimage():
 if __name__ == "__main__":
 	print(genimage())
 	
+=======
+            plt.savefig("images\\" + file[:-4] + "_" + str(i) + ".png", bbox_inches="tight", pad_inches=0)
+>>>>>>> 8f5d50b67b2dddc9d7752a9fdb97b8f0c65a32ff
 =======
             plt.savefig("images\\" + file[:-4] + "_" + str(i) + ".png", bbox_inches="tight", pad_inches=0)
 >>>>>>> 8f5d50b67b2dddc9d7752a9fdb97b8f0c65a32ff
