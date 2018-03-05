@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Thu Mar 01 23:47:58 EST 2018
+1.base=C\:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\assets\\debug
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=ASSET
+0.path=simple.exe
+0.set=ASSET
+0.base=C\:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\assets\\debug
+1.path=test.txt
