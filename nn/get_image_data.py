@@ -35,15 +35,16 @@ for i in range(len(filepaths)):
     #generate image data
     image = imageio.imread(filepaths[i]).tolist()
     image = preprocess_image(image)
+    image_data_str = ""
+    for j in range(len(image)):
+        image_data_str += " ".join([str(k) for k in image[j][0]])
+        if j != (len(image) - 1):
+            image_data_str += " "
+
     random_num = random.randint(0, 9)
 
     #train data
     if random_num != 5:
-        image_data_str = ""
-        for j in range(len(image)):
-            image_data_str += " ".join([str(k) for k in image[j][0]])
-            if j != (len(image) - 1):
-                image_data_str += " "
         train_data_file.write(image_data_str + "\n")
 
         filename_components = files[i].split("_")[:-3]
@@ -74,11 +75,6 @@ for i in range(len(filepaths)):
 
     #test data
     else:
-        image_data_str = ""
-        for j in range(len(image)):
-            image_data_str += " ".join([str(k) for k in image[j][0]])
-            if j != (len(image) - 1):
-                image_data_str += " "
         test_data_file.write(image_data_str + "\n")
 
         filename_components = files[i].split("_")[:-3]
