@@ -13,13 +13,13 @@ train_data = []
 with open("data\\train_data.txt") as f:
     for line in f:
         data = line.rstrip("\n").split(" ")
-        train_data.append([int(i) for i in data])
+        train_data.append(list(map(int, data)))
 
 test_data = []
 with open("data\\test_data.txt") as f:
     for line in f:
         data = line.rstrip("\n").split(" ")
-        test_data.append([int(i) for i in data])
+        train_data.append(list(map(int, data)))
 
 train_chord_roots = []
 train_chord_types = []

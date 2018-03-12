@@ -7,20 +7,20 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.Time;
+import android.widget.TextView;
+
+import com.goebl.david.Webb;
+import com.goebl.david.WebbException;
 
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.io.DataInputStream;
-import java.io.InputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class AlternateActivity extends AppCompatActivity {
@@ -34,19 +34,40 @@ public class AlternateActivity extends AppCompatActivity {
     private AudioRecord mRecorder;
     private String audioFilePath;
     private String RECORD_WAV_PATH = Environment.getExternalStorageDirectory() + File.separator + "AudioRecord";
+    private TextView textView;
+    private String response;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alternate);
+        textView = (TextView) findViewById(R.id.textView);
 
         bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_FLOAT);
         mRecorder = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_FLOAT, bufferSize);
         mBuffer = new float[bufferSize];
         new File(RECORD_WAV_PATH).mkdir();
 
-        anotherTest();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    callWebScript();
+                } catch (WebbException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
+        while (response == null) {
+
+        }
+        updateView();
+
+    }
+
+    private void updateView() {
+        textView.setText(response);
     }
 
     public void recordWavStart() {
@@ -107,6 +128,12 @@ public class AlternateActivity extends AppCompatActivity {
         }).start();
     }
 
+    public void callWebScript() throws WebbException {
+        Webb webb = Webb.create();
+        response = webb.post("https://edddy.pythonanywhere.com/").param("list", "[4,5,6,7]").ensureSuccess().asString().getBody();
+    }
+
+    /*
     private void anotherTest() {
 
         new Thread(new Runnable() {
@@ -154,7 +181,7 @@ public class AlternateActivity extends AppCompatActivity {
             }
         }).start();
 
-    }
+    }*/
 
     /*
     private void test() {

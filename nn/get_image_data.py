@@ -39,6 +39,13 @@ for i in range(len(filepaths)):
 
     #train data
     if random_num != 5:
+		'''
+		Comment by Edward:
+		Load the image -> remove alpha channel (format: RGBA) -> get first column of image ->
+		load that column as a string of 3 ints separated by spaces: (ex. "22 23 53") -> write to file
+		
+		Optimization for later: remove alpha channels only for the fourth column lol
+		'''
         image_data_str = ""
         for j in range(len(image)):
             image_data_str += " ".join([str(k) for k in image[j][0]])

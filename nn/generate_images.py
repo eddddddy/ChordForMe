@@ -3,16 +3,12 @@ import matplotlib.pyplot as plt
 from scipy import signal
 from scipy.io import wavfile
 
-<<<<<<< HEAD
+
 directories_list = ["major_root\\", "major_first_inversion\\", "major_second_inversion\\", "minor_root\\", "minor_first_inversion\\", "minor_second_inversion\\",
                     "dominant_seventh_root\\", "dominant_seventh_first_inversion\\", "dominant_seventh_second_inversion\\", "dominant_seventh_third_inversion\\"]
-=======
+
 fileroot1 = "C:\\Users\\James Jiang\\Documents\\ChordForMe\\"
 fileroot2 = "C:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\"
-
-directories_list = ["major_root\\", "major_first_inversion\\", "major_second_inversion\\", "minor_root\\", "minor_first_inversion\\", "minor_second_inversion\\", 
-                    "dominant_seventh_root\\","dominant_seventh_first_inversion\\", "dominant_seventh_second_inversion\\", "dominant_seventh_third_inversion\\"]
->>>>>>> 447de3eaed3a4c98b01e6205d42465b7fc756366
 
 for directory in directories_list:
     audio_files = os.listdir("chordrecordings\\" + directory)
