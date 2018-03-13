@@ -5,6 +5,8 @@ import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.Time;
 import android.widget.TextView;
@@ -19,6 +21,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
@@ -27,15 +30,16 @@ public class AlternateActivity extends AppCompatActivity {
 
     private int SAMPLE_RATE = 44100;
     private int bufferSize;
-
     private boolean mIsRecording = false;
     private float[] mBuffer;
     private File mRecording;
     private AudioRecord mRecorder;
     private String audioFilePath;
     private String RECORD_WAV_PATH = Environment.getExternalStorageDirectory() + File.separator + "AudioRecord";
-    private TextView textView;
-    private String response;
+    private static TextView textView;
+    private static String response;
+    private final Handler responseHandler = new responseHandler(this);
+    private static final String postURL = "https://edddy.pythonanywhere.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +63,29 @@ public class AlternateActivity extends AppCompatActivity {
             }
         }).start();
 
-        while (response == null) {
-
-        }
-        updateView();
-
     }
 
-    private void updateView() {
+    private static class responseHandler extends Handler {
+
+        private final WeakReference<AlternateActivity> mActivity;
+
+        public responseHandler(AlternateActivity activity) {
+            mActivity = new WeakReference<AlternateActivity>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            AlternateActivity activity = mActivity.get();
+            if (activity != null) {
+                int what = msg.what;
+                if (what == 1) {
+                    updateView();
+                }
+            }
+        }
+    }
+
+    private static void updateView() {
         textView.setText(response);
     }
 
@@ -130,7 +149,8 @@ public class AlternateActivity extends AppCompatActivity {
 
     public void callWebScript() throws WebbException {
         Webb webb = Webb.create();
-        response = webb.post("https://edddy.pythonanywhere.com/").param("list", "[4,5,6,7]").ensureSuccess().asString().getBody();
+        response = webb.post(postURL).param("list", "[8,2,7,5,6,0,3,9,1,4]").ensureSuccess().asString().getBody();
+        responseHandler.sendEmptyMessage(1);
     }
 
     /*
@@ -294,33 +314,5 @@ public class AlternateActivity extends AppCompatActivity {
     public String getFileName(final String time_suffix) {
         return (RECORD_WAV_PATH + time_suffix + "." + "wav");
     }
-
-    /*
-    private void testScript() {
-
-        try {
-
-            Process python = Runtime.getRuntime().exec("echo hello");
-            DataOutputStream outputStream = new DataOutputStream(python.getOutputStream());
-            DataInputStream inputStream = new DataInputStream(python.getInputStream());
-
-            //outputStream.writeBytes("test.py hello\n");
-            //outputStream.flush();
-
-            System.out.println(inputStream.readByte());
-
-            //outputStream.writeBytes("exit\n");
-            outputStream.flush();
-
-            python.waitFor();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-    }
-    */
 
 }
