@@ -8,7 +8,6 @@ train_chord_types = get_data.train_chord_types
 test_data = get_data.test_data
 test_chord_types = get_data.test_chord_types
 
-#hyper-parameters
 num_training_steps = 10000
 num_hidden_1 = 100
 num_hidden_2 = 100
@@ -20,7 +19,6 @@ beta_1 = 0.9
 beta_2 = 0.999
 epsilon = 1e-8
 
-#network architecture
 data = tf.placeholder(tf.float32, shape=[None, get_data.len_data])
 labels_chord_types = tf.placeholder(tf.float32, shape=[None, translate.num_chord_types])
 keep_prob = tf.placeholder(tf.float32)
@@ -47,28 +45,13 @@ predict_chord_types_op = tf.nn.softmax(out_chord_types)
 loss_chord_types = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(logits=out_chord_types, labels=labels_chord_types))
 train_chord_types_op = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=beta_1, beta2=beta_2, epsilon=epsilon).minimize(loss_chord_types)
 
-#train
 init_ = tf.global_variables_initializer()
 sess = tf.InteractiveSession()
 sess.run(init_)
 for i in range(num_training_steps):
     batch_data, batch_labels_chord_types = get_data.next_batch(batch_size, train_data, train_chord_types)
     sess.run(train_chord_types_op, feed_dict={data: batch_data, keep_prob: 0.5, labels_chord_types: batch_labels_chord_types})
-    #print(i, np.mean(np.argmax(batch_labels_chord_types, 1) == np.argmax(sess.run(predict_chord_types_op, feed_dict={data: batch_data, keep_prob: 0.5, labels_chord_types: batch_labels_chord_types}), 1)), sess.run(loss_chord_types, feed_dict={data: batch_data, keep_prob: 0.5, labels_chord_types: batch_labels_chord_types}))
 
-#get values
-weights_list_chord_types_hidden_1 = sess.run(weights_chord_types_hidden_1)
-biases_list_chord_types_hidden_1 = sess.run(biases_chord_types_hidden_1)
-weights_list_chord_types_hidden_2 = sess.run(weights_chord_types_hidden_2)
-biases_list_chord_types_hidden_2 = sess.run(biases_chord_types_hidden_2)
-weights_list_chord_types_hidden_3 = sess.run(weights_chord_types_hidden_3)
-biases_list_chord_types_hidden_3 = sess.run(biases_chord_types_hidden_3)
-weights_list_chord_types_hidden_4 = sess.run(weights_chord_types_hidden_3)
-biases_list_chord_types_hidden_4 = sess.run(biases_chord_types_hidden_3)
-weights_list_chord_types_out = sess.run(weights_chord_types_out)
-biases_list_chord_types_out = sess.run(biases_chord_types_out)
-
-#test
 correct_chord_types = tf.equal(tf.argmax(predict_chord_types_op, 1), tf.argmax(test_chord_types, 1))
 accuracy_chord_types = tf.reduce_mean(tf.cast(correct_chord_types, tf.float32))
 total_accuracy_chord_types = sess.run(accuracy_chord_types, feed_dict={data: test_data, keep_prob: 1, labels_chord_types: test_chord_types})

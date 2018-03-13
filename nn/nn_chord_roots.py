@@ -7,7 +7,6 @@ train_chord_roots = get_data.train_chord_roots
 test_data = get_data.test_data
 test_chord_roots = get_data.test_chord_roots
 
-#hyper-parameters
 num_training_steps = 10000
 num_hidden_1 = 1024
 num_hidden_2 = 1024
@@ -17,7 +16,6 @@ beta_1 = 0.9
 beta_2 = 0.999
 epsilon = 1e-8
 
-#network architecture
 data = tf.placeholder(tf.float32, shape=[None, get_data.len_data])
 labels_chord_roots = tf.placeholder(tf.float32, shape=[None, 12])
 keep_prob = tf.placeholder(tf.float32)
@@ -36,7 +34,6 @@ predict_chord_roots_op = tf.argmax(tf.nn.softmax(out_chord_roots), axis=1)
 loss_chord_roots = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(logits=out_chord_roots, labels=labels_chord_roots))
 train_chord_roots_op = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=beta_1, beta2=beta_2, epsilon=epsilon).minimize(loss_chord_roots)
 
-#train
 saver = tf.train.Saver(max_to_keep=1)
 sess = tf.InteractiveSession()
 sess.run(tf.global_variables_initializer())
@@ -45,7 +42,6 @@ for i in range(num_training_steps):
     sess.run(train_chord_roots_op, feed_dict={data: batch_data, keep_prob: 0.5, labels_chord_roots: batch_labels_chord_roots})
 saver.save(sess, "tmp\\model\\chord_roots_model")
 
-#test
 correct_chord_roots = tf.equal(predict_chord_roots_op, tf.argmax(test_chord_roots, 1))
 accuracy_chord_roots = tf.reduce_mean(tf.cast(correct_chord_roots, tf.float32))
 total_accuracy_chord_roots = sess.run(accuracy_chord_roots, feed_dict={data: test_data, keep_prob: 1, labels_chord_roots: test_chord_roots})
