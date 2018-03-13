@@ -5,48 +5,88 @@ import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.Time;
+import android.widget.TextView;
+
+import com.goebl.david.Webb;
+import com.goebl.david.WebbException;
 
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.io.DataInputStream;
-import java.io.InputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class AlternateActivity extends AppCompatActivity {
 
     private int SAMPLE_RATE = 44100;
     private int bufferSize;
-
     private boolean mIsRecording = false;
     private float[] mBuffer;
     private File mRecording;
     private AudioRecord mRecorder;
     private String audioFilePath;
     private String RECORD_WAV_PATH = Environment.getExternalStorageDirectory() + File.separator + "AudioRecord";
+    private static TextView textView;
+    private static String response;
+    private final Handler responseHandler = new responseHandler(this);
+    private static final String postURL = "https://edddy.pythonanywhere.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alternate);
+        textView = (TextView) findViewById(R.id.textView);
 
         bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_FLOAT);
         mRecorder = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_FLOAT, bufferSize);
         mBuffer = new float[bufferSize];
         new File(RECORD_WAV_PATH).mkdir();
 
-        anotherTest();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    callWebScript();
+                } catch (WebbException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
+    }
+
+    private static class responseHandler extends Handler {
+
+        private final WeakReference<AlternateActivity> mActivity;
+
+        public responseHandler(AlternateActivity activity) {
+            mActivity = new WeakReference<AlternateActivity>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            AlternateActivity activity = mActivity.get();
+            if (activity != null) {
+                int what = msg.what;
+                if (what == 1) {
+                    updateView();
+                }
+            }
+        }
+    }
+
+    private static void updateView() {
+        textView.setText(response);
     }
 
     public void recordWavStart() {
@@ -107,6 +147,13 @@ public class AlternateActivity extends AppCompatActivity {
         }).start();
     }
 
+    public void callWebScript() throws WebbException {
+        Webb webb = Webb.create();
+        response = webb.post(postURL).param("list", "[8,2,7,5,6,0,3,9,1,4]").ensureSuccess().asString().getBody();
+        responseHandler.sendEmptyMessage(1);
+    }
+
+    /*
     private void anotherTest() {
 
         new Thread(new Runnable() {
@@ -154,7 +201,7 @@ public class AlternateActivity extends AppCompatActivity {
             }
         }).start();
 
-    }
+    }*/
 
     /*
     private void test() {
@@ -267,33 +314,5 @@ public class AlternateActivity extends AppCompatActivity {
     public String getFileName(final String time_suffix) {
         return (RECORD_WAV_PATH + time_suffix + "." + "wav");
     }
-
-    /*
-    private void testScript() {
-
-        try {
-
-            Process python = Runtime.getRuntime().exec("echo hello");
-            DataOutputStream outputStream = new DataOutputStream(python.getOutputStream());
-            DataInputStream inputStream = new DataInputStream(python.getInputStream());
-
-            //outputStream.writeBytes("test.py hello\n");
-            //outputStream.flush();
-
-            System.out.println(inputStream.readByte());
-
-            //outputStream.writeBytes("exit\n");
-            outputStream.flush();
-
-            python.waitFor();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-    }
-    */
 
 }

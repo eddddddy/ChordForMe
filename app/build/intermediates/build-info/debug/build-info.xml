@@ -6,29 +6,23 @@
     density="xhdpi"
     format="10"
     plugin-version="3.0.1"
-    timestamp="1520058415589"
+    timestamp="1520892908279"
     token="-6539973365385509201"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="1815" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="5465" />
+        duration="0" />
     <task
         name="verifier"
         duration="0" />
 
-    <artifact
-        location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\outputs\apk\debug\app-debug.apk"
-        type="SPLIT_MAIN" />
     <artifact
         location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
         type="SPLIT" />
@@ -45,6 +39,9 @@
         location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
         type="SPLIT" />
     <artifact
+        location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+        type="SPLIT" />
+    <artifact
         location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
         type="SPLIT" />
     <artifact
@@ -59,17 +56,14 @@
     <artifact
         location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
         type="SPLIT" />
+    <artifact
+        location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\outputs\apk\debug\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1520058415589"
+        timestamp="1520892908279"
         verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\outputs\apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
         <artifact
             location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
@@ -86,6 +80,9 @@
             location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
+            location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            type="SPLIT" />
+        <artifact
             location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
@@ -100,6 +97,9 @@
         <artifact
             location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
+        <artifact
+            location="C:\Users\Edward\Documents\Side Projects\ChordForMe\app\build\outputs\apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>
