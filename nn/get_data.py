@@ -7,7 +7,7 @@ def next_batch(batch_size, data, labels):
 	a = a[:batch_size]
 	return(data[a], labels[a])
 
-len_data = 654
+len_data = 651
 
 train_data = []
 with open("data\\train_data.txt") as f:
@@ -57,8 +57,8 @@ for i in range(len(test_data)):
     test_chord_types.append(chord_type_label)
     test_root_notes.append(root_note_label)
 
-train_data = np.array(train_data)
-test_data = np.array(test_data)
+train_data = np.array(train_data)/255
+test_data = np.array(test_data)/255
 train_chord_roots = np.array(train_chord_roots)
 test_chord_roots = np.array(test_chord_roots)
 train_chord_types = np.array(train_chord_types)
