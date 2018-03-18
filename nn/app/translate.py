@@ -31,46 +31,61 @@ def index_to_type(index):
     """
     return(chord_types[index])
 
-def increment_note_index(note_index, step):
-    """
-    Returns the index of the note in global list variable notes step number of
-    semi-tones above note at note_index
-    """
-    return((note_index + step) % 12)
-
 def possible_chord_roots(chord_type, root_note):
     """
     Returns a list of all possible chord roots of a chord with type chord_type
-    and root (bottom) note root_note, both represented as indices in global
-    list variables notes and chord_types
+    and root (bottom) note root_note, represented as indices in global list
+    variables notes and chord_types
     """
     chord_roots = [root_note]
     if chord_type == 0:  # major chord
-        chord_roots.extend([increment_note_index(root_note, 4), increment_note_index(root_note, 7)])  # root position
-        chord_roots.extend([increment_note_index(root_note, 3), increment_note_index(root_note, 8)])  # first inversion
-        chord_roots.extend([increment_note_index(root_note, 5), increment_note_index(root_note, 9)])  # second inversion
+        chord_roots.extend([(root_note + 4) % 12, (root_note + 7) % 12])  # root position
+        chord_roots.extend([(root_note + 3) % 12, (root_note + 8) % 12])  # first inversion
+        chord_roots.extend([(root_note + 5) % 12, (root_note + 9) % 12])  # second inversion
         return(chord_roots)
     if chord_type == 1:  # minor chord
-        chord_roots.extend([increment_note_index(root_note, 3), increment_note_index(root_note, 7)])  # root position
-        chord_roots.extend([increment_note_index(root_note, 4), increment_note_index(root_note, 9)])  # first inversion
-        chord_roots.extend([increment_note_index(root_note, 5), increment_note_index(root_note, 8)])  # second inversion
+        chord_roots.extend([(root_note + 3) % 12, (root_note + 7) % 12])  # root position
+        chord_roots.extend([(root_note + 4) % 12, (root_note + 9) % 12])  # first inversion
+        chord_roots.extend([(root_note + 5) % 12, (root_note + 8) % 12])  # second inversion
         return(chord_roots)
     if chord_type == 2:  # dominant seventh chord
-        chord_roots.extend([increment_note_index(root_note, 4), increment_note_index(root_note, 7), increment_note_index(root_note, 10)])  # root position
-        chord_roots.extend([increment_note_index(root_note, 3), increment_note_index(root_note, 6), increment_note_index(root_note, 8)])  # first inversion
-        chord_roots.extend([increment_note_index(root_note, 3), increment_note_index(root_note, 5), increment_note_index(root_note, 9)])  # second inversion
-        chord_roots.extend([increment_note_index(root_note, 2), increment_note_index(root_note, 6), increment_note_index(root_note, 9)])  # third inversion
+        chord_roots.extend([(root_note + 4) % 12, (root_note + 7) % 12, (root_note + 10) % 12])  # root position
+        chord_roots.extend([(root_note + 3) % 12, (root_note + 6) % 12, (root_note + 8) % 12])  # first inversion
+        chord_roots.extend([(root_note + 3) % 12, (root_note + 5) % 12, (root_note + 9) % 12])  # second inversion
+        chord_roots.extend([(root_note + 2) % 12, (root_note + 6) % 12, (root_note + 9) % 12])  # third inversion
         return(chord_roots)
+
+def possible_chord_types(chord_root, root_note):
+    """
+    Returns a list of all possible chord types of a chord with chord root
+    chord_root and root (bottom) note root_note, represented as indices in
+    global list variable notes
+    """
+    semitone_difference = abs(chord_root - root_note)
+    if semitone_difference > 6:
+        semitone_difference = 12 - semitone_difference
+    if semitone_difference == 0:
+        return([0, 1, 2])
+    if semitone_difference == 2:
+        return([2])
+    if semitone_difference == 3:
+        return([1])
+    if semitone_difference == 4:
+        return([0, 2])
+    if semitone_difference == 5:
+        return([0, 1, 2])
+    if semitone_difference == 6:
+        return([])  # tritone not a possible interval between chord root and any chord note, regardless of chord type
 
 def possible_root_notes(chord_root, chord_type):
     """
     Returns a list of all possible root notes of a chord with chord root
-    chord_root and type chord_type, both represented as indices in global list
+    chord_root and type chord_type, represented as indices in global list
     variables notes and chord_types
     """
     if chord_type == 0:  # major chord
-        return([chord_root, increment_note_index(chord_root, 4), increment_note_index(chord_root, 7)])
+        return([chord_root, (chord_root + 4) % 12, (chord_root + 7) % 12])
     if chord_type == 1:  # minor chord
-        return([chord_root, increment_note_index(chord_root, 3), increment_note_index(chord_root, 7)])
+        return([chord_root, (chord_root + 3) % 12, (chord_root + 7) % 12])
     if chord_type == 2:  # dominant seventh chord
-        return([chord_root, increment_note_index(chord_root, 4), increment_note_index(chord_root, 7), increment_note_index(chord_root, 10)])
+        return([chord_root, (chord_root + 4) % 12, (chord_root + 7) % 12, (chord_root + 10) % 12])

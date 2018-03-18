@@ -7,8 +7,8 @@ train_root_notes = get_data.train_root_notes
 test_data = get_data.test_data
 test_root_notes = get_data.test_root_notes
 
-num_training_steps = 10000
-num_hidden_1 = 1024
+num_training_steps = 20000
+num_hidden_1 = 2048
 batch_size = 1000
 learning_rate = 0.001
 beta_1 = 0.9
@@ -34,7 +34,7 @@ sess = tf.InteractiveSession()
 sess.run(tf.global_variables_initializer())
 for i in range(num_training_steps):
     batch_data, batch_labels_root_notes = get_data.next_batch(batch_size, train_data, train_root_notes)
-    sess.run(train_root_notes_op, feed_dict={data: batch_data, keep_prob: 0.5, labels_root_notes: batch_labels_root_notes})
+    sess.run(train_root_notes_op, feed_dict={data: batch_data, keep_prob: 1, labels_root_notes: batch_labels_root_notes})
 saver.save(sess, "tmp\\model\\root_notes_model")
 
 correct_root_notes = tf.equal(predict_root_notes_op, tf.argmax(test_root_notes, 1))
