@@ -3,7 +3,7 @@ Provides functions and constants for translating strings representing notes
 and chord types to integers, and vice versa.
 """
 
-num_chord_types = 3
+NUM_CHORD_TYPES = 3
 notes = ["C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C"]
 chord_types = ["", "m", "7", "maj7", "min7", "mm7", "aug", "dim", "dim7", "dimm7"]
 
@@ -66,6 +66,8 @@ def possible_chord_types(chord_root, root_note):
         semitone_difference = 12 - semitone_difference
     if semitone_difference == 0:
         return([0, 1, 2])
+    if semitone_difference == 1:
+        return([])  # minor second not a possible interval between chord root and any chord note, regardless of chord type
     if semitone_difference == 2:
         return([2])
     if semitone_difference == 3:
@@ -75,7 +77,7 @@ def possible_chord_types(chord_root, root_note):
     if semitone_difference == 5:
         return([0, 1, 2])
     if semitone_difference == 6:
-        return None  # tritone not a possible interval between chord root and any chord note, regardless of chord type
+        return([])  # tritone not a possible interval between chord root and any chord note, regardless of chord type
 
 def possible_root_notes(chord_root, chord_type):
     """

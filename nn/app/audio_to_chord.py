@@ -40,16 +40,23 @@ def crop_image(image):
     Gets pixels in first non-whitespace column, removing whitespace at the top
     and bottom.
     """
-    return(image[35:252, 54, 0:])
+    return(image[34:251, 55, 0:])
 
 def mode(list_):
     """
     Returns the mode of list_. If multimodal, returns the mode lowest in value.
     If list_ is empty, returns None.
     """
-    if list_:
+    if list_ != []:
         return(max(set(list_), key=list_.count))
     return None
+
+def error(list_, correct):
+    """
+    Returns the error (incorrect predictions divided by the total number of
+    predictions).
+    """
+    return(1 - list_.count(correct)/len(list_))
 
 def confidence_level(chord_roots_list, chord_types_list, root_notes_list):
     """
@@ -63,9 +70,9 @@ def confidence_level(chord_roots_list, chord_types_list, root_notes_list):
     mode_chord_types = mode(chord_types_list)
     mode_root_notes = mode(root_notes_list)
 
-    confidence += chord_roots_list.count(mode_chord_roots)/(3*NUM_DATA_POINTS)
-    confidence += chord_types_list.count(mode_chord_types)/(3*NUM_DATA_POINTS)
-    confidence += root_notes_list.count(mode_root_notes)/(3*NUM_DATA_POINTS)
+    confidence += (1 - error(chord_roots_list, mode_chord_roots))/3
+    confidence += (1 - error(chord_types_list, mode_chord_types))/3
+    confidence += (1 - error(root_notes_list, mode_root_notes))/3
 
     chord_roots_possible = translate.possible_chord_roots(mode_chord_types, mode_root_notes)
     chord_types_possible = translate.possible_chord_types(mode_chord_roots, mode_root_notes)
@@ -95,7 +102,7 @@ def spectrogram_to_chord(file):  # change parameter to spectrogram if input is s
     # convert spectrogram data to image pixel data
     array_image_data_all = []
 
-    figure = plt.figure()
+    figure = plt.figure(figsize=(6, 3.92), dpi=72)  # don't change this line
     ax = figure.add_subplot(111)
 
     ax.pcolormesh(times, frequencies, spectrogram)  # frequencies is a global variable
@@ -109,6 +116,7 @@ def spectrogram_to_chord(file):  # change parameter to spectrogram if input is s
         image = crop_image(image).flatten()/255
         array_image_data_all.append(image.tolist())
 
+    plt.close("all")
     array_image_data_all = np.array(array_image_data_all)
 
     # make chord predictions using the created graph
@@ -116,6 +124,10 @@ def spectrogram_to_chord(file):  # change parameter to spectrogram if input is s
         predicted_chord_roots = sess.run(predict_chord_roots_op, feed_dict={data: array_image_data_all}).tolist()
         predicted_chord_types = sess.run(predict_chord_types_op, feed_dict={data: array_image_data_all}).tolist()
         predicted_root_notes = sess.run(predict_root_notes_op, feed_dict={data: array_image_data_all}).tolist()
+
+    print(predicted_chord_roots)
+    print(predicted_chord_types)
+    print(predicted_root_notes)
 
     chord_root_prediction = translate.index_to_note(mode(predicted_chord_roots))
     chord_type_prediction = translate.index_to_type(mode(predicted_chord_types))
@@ -126,3 +138,7 @@ def spectrogram_to_chord(file):  # change parameter to spectrogram if input is s
         return("")
 
     return(chord_root_prediction + chord_type_prediction + "/" + root_note_prediction)
+
+# test
+if __name__ == "__main__":
+    print(spectrogram_to_chord("b_major_f_sharp_fifth_octave.wav"))

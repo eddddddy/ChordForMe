@@ -66,6 +66,8 @@ def possible_chord_types(chord_root, root_note):
         semitone_difference = 12 - semitone_difference
     if semitone_difference == 0:
         return([0, 1, 2])
+    if semitone_difference == 1:
+        return([])  # minor second not a possible interval between chord root and any chord note, regardless of chord type
     if semitone_difference == 2:
         return([2])
     if semitone_difference == 3:
