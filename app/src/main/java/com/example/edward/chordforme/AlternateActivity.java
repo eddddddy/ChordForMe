@@ -8,7 +8,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.text.format.Time;
 import android.widget.TextView;
 
 import com.goebl.david.Webb;
@@ -24,53 +23,72 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.Arrays;
+import java.util.Random;
 
 
 public class AlternateActivity extends AppCompatActivity {
 
-    private int SAMPLE_RATE = 44100;
+    private static int SAMPLE_RATE = 44100;
     private int bufferSize;
     private boolean mIsRecording = false;
     private float[] mBuffer;
     private File mRecording;
-    private AudioRecord mRecorder;
+    private static AudioRecord mRecorder;
     private String audioFilePath;
     private String RECORD_WAV_PATH = Environment.getExternalStorageDirectory() + File.separator + "AudioRecord";
-    private static TextView textView;
+    private TextView textView;
     private static String response;
-    private final Handler responseHandler = new responseHandler(this);
+    private static Handler responseHandler;
+    private static Runnable postRunnable;
     private static final String postURL = "https://edddy.pythonanywhere.com/";
+    private static float[] data = new float[65536];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alternate);
         textView = (TextView) findViewById(R.id.textView);
+        responseHandler = new ResponseHandler(this, textView);
+        postRunnable = new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        startRecording();
+                        callWebScript();
+                    } catch (WebbException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
 
         bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_FLOAT);
-        mRecorder = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_FLOAT, bufferSize);
+        mRecorder = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_FLOAT, 65536);
         mBuffer = new float[bufferSize];
         new File(RECORD_WAV_PATH).mkdir();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    callWebScript();
-                } catch (WebbException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        recordWavStart();
+
+        new Thread(postRunnable).start();
 
     }
 
-    private static class responseHandler extends Handler {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        recordWavStop();
+    }
+
+    private static class ResponseHandler extends Handler {
 
         private final WeakReference<AlternateActivity> mActivity;
+        private final TextView textView;
 
-        public responseHandler(AlternateActivity activity) {
+        public ResponseHandler(AlternateActivity activity, TextView textView) {
             mActivity = new WeakReference<AlternateActivity>(activity);
+            this.textView = textView;
         }
 
         @Override
@@ -79,38 +97,29 @@ public class AlternateActivity extends AppCompatActivity {
             if (activity != null) {
                 int what = msg.what;
                 if (what == 1) {
-                    updateView();
+                    textView.setText(response);
                 }
             }
         }
     }
 
-    private static void updateView() {
-        textView.setText(response);
-    }
-
     public void recordWavStart() {
         mIsRecording = true;
         mRecorder.startRecording();
-        mRecording = getFile("raw");
-        startBufferedWrite(mRecording);
+        //startBufferedWrite(mRecording);
     }
 
-    public String recordWavStop() {
+    public void recordWavStop() {
         try {
             mIsRecording = false;
             mRecorder.stop();
-            File waveFile = getFile("wav");
-            rawToWave(mRecording, waveFile);
-            return audioFilePath;
+            mRecorder.release();
+            //rawToWave(mRecording, waveFile);
+            //return audioFilePath;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
-    }
-
-    public void releaseRecord() {
-        mRecorder.release();
+        //return null;
     }
 
     private void startBufferedWrite(final File file) {
@@ -147,9 +156,27 @@ public class AlternateActivity extends AppCompatActivity {
         }).start();
     }
 
-    public void callWebScript() throws WebbException {
+    private static void startRecording() {
+        mRecorder.read(data,0,data.length,AudioRecord.READ_NON_BLOCKING);
+    }
+
+    private static String getRandomByteArrayToString() {
+        Random random = new Random();
+        int[] byteArray = new int[65536];
+        for (int i = 0; i < 65536; i++) {
+            byteArray[i] = random.nextInt(256);
+        }
+        return Arrays.toString(byteArray);
+    }
+
+    public static void callWebScript() throws WebbException {
         Webb webb = Webb.create();
-        response = webb.post(postURL).param("list", "[8,2,7,5,6,0,3,9,1,4]").ensureSuccess().asString().getBody();
+        response = webb.post(postURL)
+                .param("samples", Arrays.toString(data))
+                .param("sample_rate", Integer.toString(SAMPLE_RATE))
+                .ensureSuccess()
+                .asString()
+                .getBody();
         responseHandler.sendEmptyMessage(1);
     }
 
@@ -284,13 +311,6 @@ public class AlternateActivity extends AppCompatActivity {
 
     }
 
-    /* Get file name */
-    private File getFile(final String suffix) {
-        Time time = new Time();
-        time.setToNow();
-        audioFilePath = time.format("%Y%m%d%H%M%S");
-        return new File(RECORD_WAV_PATH, time.format("%Y%m%d%H%M%S") + "." + suffix);
-    }
 
     // This function and the next two write to the DataOutputStream in little endian
     private void writeInt(final DataOutputStream output, final int value) throws IOException {
@@ -311,8 +331,5 @@ public class AlternateActivity extends AppCompatActivity {
         }
     }
 
-    public String getFileName(final String time_suffix) {
-        return (RECORD_WAV_PATH + time_suffix + "." + "wav");
-    }
 
 }

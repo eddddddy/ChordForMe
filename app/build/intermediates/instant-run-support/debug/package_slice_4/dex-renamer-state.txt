@@ -1,4 +1,0 @@
-#Sun Feb 25 20:29:26 EST 2018
-base.0=C\:\\Users\\Edward\\Documents\\Side Projects\\ChordForMe\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\24
-path.0=classes.dex
-renamed.0=classes.dex
