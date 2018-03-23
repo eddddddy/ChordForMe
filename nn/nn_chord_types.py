@@ -20,7 +20,7 @@ epsilon = 1e-8
 data = tf.placeholder(tf.float32, shape=[None, get_data.len_data])
 labels_chord_types = tf.placeholder(tf.float32, shape=[None, translate.num_chord_types])
 weights_chord_types_hidden_1 =  tf.Variable(tf.random_normal([get_data.len_data, num_hidden_1], stddev=1/np.sqrt(get_data.len_data)), name="weights_chord_types_hidden_1")
-weights_chord_types_hidden_2 =  tf.Variable(tf.random_normal([num_hidden_1, num_hidden_2], stddev=1/np.sqrt(num_hidden_2)), name="weights_chord_types_hidden_2")
+weights_chord_types_hidden_2 =  tf.Variable(tf.random_normal([num_hidden_1, num_hidden_2], stddev=1/np.sqrt(num_hidden_1)), name="weights_chord_types_hidden_2")
 weights_chord_types_out = tf.Variable(tf.random_normal([num_hidden_2, translate.num_chord_types], stddev=1/np.sqrt(num_hidden_2)), name="weights_chord_types_out")
 biases_chord_types_hidden_1 = tf.Variable(tf.zeros(num_hidden_1), name="biases_chord_types_hidden_1")
 biases_chord_types_hidden_2 = tf.Variable(tf.zeros(num_hidden_2), name="biases_chord_types_hidden_2")

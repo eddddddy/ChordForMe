@@ -40,9 +40,9 @@ saver = tf.train.Saver()
 saver.restore(sess, "model/root_notes/root_notes_model")
 
 # create variables that can be used in other scripts
-weights_root_notes_hidden_1 = sess.run(weights_root_notes_hidden_1)
-weights_root_notes_out = sess.run(weights_root_notes_out)
-biases_root_notes_hidden_1 = sess.run(biases_root_notes_hidden_1)
-biases_root_notes_out = sess.run(biases_root_notes_out)
+weights_root_notes_hidden_1_true = sess.run(weights_root_notes_hidden_1)
+weights_root_notes_out_true = sess.run(weights_root_notes_out)
+biases_root_notes_hidden_1_true = sess.run(biases_root_notes_hidden_1)
+biases_root_notes_out_true = sess.run(biases_root_notes_out)
 
 sess.close()

@@ -53,11 +53,11 @@ saver = tf.train.Saver()
 saver.restore(sess, "model/chord_roots/chord_roots_model")
 
 # create variables that can be used in other scripts
-weights_chord_roots_hidden_1 = sess.run(weights_chord_roots_hidden_1)
-weights_chord_roots_hidden_2 = sess.run(weights_chord_roots_hidden_2)
-weights_chord_roots_out = sess.run(weights_chord_roots_out)
-biases_chord_roots_hidden_1 = sess.run(biases_chord_roots_hidden_1)
-biases_chord_roots_hidden_2 = sess.run(biases_chord_roots_hidden_2)
-biases_chord_roots_out = sess.run(biases_chord_roots_out)
+weights_chord_roots_hidden_1_true = sess.run(weights_chord_roots_hidden_1)
+weights_chord_roots_hidden_2_true = sess.run(weights_chord_roots_hidden_2)
+weights_chord_roots_out_true = sess.run(weights_chord_roots_out)
+biases_chord_roots_hidden_1_true = sess.run(biases_chord_roots_hidden_1)
+biases_chord_roots_hidden_2_true = sess.run(biases_chord_roots_hidden_2)
+biases_chord_roots_out_true = sess.run(biases_chord_roots_out)
 
 sess.close()
