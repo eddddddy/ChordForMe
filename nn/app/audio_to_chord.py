@@ -1,10 +1,11 @@
 """
 Provides a primary function, spectrogram_to_chord(), that reads in spectrogram
 data and outputs a string containing the chord root, chord type, and root note
-of the spectrogram. Also provides auxilliary functions for this task.
+of the spectrogram. Also provides auxilliary functions.
 """
 
 from importlib import reload
+from itertools import product
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
@@ -16,8 +17,8 @@ import variables_root_notes
 import translate
 
 frequencies = [375/16*i for i in range(1025)]
-times_all = [0.064/3 + i*0.112/3 for i in range(64)]
-NUM_DATA_POINTS = 16
+times_all = [0.064/3 + i*0.112/3 for i in range(32)]
+NUM_DATA_POINTS = 4
 LEN_DATA = 217*3
 
 # build graph for ONLY predictions
@@ -26,22 +27,26 @@ data_predict = tf.placeholder(tf.float32, shape=[None, LEN_DATA])
 layer_chord_roots_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, variables_chord_roots.weights_chord_roots_hidden_1_true), variables_chord_roots.biases_chord_roots_hidden_1_true))
 layer_chord_roots_2_predict = tf.nn.relu(tf.add(tf.matmul(layer_chord_roots_1_predict, variables_chord_roots.weights_chord_roots_hidden_2_true), variables_chord_roots.biases_chord_roots_hidden_2_true))
 out_chord_roots_predict = tf.add(tf.matmul(layer_chord_roots_2_predict, variables_chord_roots.weights_chord_roots_out_true), variables_chord_roots.biases_chord_roots_out_true)
+out_chord_roots_softmax_predict = tf.nn.softmax(out_chord_roots_predict)
 predict_chord_roots_op = tf.argmax(out_chord_roots_predict, axis=1)
 
 layer_chord_types_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, variables_chord_types.weights_chord_types_hidden_1_true), variables_chord_types.biases_chord_types_hidden_1_true))
 layer_chord_types_2_predict = tf.nn.relu(tf.add(tf.matmul(layer_chord_types_1_predict, variables_chord_types.weights_chord_types_hidden_2_true), variables_chord_types.biases_chord_types_hidden_2_true))
 out_chord_types_predict = tf.add(tf.matmul(layer_chord_types_2_predict, variables_chord_types.weights_chord_types_out_true), variables_chord_types.biases_chord_types_out_true)
+out_chord_types_softmax_predict = tf.nn.softmax(out_chord_types_predict)
 predict_chord_types_op = tf.argmax(out_chord_types_predict, axis=1)
 
 layer_root_notes_1_predict = tf.nn.relu(tf.matmul(data_predict, variables_root_notes.weights_root_notes_hidden_1_true) + variables_root_notes.biases_root_notes_hidden_1_true)
 out_root_notes_predict = tf.add(tf.matmul(layer_root_notes_1_predict, variables_root_notes.weights_root_notes_out_true), variables_root_notes.biases_root_notes_out_true)
+out_root_notes_softmax_predict = tf.nn.softmax(out_root_notes_predict)
 predict_root_notes_op = tf.argmax(out_root_notes_predict, axis=1)
 
-# build graph for predictions and training
-def initialize():
+def init():
     """
-    Updates parameters
+    Updates parameters from Tensorflow checkpoints. Builds graphs for
+    predictions and training using global variables.
     """
+    # need to re-read data from checkpoint files
     reload(variables_chord_roots)
     reload(variables_chord_types)
     reload(variables_root_notes)
@@ -151,29 +156,31 @@ def error(list_, correct):
     """
     return(1 - list_.count(correct)/len(list_))
 
-def rank_confidence_notes(list_lists):
+def rank_lowest_confidence_notes(list_lists):
     """
-    Ranks the confidence of chord note predictions given the probabilities in
+    Ranks the lowest confidence of note predictions given the probabilities in
     list_lists. Returns a tuple containing the ranked list (highest first) and
     the lowest probabilities of each note in list_lists.
     """
-    min_confidence = [1]*len(list_lists[0])
-    for i in range(len(list_lists)):
-        for j in range(len(list_lists[0])):
-            min_confidence[j] = min(min_confidence[j], list_lists[i][j])
-    return([translate.index_to_note(i) for i in np.argsort(min_confidence)[::-1]], sorted(min_confidence, reverse=True))
+    min_confidence = np.amin(list_lists, axis=0)
+    return(np.vectorize(translate.index_to_note)(np.argsort(min_confidence)[::-1]), np.sort(min_confidence)[::-1])
 
-def rank_confidence_types(list_lists):
+def rank_lowest_confidence_types(list_lists):
     """
-    Ranks the confidence of chord type predictions given the probabilities in
+    Ranks the lowest confidence of type predictions given the probabilities in
     list_lists. Returns a tuple containing the ranked list (highest first) and
     the lowest probabilities of each type in list_lists.
     """
-    min_confidence = [1]*len(list_lists[0])
-    for i in range(len(list_lists)):
-        for j in range(len(list_lists[0])):
-            min_confidence[j] = min(min_confidence[j], list_lists[i][j])
-    return([translate.index_to_type(i) for i in np.argsort(min_confidence)[::-1]], sorted(min_confidence, reverse=True))
+    min_confidence = np.amin(list_lists, axis=0)
+    return(np.vectorize(translate.index_to_type)(np.argsort(min_confidence)[::-1]), np.sort(min_confidence)[::-1])
+
+def lowest_confidence(list_lists):
+    """
+    Returns the lowest confidence of predictions in list_lists. Unlike
+    rank_lowest_confidence, does not attempt to sort the resulting list, but
+    instead retains the same order as the elements of list_lists.
+    """
+    return(np.amin(list_lists, axis=0))
 
 def generate_label(num_labels, correct_label):
     """
@@ -183,13 +190,73 @@ def generate_label(num_labels, correct_label):
     label[correct_label] = 1
     return(label)
 
-def spectrogram_to_chord_train(file):  # change parameter to spectrogram if input is spectrogram data
+def is_empty_space(list_):
     """
-    Reads in spectrogram data and returns a string containing the predicted
-    chord root, chord type, and root note of the spectrogram. Use for training
-    the neural networks.
+    Checks if list_ data is empty space.
     """
-    initialize()
+    return(list_[0] == 1)
+
+def is_background_noise(list_):
+    """
+    Checks if list_ data is background noise.
+    """
+    for i in range(int(len(list_)/3)):
+        if (list_[3*i] != 68/255) or (list_[3*i + 1] != 1/255) or (list_[3*i + 2] != 84/255):  # rgb color of background noise is (68, 1, 84)
+            return False
+    return True
+
+def most_likely_chord_probability(chord_root_probabilities, chord_type_probabilities, root_note_probabilities):
+    """
+    Returns a tuple with the most likely possible chord root, chord type, and
+    root note (represented as indices), given lists of probabilities.
+    """
+    chord_properties = list(product(list(range(12)), list(range(translate.NUM_CHORD_TYPES)), list(range(12))))
+    chord_probabilities = [np.prod(i) for i in product(chord_root_probabilities, chord_type_probabilities, root_note_probabilities)]
+
+    # rank chords based on probability
+    chord_properties_sorted = [properties for probability, properties in sorted(zip(chord_probabilities, chord_properties), reverse=True)]
+    chord_probabilities_sorted = sorted(chord_probabilities, reverse=True)
+
+    for i in range(len(chord_probabilities_sorted)):
+        chord_root_predicted = chord_properties_sorted[i][0]
+        chord_type_predicted = chord_properties_sorted[i][1]
+        root_note_predicted = chord_properties_sorted[i][2]
+
+        # return properties if chord is possible
+        if translate.is_possible_chord(chord_root_predicted, chord_type_predicted, root_note_predicted):
+            return(chord_root_predicted, chord_type_predicted, root_note_predicted)
+
+def most_likely_chord_mode(chord_root_predictions, chord_type_predictions, root_note_predictions):
+    """
+    Returns a tuple with the most frequent possible chord root, chord type, and
+    root note (represented as indices), given lists of predictions.
+    """
+    chord_properties_predictions = list(product(chord_root_predictions, chord_type_predictions, root_note_predictions))
+
+    while True:
+        # handle case where no predicted chord is possible
+        if chord_properties_predictions == []:
+            raise ValueError("No possible chord found")
+
+        chord_properties_predicted = mode(chord_properties_predictions)
+        chord_root_predicted = chord_properties_predicted[0]
+        chord_type_predicted = chord_properties_predicted[1]
+        root_note_predicted = chord_properties_predicted[2]
+
+        # return properties if chord is possible
+        if translate.is_possible_chord(chord_root_predicted, chord_type_predicted, root_note_predicted):
+            return(chord_root_predicted, chord_type_predicted, root_note_predicted)
+
+        # if not possible, remove all instances of mode from list and loop
+        chord_properties_predictions = [properties for properties in chord_properties_predictions if properties != chord_properties_predicted]
+
+def spectrogram_to_chord_train(file):
+    """
+    Reads data from a wav file and returns a string containing the predicted
+    chord root, chord type, and root note of the spectrogram. Use for
+    additional training.
+    """
+    init()  # reload parameters
 
     sample_rate, samples = wavfile.read(file)
     frequencies_, times, spectrogram = signal.spectrogram(samples, sample_rate, nperseg=2048)
@@ -209,12 +276,18 @@ def spectrogram_to_chord_train(file):  # change parameter to spectrogram if inpu
         image = np.frombuffer(figure.canvas.tostring_rgb(), dtype=np.uint8)
         image = image.reshape(figure.canvas.get_width_height()[::-1] + (3,))
         image = crop_image(image).flatten()/255
+
+        if is_empty_space(image) or is_background_noise(image):  # skip empty space and background noise
+            continue
         array_image_data_all.append(image.tolist())
 
     plt.close("all")
+
+    if array_image_data_all == []:
+        return("")
     array_image_data_all = np.array(array_image_data_all)
 
-    # make chord predictions using the created graph
+    # make chord predictions using the created graph (in global variables)
     sess = tf.Session()
 
     sess.run(weights_chord_roots_hidden_1_assign_op)
@@ -244,38 +317,42 @@ def spectrogram_to_chord_train(file):  # change parameter to spectrogram if inpu
     predicted_chord_types = tf.argmax(out_chord_types_probabilities, axis=1).eval(session=sess)
     predicted_root_notes = tf.argmax(out_root_notes_probabilities, axis=1).eval(session=sess)
 
-    rank_chord_roots, probabilities_chord_roots = rank_confidence_notes(out_chord_roots_probabilities)
-    rank_chord_types, probabilities_chord_types = rank_confidence_types(out_chord_types_probabilities)
-    rank_root_notes, probabilities_root_notes = rank_confidence_notes(out_root_notes_probabilities)
+    # use softmax probabilities to rank predictions
+    rank_chord_roots, probabilities_chord_roots = rank_lowest_confidence_notes(out_chord_roots_probabilities)
+    rank_chord_types, probabilities_chord_types = rank_lowest_confidence_types(out_chord_types_probabilities)
+    rank_root_notes, probabilities_root_notes = rank_lowest_confidence_notes(out_root_notes_probabilities)
 
+    # print relevant information
     print("\nChord root:")
-    print("All predictions:", [translate.index_to_note(i) for i in predicted_chord_roots])
+    print("All predictions:", np.vectorize(translate.index_to_note)(predicted_chord_roots))
     print("Confidence rank: ", rank_chord_roots)
     print("Lowest probabilities:", probabilities_chord_roots)
 
     print("\nChord type:")
-    print("All predictions:", [translate.index_to_type(i) for i in predicted_chord_types])
+    print("All predictions:", np.vectorize(translate.index_to_type)(predicted_chord_types))
     print("Confidence rank: ", rank_chord_types)
     print("Lowest probabilities:", probabilities_chord_types)
 
     print("\nRoot note:")
-    print("All predictions:", [translate.index_to_note(i) for i in predicted_root_notes])
+    print("All predictions:", np.vectorize(translate.index_to_note)(predicted_root_notes))
     print("Confidence rank: ", rank_root_notes)
     print("Lowest probabilities:", probabilities_root_notes)
 
-    chord_root_prediction = rank_chord_roots[0]
-    chord_type_prediction = rank_chord_types[0]
-    root_note_prediction = rank_root_notes[0]
+    chord_properties_prediction = most_likely_chord_probability(lowest_confidence(out_chord_roots_probabilities), lowest_confidence(out_chord_types_probabilities), lowest_confidence(out_root_notes_probabilities))
+    chord_root_prediction = translate.index_to_note(chord_properties_prediction[0])
+    chord_type_prediction = translate.index_to_type(chord_properties_prediction[1])
+    root_note_prediction = translate.index_to_note(chord_properties_prediction[2])
 
     print("\nChord prediction:", chord_root_prediction + chord_type_prediction + "/" + root_note_prediction)
 
+    # user determines whether to train
     if input("\nTrain chord root? (y/n): ") == "y":
         chord_root_label = input("Index of correct chord root in confidence rank (c to cancel): ")
         if chord_root_label != "c":
             chord_root_label = translate.note_to_index(rank_chord_roots[int(chord_root_label)])
             chord_root_labels = np.array([generate_label(12, int(chord_root_label))]*len(predicted_chord_roots))
             sess.run(train_chord_roots_op, feed_dict={data: array_image_data_all, labels_chord_roots: chord_root_labels})
-            saver_chord_roots.save(sess, "model/chord_roots/chord_roots_model")
+            saver_chord_roots.save(sess, "model/chord_roots/chord_roots_model", write_meta_graph=False)
             print("\nChord root trained!")
 
     if input("\nTrain chord type? (y/n): ") == "y":
@@ -284,7 +361,7 @@ def spectrogram_to_chord_train(file):  # change parameter to spectrogram if inpu
             chord_type_label = translate.type_to_index(rank_chord_types[int(chord_type_label)])
             chord_type_labels = np.array([generate_label(translate.NUM_CHORD_TYPES, int(chord_type_label))]*len(predicted_chord_types))
             sess.run(train_chord_types_op, feed_dict={data: array_image_data_all, labels_chord_types: chord_type_labels})
-            saver_chord_types.save(sess, "model/chord_types/chord_types_model")
+            saver_chord_types.save(sess, "model/chord_types/chord_types_model", write_meta_graph=False)
             print("\nChord type trained!")
 
     if input("\nTrain root note? (y/n): ") == "y":
@@ -293,14 +370,15 @@ def spectrogram_to_chord_train(file):  # change parameter to spectrogram if inpu
             root_note_label = translate.note_to_index(rank_root_notes[int(root_note_label)])
             root_note_labels = np.array([generate_label(12, int(root_note_label))]*len(predicted_root_notes))
             sess.run(train_root_notes_op, feed_dict={data: array_image_data_all, labels_root_notes: root_note_labels})
-            saver_root_notes.save(sess, "model/root_notes/root_notes_model")
-            print("\nRoot note trained!\n")
+            saver_root_notes.save(sess, "model/root_notes/root_notes_model", write_meta_graph=False)
+            print("\nRoot note trained!")
 
+    print("\n")
     sess.close()
 
 def spectrogram_to_chord(spectrogram):
     """
-    Reads in spectrogram data and returns a string containing the predicted
+    Reads spectrogram data and returns a string containing the predicted
     chord root, chord type, and root note of the spectrogram.
     """
     times = times_all[:len(spectrogram[0])]  # times_all is a global variable
@@ -320,20 +398,43 @@ def spectrogram_to_chord(spectrogram):
         image = np.frombuffer(figure.canvas.tostring_rgb(), dtype=np.uint8)
         image = image.reshape(figure.canvas.get_width_height()[::-1] + (3,))
         image = crop_image(image).flatten()/255
+
+        if is_empty_space(image) or is_background_noise(image):  # skip empty space and background noise
+            continue
         array_image_data_all.append(image.tolist())
 
     plt.close("all")
+
+    if array_image_data_all == []:
+        return("")
     array_image_data_all = np.array(array_image_data_all)
 
     # make chord predictions using the created graph
-    with tf.Session() as sess:
-        predicted_chord_roots = sess.run(predict_chord_roots_op, feed_dict={data: array_image_data_all}).tolist()
-        predicted_chord_types = sess.run(predict_chord_types_op, feed_dict={data: array_image_data_all}).tolist()
-        predicted_root_notes = sess.run(predict_root_notes_op, feed_dict={data: array_image_data_all}).tolist()
 
-    chord_root_prediction = translate.index_to_note(mode(predicted_chord_roots))
-    chord_type_prediction = translate.index_to_type(mode(predicted_chord_types))
-    root_note_prediction = translate.index_to_note(mode(predicted_root_notes))
+    # using softmax probabilities
+    with tf.Session() as sess:
+        out_chord_roots_probabilities = sess.run(out_chord_roots_softmax_predict, feed_dict={data_predict: array_image_data_all})
+        out_chord_types_probabilities = sess.run(out_chord_types_softmax_predict, feed_dict={data_predict: array_image_data_all})
+        out_root_notes_probabilities = sess.run(out_root_notes_softmax_predict, feed_dict={data_predict: array_image_data_all})
+
+    chord_properties_prediction = most_likely_chord_probability(lowest_confidence(out_chord_roots_probabilities), lowest_confidence(out_chord_types_probabilities), lowest_confidence(out_root_notes_probabilities))
+
+    # using mode
+    """
+    with tf.Session() as sess:
+        predicted_chord_roots = sess.run(predict_chord_roots_op, feed_dict={data_predict: array_image_data_all})
+        predicted_chord_types = sess.run(predict_chord_types_op, feed_dict={data_predict: array_image_data_all})
+        predicted_root_notes = sess.run(predict_root_notes_op, feed_dict={data_predict: array_image_data_all})
+
+    try:
+        chord_properties_prediction = most_likely_chord_mode(predicted_chord_roots, predicted_chord_types, predicted_root_notes)
+    except ValueError:
+        return("")
+    """
+
+    chord_root_prediction = translate.index_to_note(chord_properties_prediction[0])
+    chord_type_prediction = translate.index_to_type(chord_properties_prediction[1])
+    root_note_prediction = translate.index_to_note(chord_properties_prediction[2])
 
     return(chord_root_prediction + chord_type_prediction + "/" + root_note_prediction)
 
