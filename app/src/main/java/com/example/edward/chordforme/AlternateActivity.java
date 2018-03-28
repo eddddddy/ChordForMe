@@ -14,6 +14,7 @@ import com.goebl.david.Webb;
 import com.goebl.david.WebbException;
 
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -30,7 +31,6 @@ import java.util.Random;
 public class AlternateActivity extends AppCompatActivity {
 
     private static int SAMPLE_RATE = 44100;
-    private int bufferSize;
     private boolean mIsRecording = false;
     private float[] mBuffer;
     private File mRecording;
@@ -42,7 +42,9 @@ public class AlternateActivity extends AppCompatActivity {
     private static Handler responseHandler;
     private static Runnable postRunnable;
     private static final String postURL = "https://edddy.pythonanywhere.com/";
-    private static float[] data = new float[65536];
+    private static int floatBufferSize = 16384;
+    private static float[] floatData = new float[floatBufferSize];
+    private static byte[] byteData = new byte[floatBufferSize * 4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,15 +60,15 @@ public class AlternateActivity extends AppCompatActivity {
                         startRecording();
                         callWebScript();
                     } catch (WebbException e) {
-                        e.printStackTrace();
+                        System.out.println("Error in post request");
                     }
                 }
             }
         };
 
-        bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_FLOAT);
-        mRecorder = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_FLOAT, 65536);
-        mBuffer = new float[bufferSize];
+        //bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_FLOAT);
+        mRecorder = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_FLOAT, floatBufferSize * 4);
+        mBuffer = new float[floatBufferSize];
         new File(RECORD_WAV_PATH).mkdir();
 
         recordWavStart();
@@ -157,7 +159,23 @@ public class AlternateActivity extends AppCompatActivity {
     }
 
     private static void startRecording() {
-        mRecorder.read(data,0,data.length,AudioRecord.READ_NON_BLOCKING);
+        //mRecorder.read(floatData, 0, floatBufferSize, AudioRecord.READ_BLOCKING);
+        System.out.println("floats:");
+        System.out.println(Arrays.toString(floatData));
+
+        //mRecorder.read(floatData,0,floatData.length,AudioRecord.READ_NON_BLOCKING);
+
+        /*
+        mRecorder.read(byteData, 0, byteData.length);
+        System.out.println("bytes:");
+        System.out.println(Arrays.toString(byteData));
+        float[] floats = new float[floatBufferSize];
+        ByteBuffer.wrap(byteData).order(ByteOrder.LITTLE_ENDIAN).asFloatBuffer().get(floats);
+        floatData = floats;
+        System.out.println("floats:");
+        System.out.println(Arrays.toString(floatData));
+        //ByteBuffer.wrap(byteData).order(ByteOrder.BIG_ENDIAN).asFloatBuffer().get(floatData);
+        */
     }
 
     private static String getRandomByteArrayToString() {
@@ -171,9 +189,10 @@ public class AlternateActivity extends AppCompatActivity {
 
     public static void callWebScript() throws WebbException {
         Webb webb = Webb.create();
+        System.out.println("i sent");
         response = webb.post(postURL)
-                .param("samples", Arrays.toString(data))
-                .param("sample_rate", Integer.toString(SAMPLE_RATE))
+                .param("samples", "np.array(" + Arrays.toString(floatData) + ")")
+                .param("sample_rate", SAMPLE_RATE)
                 .ensureSuccess()
                 .asString()
                 .getBody();
@@ -230,7 +249,6 @@ public class AlternateActivity extends AppCompatActivity {
 
     }*/
 
-    /*
     private void test() {
 
         DataInputStream input = new DataInputStream(getResources().openRawResource(R.raw.a_major_a_fourth_octave));
@@ -255,10 +273,11 @@ public class AlternateActivity extends AppCompatActivity {
         float[] floats = new float[rawData.length / 4];
         ByteBuffer.wrap(rawData).order(ByteOrder.LITTLE_ENDIAN).asFloatBuffer().get(floats);
 
-        System.out.println(Arrays.toString(floats));
+        for (int i = 0; i < 40; i++) {
+            System.out.println(floats[i]);
+        }
 
     }
-    */
 
     private void rawToWave(final File rawFile, final File waveFile) throws IOException {
 
