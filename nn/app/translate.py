@@ -91,3 +91,14 @@ def possible_root_notes(chord_root, chord_type):
         return([chord_root, (chord_root + 3) % 12, (chord_root + 7) % 12])
     if chord_type == 2:  # dominant seventh chord
         return([chord_root, (chord_root + 4) % 12, (chord_root + 7) % 12, (chord_root + 10) % 12])
+
+def is_possible_chord(chord_root, chord_type, root_note):
+    """
+    Checks if the chord with the given properties is a possible chord.
+    """
+    chord_roots_possible = possible_chord_roots(chord_type, root_note)
+    chord_types_possible = possible_chord_types(chord_root, root_note)
+    root_notes_possible = possible_root_notes(chord_root, chord_type)
+    if (chord_root in chord_roots_possible) and (chord_type in chord_types_possible) and (root_note in root_notes_possible):
+        return True
+    return False
