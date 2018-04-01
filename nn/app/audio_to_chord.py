@@ -12,18 +12,24 @@ import tensorflow as tf
 from scipy.io import wavfile
 from scipy import signal
 
-frequencies = [375/16*i for i in range(1025)]
-times_all = [0.064/3 + i*0.112/3 for i in range(32)]
-notes = ["C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C"]
-chord_types = ["", "m", "7", "maj7", "min7", "mm7", "aug", "dim", "dim7", "dimm7"]
-NUM_DATA_POINTS = 4
-NUM_CHORD_TYPES = 3  # only major, minor, and dominant seventh
-NUM_HIDDEN_CHORD_ROOTS_1 = 1024
-NUM_HIDDEN_CHORD_ROOTS_2 = 1024
-NUM_HIDDEN_CHORD_TYPES_1 = 2048
-NUM_HIDDEN_CHORD_TYPES_2 = 2048
-NUM_HIDDEN_ROOT_NOTES_1 = 2048
-LEN_DATA = 217*3
+def load_global_vars():
+    """
+    Creates global variables used in predictions.
+    """
+    frequencies = [375/16*i for i in range(1025)]
+    times_all = [0.064/3 + i*0.112/3 for i in range(32)]
+    notes = ["C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C"]
+    chord_types = ["", "m", "7", "maj7", "min7", "mm7", "aug", "dim", "dim7", "dimm7"]
+    NUM_DATA_POINTS = 4
+    NUM_CHORD_TYPES = 3  # only major, minor, and dominant seventh
+    NUM_HIDDEN_CHORD_ROOTS_1 = 1024
+    NUM_HIDDEN_CHORD_ROOTS_2 = 1024
+    NUM_HIDDEN_CHORD_TYPES_1 = 2048
+    NUM_HIDDEN_CHORD_TYPES_2 = 2048
+    NUM_HIDDEN_ROOT_NOTES_1 = 2048
+    LEN_DATA = 217*3
+
+    globals().update(locals())
 
 def load_variables_chord_roots():
     """
@@ -179,11 +185,13 @@ def load_variables_root_notes():
 
     globals().update(locals())
 
-def init():
+def init_train():
     """
     Updates variables from Tensorflow checkpoints. Builds graphs for
     predictions and training, giving them global scope.
     """
+    load_global_vars()
+
     # need to re-read data from checkpoint files
     load_variables_chord_roots()
     load_variables_chord_types()
@@ -544,7 +552,7 @@ def spectrogram_to_chord_train(file):
 
     file: str -> None
     """
-    init()  # reload parameters
+    init_train()  # reload parameters
 
     sample_rate, samples = wavfile.read(file)
     frequencies_, times, spectrogram = signal.spectrogram(samples, sample_rate, nperseg=2048)
@@ -664,34 +672,41 @@ def spectrogram_to_chord_train(file):
     print("\n")
     sess.close()
 
+def init_predict():
+    """
+    Updates variables from Tensorflow checkpoints. Builds graphs for
+    predictions and training, giving them global scope.
 
-# MAIN
+    THIS FUNCTION MUST ONLY BE EXECUTED ONCE WHEN THE SCRIPT IS RUN.
+    """
+    load_global_vars()
+    chord_prediction = ""  # variable to change when making chord predictions using spectrogram_to_chord()
 
-chord_prediction = ""  # variable to change when making chord predictions using spectrogram_to_chord()
+    load_variables_chord_roots()
+    load_variables_chord_types()
+    load_variables_root_notes()
 
-load_variables_chord_roots()
-load_variables_chord_types()
-load_variables_root_notes()
+    # build predictions graph
+    data_predict = tf.placeholder(tf.float32, shape=[None, LEN_DATA])
 
-# build predictions graph
-data_predict = tf.placeholder(tf.float32, shape=[None, LEN_DATA])
+    layer_chord_roots_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_chord_roots_hidden_1_true), biases_chord_roots_hidden_1_true))
+    layer_chord_roots_2_predict = tf.nn.relu(tf.add(tf.matmul(layer_chord_roots_1_predict, weights_chord_roots_hidden_2_true), biases_chord_roots_hidden_2_true))
+    out_chord_roots_predict = tf.add(tf.matmul(layer_chord_roots_2_predict, weights_chord_roots_out_true), biases_chord_roots_out_true)
+    out_chord_roots_softmax_predict = tf.nn.softmax(out_chord_roots_predict)
+    predict_chord_roots_op = tf.argmax(out_chord_roots_predict, axis=1)
 
-layer_chord_roots_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_chord_roots_hidden_1_true), biases_chord_roots_hidden_1_true))
-layer_chord_roots_2_predict = tf.nn.relu(tf.add(tf.matmul(layer_chord_roots_1_predict, weights_chord_roots_hidden_2_true), biases_chord_roots_hidden_2_true))
-out_chord_roots_predict = tf.add(tf.matmul(layer_chord_roots_2_predict, weights_chord_roots_out_true), biases_chord_roots_out_true)
-out_chord_roots_softmax_predict = tf.nn.softmax(out_chord_roots_predict)
-predict_chord_roots_op = tf.argmax(out_chord_roots_predict, axis=1)
+    layer_chord_types_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_chord_types_hidden_1_true), biases_chord_types_hidden_1_true))
+    layer_chord_types_2_predict = tf.nn.relu(tf.add(tf.matmul(layer_chord_types_1_predict, weights_chord_types_hidden_2_true), biases_chord_types_hidden_2_true))
+    out_chord_types_predict = tf.add(tf.matmul(layer_chord_types_2_predict, weights_chord_types_out_true), biases_chord_types_out_true)
+    out_chord_types_softmax_predict = tf.nn.softmax(out_chord_types_predict)
+    predict_chord_types_op = tf.argmax(out_chord_types_predict, axis=1)
 
-layer_chord_types_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_chord_types_hidden_1_true), biases_chord_types_hidden_1_true))
-layer_chord_types_2_predict = tf.nn.relu(tf.add(tf.matmul(layer_chord_types_1_predict, weights_chord_types_hidden_2_true), biases_chord_types_hidden_2_true))
-out_chord_types_predict = tf.add(tf.matmul(layer_chord_types_2_predict, weights_chord_types_out_true), biases_chord_types_out_true)
-out_chord_types_softmax_predict = tf.nn.softmax(out_chord_types_predict)
-predict_chord_types_op = tf.argmax(out_chord_types_predict, axis=1)
+    layer_root_notes_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_root_notes_hidden_1_true), biases_root_notes_hidden_1_true))
+    out_root_notes_predict = tf.add(tf.matmul(layer_root_notes_1_predict, weights_root_notes_out_true), biases_root_notes_out_true)
+    out_root_notes_softmax_predict = tf.nn.softmax(out_root_notes_predict)
+    predict_root_notes_op = tf.argmax(out_root_notes_predict, axis=1)
 
-layer_root_notes_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_root_notes_hidden_1_true), biases_root_notes_hidden_1_true))
-out_root_notes_predict = tf.add(tf.matmul(layer_root_notes_1_predict, weights_root_notes_out_true), biases_root_notes_out_true)
-out_root_notes_softmax_predict = tf.nn.softmax(out_root_notes_predict)
-predict_root_notes_op = tf.argmax(out_root_notes_predict, axis=1)
+    globals().update(locals())
 
 def spectrogram_to_chord(spectrogram):
     """
