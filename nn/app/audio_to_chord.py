@@ -11,6 +11,7 @@ import numpy as np
 import tensorflow as tf
 from scipy.io import wavfile
 from scipy import signal
+import time
 
 def load_global_vars():
     """
@@ -679,6 +680,7 @@ def init_predict():
 
     THIS FUNCTION MUST ONLY BE EXECUTED ONCE WHEN THE SCRIPT IS RUN.
     """
+    start = time.time()
     load_global_vars()
     chord_prediction = ""  # variable to change when making chord predictions using spectrogram_to_chord()
 
@@ -689,33 +691,57 @@ def init_predict():
     # build predictions graph
     data_predict = tf.placeholder(tf.float32, shape=[None, LEN_DATA])
 
-    layer_chord_roots_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_chord_roots_hidden_1_true), biases_chord_roots_hidden_1_true))
-    layer_chord_roots_2_predict = tf.nn.relu(tf.add(tf.matmul(layer_chord_roots_1_predict, weights_chord_roots_hidden_2_true), biases_chord_roots_hidden_2_true))
-    out_chord_roots_predict = tf.add(tf.matmul(layer_chord_roots_2_predict, weights_chord_roots_out_true), biases_chord_roots_out_true)
+    weights_chord_roots_hidden_1_p = tf.placeholder(tf.float32, shape=[LEN_DATA, NUM_HIDDEN_CHORD_ROOTS_1])
+    weights_chord_roots_hidden_2_p = tf.placeholder(tf.float32, shape=[NUM_HIDDEN_CHORD_ROOTS_1, NUM_HIDDEN_CHORD_ROOTS_2])
+    weights_chord_roots_out_p = tf.placeholder(tf.float32, shape=[NUM_HIDDEN_CHORD_ROOTS_2, 12])
+    biases_chord_roots_hidden_1_p = tf.placeholder(tf.float32, shape=[NUM_HIDDEN_CHORD_ROOTS_1])
+    biases_chord_roots_hidden_2_p = tf.placeholder(tf.float32, shape=[NUM_HIDDEN_CHORD_ROOTS_2])
+    biases_chord_roots_out_p = tf.placeholder(tf.float32, shape=[12])
+
+    weights_chord_types_hidden_1_p = tf.placeholder(tf.float32, shape=[LEN_DATA, NUM_HIDDEN_CHORD_TYPES_1])
+    weights_chord_types_hidden_2_p = tf.placeholder(tf.float32, shape=[NUM_HIDDEN_CHORD_TYPES_1, NUM_HIDDEN_CHORD_TYPES_2])
+    weights_chord_types_out_p = tf.placeholder(tf.float32, shape=[NUM_HIDDEN_CHORD_TYPES_2, NUM_CHORD_TYPES])
+    biases_chord_types_hidden_1_p = tf.placeholder(tf.float32, shape=[NUM_HIDDEN_CHORD_TYPES_1])
+    biases_chord_types_hidden_2_p = tf.placeholder(tf.float32, shape=[NUM_HIDDEN_CHORD_TYPES_2])
+    biases_chord_types_out_p = tf.placeholder(tf.float32, shape=[NUM_CHORD_TYPES])
+
+    weights_root_notes_hidden_1_p = tf.placeholder(tf.float32, shape=[LEN_DATA, NUM_HIDDEN_ROOT_NOTES_1])
+    weights_root_notes_out_p = tf.placeholder(tf.float32, shape=[NUM_HIDDEN_ROOT_NOTES_1, 12])
+    biases_root_notes_hidden_1_p = tf.placeholder(tf.float32, shape=[NUM_HIDDEN_ROOT_NOTES_1])
+    biases_root_notes_out_p = tf.placeholder(tf.float32, shape=[12])
+
+    layer_chord_roots_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_chord_roots_hidden_1_p), biases_chord_roots_hidden_1_p))
+    layer_chord_roots_2_predict = tf.nn.relu(tf.add(tf.matmul(layer_chord_roots_1_predict, weights_chord_roots_hidden_2_p), biases_chord_roots_hidden_2_p))
+    out_chord_roots_predict = tf.add(tf.matmul(layer_chord_roots_2_predict, weights_chord_roots_out_p), biases_chord_roots_out_p)
     out_chord_roots_softmax_predict = tf.nn.softmax(out_chord_roots_predict)
     predict_chord_roots_op = tf.argmax(out_chord_roots_predict, axis=1)
 
-    layer_chord_types_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_chord_types_hidden_1_true), biases_chord_types_hidden_1_true))
-    layer_chord_types_2_predict = tf.nn.relu(tf.add(tf.matmul(layer_chord_types_1_predict, weights_chord_types_hidden_2_true), biases_chord_types_hidden_2_true))
-    out_chord_types_predict = tf.add(tf.matmul(layer_chord_types_2_predict, weights_chord_types_out_true), biases_chord_types_out_true)
+    layer_chord_types_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_chord_types_hidden_1_p), biases_chord_types_hidden_1_p))
+    layer_chord_types_2_predict = tf.nn.relu(tf.add(tf.matmul(layer_chord_types_1_predict, weights_chord_types_hidden_2_p), biases_chord_types_hidden_2_p))
+    out_chord_types_predict = tf.add(tf.matmul(layer_chord_types_2_predict, weights_chord_types_out_p), biases_chord_types_out_p)
     out_chord_types_softmax_predict = tf.nn.softmax(out_chord_types_predict)
     predict_chord_types_op = tf.argmax(out_chord_types_predict, axis=1)
 
-    layer_root_notes_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_root_notes_hidden_1_true), biases_root_notes_hidden_1_true))
-    out_root_notes_predict = tf.add(tf.matmul(layer_root_notes_1_predict, weights_root_notes_out_true), biases_root_notes_out_true)
+    layer_root_notes_1_predict = tf.nn.relu(tf.add(tf.matmul(data_predict, weights_root_notes_hidden_1_p), biases_root_notes_hidden_1_p))
+    out_root_notes_predict = tf.add(tf.matmul(layer_root_notes_1_predict, weights_root_notes_out_p), biases_root_notes_out_p)
     out_root_notes_softmax_predict = tf.nn.softmax(out_root_notes_predict)
     predict_root_notes_op = tf.argmax(out_root_notes_predict, axis=1)
 
     globals().update(locals())
+    print(time.time() - start)
 
-def spectrogram_to_chord(spectrogram):
+def spectrogram_to_chord(file):
     """
     Reads spectrogram data and returns a string containing the predicted
     chord root, chord type, and root note of the spectrogram.
 
     spectrogram: ndarray[][float] -> None
     """
-    times = times_all[:len(spectrogram[0])]  # times_all is a global variable
+    start = time.time()
+    sample_rate, samples = wavfile.read(file)
+    frequencies_, times, spectrogram = signal.spectrogram(samples, sample_rate, nperseg=2048)
+
+    #times = times_all[:len(spectrogram[0])]  # times_all is a global variable
 
     # convert spectrogram data to image pixel data
     array_image_data_all = []
@@ -749,9 +775,25 @@ def spectrogram_to_chord(spectrogram):
 
     # using softmax probabilities
     with tf.Session() as sess:
-        out_chord_roots_probabilities = sess.run(out_chord_roots_softmax_predict, feed_dict={data_predict: array_image_data_all})
-        out_chord_types_probabilities = sess.run(out_chord_types_softmax_predict, feed_dict={data_predict: array_image_data_all})
-        out_root_notes_probabilities = sess.run(out_root_notes_softmax_predict, feed_dict={data_predict: array_image_data_all})
+        out_chord_roots_probabilities = sess.run(out_chord_roots_softmax_predict, feed_dict={data_predict: array_image_data_all,
+                                                                                             weights_chord_roots_hidden_1_p: weights_chord_roots_hidden_1_true,
+                                                                                             weights_chord_roots_hidden_2_p: weights_chord_roots_hidden_2_true,
+                                                                                             weights_chord_roots_out_p: weights_chord_roots_out_true,
+                                                                                             biases_chord_roots_hidden_1_p: biases_chord_roots_hidden_1_true,
+                                                                                             biases_chord_roots_hidden_2_p: biases_chord_roots_hidden_2_true,
+                                                                                             biases_chord_roots_out_p: biases_chord_roots_out_true})
+        out_chord_types_probabilities = sess.run(out_chord_types_softmax_predict, feed_dict={data_predict: array_image_data_all,
+                                                                                             weights_chord_types_hidden_1_p: weights_chord_types_hidden_1_true,
+                                                                                             weights_chord_types_hidden_2_p: weights_chord_types_hidden_2_true,
+                                                                                             weights_chord_types_out_p: weights_chord_types_out_true,
+                                                                                             biases_chord_types_hidden_1_p: biases_chord_types_hidden_1_true,
+                                                                                             biases_chord_types_hidden_2_p: biases_chord_types_hidden_2_true,
+                                                                                             biases_chord_types_out_p: biases_chord_types_out_true})
+        out_root_notes_probabilities = sess.run(out_root_notes_softmax_predict, feed_dict={data_predict: array_image_data_all,
+                                                                                           weights_root_notes_hidden_1_p: weights_root_notes_hidden_1_true,
+                                                                                           weights_root_notes_out_p: weights_root_notes_out_true,
+                                                                                           biases_root_notes_hidden_1_p: biases_root_notes_hidden_1_true,
+                                                                                           biases_root_notes_out_p: biases_root_notes_out_true})
 
     chord_properties_prediction = most_likely_chord_probability(lowest_confidence(out_chord_roots_probabilities), lowest_confidence(out_chord_types_probabilities), lowest_confidence(out_root_notes_probabilities))
 
@@ -774,3 +816,4 @@ def spectrogram_to_chord(spectrogram):
     root_note_prediction = index_to_note(chord_properties_prediction[2])
 
     chord_prediction = chord_root_prediction + chord_type_prediction + "/" + root_note_prediction
+    print(time.time() - start)
