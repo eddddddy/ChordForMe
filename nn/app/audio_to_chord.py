@@ -603,18 +603,7 @@ def most_likely_chord_mode(chord_root_predictions, chord_type_predictions, root_
         chord_properties_predictions = [properties for properties in chord_properties_predictions if properties != chord_properties_predicted]
 
 
-def save_model(sess):
-    """
-    sess: tf.Session() -> None
-
-    Saves trained model as Tensorflow checkpoints.
-    """
-    saver_chord_roots.save(sess, "model/chord_roots/chord_roots_model", write_meta_graph=False)
-    saver_chord_types.save(sess, "model/chord_types/chord_types_model", write_meta_graph=False)
-    saver_root_notes.save(sess, "model/root_notes/root_notes_model", write_meta_graph=False)
-
-
-def spectrogram_to_chord_train(samples, sample_rate, save_training=False):
+def spectrogram_to_chord_train(file):
     """
     file: str, save_training: bool -> None
 
@@ -625,6 +614,7 @@ def spectrogram_to_chord_train(samples, sample_rate, save_training=False):
 
     init_train() must be called before this function can be called.
     """
+    sample_rate, samples = wavfile.read(file)
     samples = signal.resample(samples, int(len(samples)*48000/sample_rate))
     frequencies_, times, spectrogram = signal.spectrogram(samples, 48000, nperseg=2048)
 
@@ -758,12 +748,39 @@ def spectrogram_to_chord_train(samples, sample_rate, save_training=False):
         w_chord_types_hidden_1, w_chord_types_hidden_2, w_chord_types_out, b_chord_types_hidden_1, b_chord_types_hidden_2, b_chord_types_out,
         w_root_notes_hidden_1, w_root_notes_out, b_root_notes_hidden_1, b_root_notes_out)
 
-    if save_training:
-        save_model(sess)
-        print("\nModel saved!")
-
     print("\n")
     sess.close()
+
+
+def save_model():
+    """
+    Saves trained variables as Tensorflow checkpoints.
+    """
+    with tf.Session() as sess:
+        sess.run(weights_chord_roots_hidden_1_assign_op)
+        sess.run(weights_chord_roots_hidden_2_assign_op)
+        sess.run(weights_chord_roots_out_assign_op)
+        sess.run(biases_chord_roots_hidden_1_assign_op)
+        sess.run(biases_chord_roots_hidden_2_assign_op)
+        sess.run(biases_chord_roots_out_assign_op)
+
+        sess.run(weights_chord_types_hidden_1_assign_op)
+        sess.run(weights_chord_types_hidden_2_assign_op)
+        sess.run(weights_chord_types_out_assign_op)
+        sess.run(biases_chord_types_hidden_1_assign_op)
+        sess.run(biases_chord_types_hidden_2_assign_op)
+        sess.run(biases_chord_types_out_assign_op)
+
+        sess.run(weights_root_notes_hidden_1_assign_op)
+        sess.run(weights_root_notes_out_assign_op)
+        sess.run(biases_root_notes_hidden_1_assign_op)
+        sess.run(biases_root_notes_out_assign_op)
+
+        saver_chord_roots.save(sess, "model/chord_roots/chord_roots_model", write_meta_graph=False)
+        saver_chord_types.save(sess, "model/chord_types/chord_types_model", write_meta_graph=False)
+        saver_root_notes.save(sess, "model/root_notes/root_notes_model", write_meta_graph=False)
+
+    print("\nModel saved!\n")
 
 
 def init_predict():
