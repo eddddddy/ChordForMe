@@ -440,9 +440,7 @@ def is_possible_chord(chord_root, chord_type, root_note):
 
 def crop_image(image):
     """
-    image: Array[][][int] -> List[][int]
-
-    Array refers to either a Python list or a numpy array.
+    image: ndarray[][][int] -> ndarray[][int]
 
     Gets pixels in first non-white column, removing white pixels at the top
     and bottom.
