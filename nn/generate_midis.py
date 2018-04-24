@@ -29,7 +29,9 @@ def note_to_int(note_str):
 
 def int_to_note(index):
     """
+    index: int -> str
 
+    Returns the note string at index.
     """
     notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
     return(notes[index])

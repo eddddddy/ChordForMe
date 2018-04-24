@@ -17,8 +17,10 @@ def load_global_vars():
     """
     Creates global variables used in predictions.
     """
-    frequencies = np.linspace(0, 24000, num=1025)
-    times_all = np.linspace(0.064/3, 3.536/3, num=32)
+    start = 256/11025
+    increment = 64/1575
+    frequencies = np.linspace(0, 22050, num=1025)
+    times_all = np.linspace(start, 14144/11025, num=32)  # enough for around 1.3 seconds of data
     notes = ["C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C"]
     chord_types = ["", "m", "7"]
     NUM_DATA_POINTS = 4
@@ -28,7 +30,7 @@ def load_global_vars():
     NUM_HIDDEN_CHORD_TYPES_1 = 2048
     NUM_HIDDEN_CHORD_TYPES_2 = 2048
     NUM_HIDDEN_ROOT_NOTES_1 = 2048
-    LEN_DATA = 217*3
+    LEN_DATA = 217
 
     globals().update(locals())
 
@@ -445,7 +447,7 @@ def crop_image(image):
     Gets pixels in first non-white column, removing white pixels at the top
     and bottom.
     """
-    return(image[34:251, 55, 0:])
+    return(image[35:252, 54, 0:])
 
 
 def mode(list_):
@@ -519,25 +521,18 @@ def generate_label(num_labels, correct_label):
     return(label)
 
 
-def is_empty_space(list_):
+def has_data(list_):
     """
-    list_: List[float] -> bool
+    list_: Array[float] -> bool
 
-    Checks if list_ data is empty space.
+    Array refers to either a Python list or a numpy array.
+
+    Checks if list_ contains data i.e. if it contains non-white pixels.
     """
-    return(list_[0] == 1)
-
-
-def is_background_noise(list_):
-    """
-    list_: List[float] -> bool
-
-    Checks if list_ data is background noise.
-    """
-    for i in range(int(len(list_)/3)):
-        if (list_[3*i] != 68/255) or (list_[3*i + 1] != 1/255) or (list_[3*i + 2] != 84/255):  # rgb color of background noise is (68, 1, 84)
-            return False
-    return True
+    for i in range(len(list_)):
+        if list_[i] != 1:
+            return True
+    return False
 
 
 def most_likely_chord_probability(chord_root_probabilities, chord_type_probabilities, root_note_probabilities):
@@ -613,8 +608,7 @@ def spectrogram_to_chord_train(file):
     init_train() must be called before this function can be called.
     """
     sample_rate, samples = wavfile.read(file)
-    samples = signal.resample(samples, int(len(samples)*48000/sample_rate))
-    frequencies_, times, spectrogram = signal.spectrogram(samples, 48000, nperseg=2048)
+    _, times, spectrogram = signal.spectrogram(samples, 44100, nperseg=2048)
 
     # convert spectrogram data to image pixel data
     array_image_data_all = []
@@ -622,19 +616,18 @@ def spectrogram_to_chord_train(file):
     figure = plt.figure(figsize=(6, 3.92), dpi=72)  # don't change this line
     ax = figure.add_subplot(111)
 
-    ax.pcolormesh(times, frequencies, spectrogram)  # frequencies is a global variable
+    plt.pcolormesh(times, frequencies, spectrogram, cmap="binary")  # frequencies is a global variable
     for i in range(NUM_DATA_POINTS):
-        ax.axis([0.064/3 + i*0.112/3, 0.064/3 + (i + 1)*0.112/3, 0, 5000])
-        ax.axis("off")
+        plt.axis([start + i*increment, start + (i + 1)*increment, 0, 5000])
+        plt.axis("off")
 
         figure.canvas.draw()
         image = np.frombuffer(figure.canvas.tostring_rgb(), dtype=np.uint8)
         image = image.reshape(figure.canvas.get_width_height()[::-1] + (3,))
-        image = crop_image(image).flatten()/255
+        image = crop_image(image)/255
 
-        if is_empty_space(image) or is_background_noise(image):  # skip empty space and background noise
-            continue
-        array_image_data_all.append(image.tolist())
+        if has_data(image):
+            array_image_data_all.append(image.tolist())
 
     plt.close("all")
 
@@ -835,9 +828,9 @@ def init_predict():
     globals().update(locals())
 
 
-def spectrogram_to_chord(samples, sample_rate):
+def spectrogram_to_chord(samples):
     """
-    samples: ndarray[], sample_rate: int -> None
+    samples: ndarray[] -> None
 
     Modifies global string variable chord_prediction to the predicted chord,
     given audio samples. Sets chord_prediction to an empty string if no
@@ -845,8 +838,7 @@ def spectrogram_to_chord(samples, sample_rate):
 
     init_predict() must be called before this function can be called.
     """
-    samples = signal.resample(samples, int(len(samples)*48000/sample_rate))
-    frequencies_, times, spectrogram = signal.spectrogram(samples, 48000, nperseg=2048)
+    _, times, spectrogram = signal.spectrogram(samples, 44100, nperseg=2048)
 
     # convert spectrogram data to image pixel data
     array_image_data_all = []
@@ -854,19 +846,18 @@ def spectrogram_to_chord(samples, sample_rate):
     figure = plt.figure(figsize=(6, 3.92), dpi=72)  # don't change this line
     ax = figure.add_subplot(111)
 
-    ax.pcolormesh(times, frequencies, spectrogram)  # frequencies is a global variable
+    plt.pcolormesh(times, frequencies, spectrogram, cmap="binary")  # frequencies is a global variable
     for i in range(NUM_DATA_POINTS):
-        ax.axis([0.064/3 + i*0.112/3, 0.064/3 + (i + 1)*0.112/3, 0, 5000])
-        ax.axis("off")
+        plt.axis([start + i*increment, start + (i + 1)*increment, 0, 5000])
+        plt.axis("off")
 
         figure.canvas.draw()
         image = np.frombuffer(figure.canvas.tostring_rgb(), dtype=np.uint8)
         image = image.reshape(figure.canvas.get_width_height()[::-1] + (3,))
-        image = crop_image(image).flatten()/255
+        image = crop_image(image)/255
 
-        if is_empty_space(image) or is_background_noise(image):  # skip empty space and background noise
-            continue
-        array_image_data_all.append(image.tolist())
+        if has_data(image):
+            array_image_data_all.append(image.tolist())
 
     plt.close("all")
 

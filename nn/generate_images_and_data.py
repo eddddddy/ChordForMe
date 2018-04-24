@@ -8,6 +8,12 @@ import translate
 
 
 def crop_image(image):
+    """
+    image: ndarray[][][int] -> ndarray[][int]
+
+    Gets binary pixels in first non-white column, cropping pixels at the top
+    and bottom.
+    """
     return(image[35:252, 54, 0])
 
 
@@ -23,11 +29,11 @@ test_root_note_labels_file = open("data/test_root_note_labels.txt", "w")
 directories_list = ["major_root/", "major_first_inversion/", "major_second_inversion/", "minor_root/", "minor_first_inversion/", "minor_second_inversion/",
                     "dominant_seventh_root/","dominant_seventh_first_inversion/", "dominant_seventh_second_inversion/", "dominant_seventh_third_inversion/"]
 
-figure = plt.figure()
+figure = plt.figure(figsize=(6, 3.92), dpi=72)
 ax = figure.add_subplot(111)
 
 for directory in directories_list:
-    print(directory)
+    print("Current directory:", directory)
     audio_files = os.listdir("chord_wavs/" + directory)
     for file in audio_files:
         sample_rate, samples = wavfile.read("chord_wavs/" + directory + file)
@@ -42,8 +48,6 @@ for directory in directories_list:
         for i in range(6):
             plt.axis([start + i*increment, start + (i + 1)*increment, 0, 5000])
             plt.axis("off")
-            ax.get_xaxis().set_visible(False)
-            ax.get_yaxis().set_visible(False)
 
             figure.canvas.draw()
             image = np.frombuffer(figure.canvas.tostring_rgb(), dtype=np.uint8)

@@ -7,3 +7,7 @@
 /build
 /captures
 .externalNativeBuild
+__pycache__/
+*.wav
+*.mid
+*.tar.gz
