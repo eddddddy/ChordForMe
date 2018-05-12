@@ -1,0 +1,103 @@
+// Nocturne No. 2 in Eb major, Op. 9 No. 2
+private List<Progression> chopinOp9No2 = Arrays.asList(
+        // 1
+        new Progression(
+                "major",
+                new Chord("major", "tonic", 0),
+                new Chord("diminishedSeventh", "subtonic", "tonicPedal"),
+                new Chord("major", "tonic", 0),
+                new Chord("majorSeventh", "tonic", 3)
+        ),
+        // 2
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "submediant", 0),
+                new Chord("minor", "dominant", 2),
+                new Chord("diminishedSeventh", "sharpenedTonic", "supertonicPedal"),
+                new Chord("minor", "supertonic", 0)
+        ),
+        // 3-4
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("dominantSeventh", "mediant", 1),
+                new Chord("minor", "submediant", 0),
+                new Chord("diminishedSeventh", "sharpenedSubdominant", 0),
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("major", "tonic", 0)
+        ),
+        // 5-8 identical to 1-4
+        // 9-10
+        new Progression(
+                "major",
+                new Chord("major", "dominant", 0),
+                new Chord("minorSeventh", "mediant", 1),
+                new Chord("major", "supertonic", 1),
+                new Chord("major", "subdominant", 0),
+                new Chord("minor", "subdominant", 0),
+                new Chord("major", "tonic", 0)
+        ),
+        // 11
+        new Progression(
+                "major",
+                new Chord("diminishedSeventh", "sharpenedTonic", 0),
+                new Chord("minor", "sharpenedSubdominant", 2),
+                new Chord("dominantSeventh", "submediant", 1),
+                new Chord("dominantSeventh", "supertonic", 0),
+                new Chord("minor", "mediant", 0)
+        ),
+        // 12a
+        new Progression(
+                "major",
+                new Chord("minor", "submediant", 0),
+                new Chord("minor", "subtonic", 1),
+                new Chord("dominantThirteenth", "supertonic", 0),
+                new Chord("major", "dominant", 0)
+        ),
+        // 12b
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "sharpenedDominant", 3),
+                new Chord("major", "sharpenedTonic", 1),
+                new Chord("dominantSeventh", "submediant", 2),
+                new Chord("dominantSeventh", "supertonic", 0),
+                new Chord("dominantSeventh", "dominant", 0)
+        ),
+        // 13-16 identical to 1-4
+        // 17-20 identical to 9-12
+        // 21-24 identical to 1-4
+        // 25-26
+        new Progression(
+                "major",
+                new Chord("minor", "subdominant", 2),
+                new Chord("major", "tonic", 0),
+                new Chord("minor", "subdominant", 2),
+                new Chord("major", "tonic", 0)
+        ),
+        // 27-28
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "dominant", "tonicPedal"),
+                new Chord("major", "tonic", 0),
+                new Chord("dominantThirteenth", "dominant", 1),
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("major", "tonic", 0)
+        ),
+        // 29-30a identical to 25-26
+        // 30b-33
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "supertonic", 1),
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("dominantSeventh", "mediant", 1),
+                new Chord("minor", "submediant", 0),
+                new Chord("dominantSeventh", "supertonic", 1),
+                new Chord("dominantSeventh", "dominant", 0)
+        ),
+        // 34-35
+        new Progression(
+                "major",
+                new Chord("major", "tonic", 0)
+        )
+);
+                

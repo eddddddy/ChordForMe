@@ -1,0 +1,24 @@
+// Prelude in A major, Op. 28 No. 7
+private List<Progression> chopinOp28No7 = Arrays.asList(
+        // 1-4
+        new Progression(
+                "major",
+                new Chord("dominantNinth", "dominant", 0),
+                new Chord("major", "tonic", 0)
+        ),
+        // 5-8 identical to 1-4
+        // 9-12
+        new Progression(
+                "major",
+                new Chord("dominantNinth", "dominant", 0),
+                new Chord("major", "tonic", 0),
+                new Chord("dominantSeventh", "submediant", 0)
+        ),
+        // 13-16
+        new Progression(
+                "major",
+                new Chord("minorSeventh", "supertonic", 0),
+                new Chord("dominantNinth", "dominant", 0),
+                new Chord("major", "tonic", 0)
+        )
+);

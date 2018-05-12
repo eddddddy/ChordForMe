@@ -52,7 +52,7 @@ private List<Progression> chopinB49 = Arrays.asList(
         ),
         // 21-24
         new Progression(
-        "major",
+                "major",
                 new Chord("major", "tonic", 0),
                 new Chord("dominantSeventh", "dominant", "tonicPedal"),
                 new Chord("major", "tonic", 0),
@@ -63,7 +63,7 @@ private List<Progression> chopinB49 = Arrays.asList(
         ),
         // 25-28
         new Progression(
-        "minor",
+                "minor",
                 new Chord("minor", "subdominant", 0),
                 new Chord("dominantSeventh", "tonic", "subdominantPedal"),
                 new Chord("minor", "subdominant", 0),
@@ -76,7 +76,7 @@ private List<Progression> chopinB49 = Arrays.asList(
         new Progression(
                 "major",
                 new Chord("dominantSeventhFlatFive", "dominant", 2),
-                new Chord("augmentedSeventh", "flattenedSubmediant", 1),
+                new Chord("augmentedMajorSeventh", "flattenedSubmediant", 1),
                 new Chord("dominantSeventhFlatFive", "dominant", 2),
                 new Chord("major", "tonic", 0)
         ),
@@ -84,7 +84,7 @@ private List<Progression> chopinB49 = Arrays.asList(
         new Progression(
                 "major",
                 new Chord("diminishedSeventh", "sharpenedSubdominant", 0),
-                new Chord("augmentedSeventh", "flattenedSubmediant", 3),
+                new Chord("augmentedMajorSeventh", "flattenedSubmediant", 3),
                 new Chord("diminished", "sharpenedTonic", 2),
                 new Chord("dominantSeventh", "dominant", 0),
                 new Chord("major", "tonic", 0)
@@ -106,7 +106,7 @@ private List<Progression> chopinB49 = Arrays.asList(
         new Progression(
                 "minor",
                 new Chord("dominantSeventh", "dominant", 1),
-                new Chord("tonic", "minor", 0),
+                new Chord("minor", "tonic", 0),
                 new Chord("halfDiminishedSeventh", "supertonic", 2),
                 new Chord("halfDiminishedSeventh", "supertonic", "dominantPedal"),
                 new Chord("dominantSeventh", "dominant", 0)
@@ -139,6 +139,6 @@ private List<Progression> chopinB49 = Arrays.asList(
                 new Chord("halfDiminishedSeventh", "supertonic", 3),
                 new Chord("minor", "tonic", 0),
                 new Chord("halfDiminishedSeventh", "supertonic", 3),
-                new Chord("major", "tonic", 0),
+                new Chord("major", "tonic", 0)
         )
 );

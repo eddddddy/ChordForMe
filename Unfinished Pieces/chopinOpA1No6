@@ -1,0 +1,147 @@
+// Nocturne No. 22 in C# minor, Op. A1 No. 6
+private List<Progression> chopinOpA1No6 = Arrays.asList(
+        // 1-4
+        new Progression(
+                "minor",
+                new Chord("minor", "tonic", 0),
+                new Chord("diminished", "sharpenedSubtonic", 0),
+                new Chord("minor", "tonic", 0),
+                new Chord("halfDiminishedSeventh", "supertonic", 0),
+                new Chord("diminishedSeventh", "sharpenedSubtonic", 1)
+        ),
+        // 5-8
+        new Progression(
+                "minor",
+                new Chord("dominantSeventh", "dominant", 1),
+                new Chord("minor", "tonic", 2),
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("dominantSeventh", "dominant", "tonicPedal"),
+                new Chord("minor", "tonic", 0)
+        ),
+        // 9-13
+        new Progression(
+                "major",
+                new Chord("dominantNinth", "dominant", 1),
+                new Chord("dominantSeventh", "dominant", 1),
+                new Chord("major", "tonic", 0),
+                new Chord("halfDiminishedSeventh", "subtonic", 2),
+                new Chord("major", "subdominant", 1),
+                new Chord("minor", "supertonic", 0),
+                new Chord("diminished", "supertonic", 1),
+                new Chord("major", "tonic", 2)
+        ),
+        // 14-15a
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("diminishedSeventh", "sharpenedSubmediant", 3),
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("diminishedSeventh", "sharpenedSubmediant", 3),
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("major", "tonic", 0)
+        ),
+        // 15b-16 is a solo RH atonal passage
+        // 17-21
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "submediant", 1),
+                new Chord("minor", "supertonic", 0),
+                new Chord("dominantSeventh", "submediant", 2),
+                new Chord("minor", "supertonic", 1),
+                new Chord("diminished", "supertonic", 1),
+                new Chord("dominantSeventh", "dominant", 0),
+        ),
+        // 22-26a
+        new Progression(
+                "minor",
+                new Chord("diminishedSeventh", "sharpenedSubtonic", 0),
+                new Chord("minor", "tonic", 0),
+                new Chord("dominantSeventh", "dominant", 2),
+                new Chord("minor", "tonic", 1),
+                new Chord("dominantSeventh", "sharpenedSubmediant", 2),
+                new Chord("major", "supertonic", 0),
+                new Chord("dominantSeventh", "dominant", 2),
+                new Chord("dominantSeventh", "dominant", 0)
+        ),
+        // 26b-28 is a solo RH atonal passage
+        // 29-36 identical to 1-8
+        // 37-44a
+        new Progression(
+                "minor",
+                new Chord("dominantSeventh", "tonic", 1),
+                new Chord("minor", "subdominant", 0),
+                new Chord("diminishedSeventh", "sharpenedSubdominant", 0),
+                new Chord("minor", "tonic", 2),
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("minor", "tonic", 0)
+        ),
+        // 45-64 has a fast harmonic tempo. I'm not sure whether or not to keep the entire 
+        // two-bar progressions intact or to split it into one-bar or half-bar phrases.
+        // 44b-46a
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "dominant", 1),
+                new Chord("major", "tonic", 0),
+                new Chord("diminishedSeventh", "sharpenedSupertonic", 3),
+                new Chord("major", "tonic", 0),
+                new Chord("dominantSeventh", "dominant", 1),
+                new Chord("major", "tonic", 0),
+                new Chord("minor", "supertonic", 0),
+                new Chord("dominantSeventh", "dominant", 2)
+        ),
+        // 46b-48a
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "dominant", 3),
+                new Chord("dominantSeventh", "dominant", 2),
+                new Chord("dominantSeventh", "dominant", 1),
+                new Chord("major", "tonic", 0),
+                new Chord("dominantSeventh", "dominant", 2),
+                new Chord("minorSeventh", "submediant", 2),
+                new Chord("diminishedSeventh", "sharpenedSupertonic", 0),
+                new Chord("major", "tonic", 1),
+        ),
+        // 48b-50a
+        new Progression(
+                "major",
+                new Chord("diminishedSeventh", "sharpenedTonic", 1),
+                new Chord("dominantSeventh", "supertonic", 0),
+                new Chord("diminishedSeventh", "subtonic", 1),
+                new Chord("major", "tonic", 0)
+        ),
+        // 50b-52a
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "submediant", 0)
+                new Chord("dominantSeventh", "supertonic", 0),
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("major", "tonic", 0)
+        ),
+        // 52b-53a
+        new Progression(
+                "major",
+                new Chord("major", "tonic", 1),
+                new Chord("dominantSeventh", "dominant", 2),
+                new Chord("major", "tonic", 0),
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("diminishedSeventh", "sharpenedSubmediant", 3),
+                new Chord("dominantSeventh", "dominant", 0)
+        ),
+        // 53b-54
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "subtonic", 3),
+                new Chord("minor", "subdominant", 1),
+                new Chord("dominantSeventh", "dominant", 0)
+        ),
+        // 55a identical to 53a
+        // 55b-56 identical to 53b-54
+        // 57-64 identical to 45-52a
+        // 65
+        new Progression(
+                "minor",
+                new Chord("dominantSeventh", "dominant", 0)
+        )
+        // 66-109 identical to 1-44a
+);
+        
