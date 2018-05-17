@@ -156,6 +156,7 @@ private List<Progression> chopinOp9No1 = Arrays.asList(
                 new Chord("germanAugmentedSixth", "flattenedSupertonic", "tonicPedal"),
                 new Chord("major", "tonic", 0)
         ),
+        // 84b-85
         new Progression(
                 "minor",
                 new Chord("major", "tonic", 0),

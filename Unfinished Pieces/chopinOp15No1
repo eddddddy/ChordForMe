@@ -1,0 +1,214 @@
+// Nocturne No. 4 in F major, Op. 15 No. 1
+private List<Progression> chopinOp15No1 = Arrays.asList(
+        // 1-2
+        new Progression(
+                "major",
+                new Chord("major", "tonic", 0),
+                new Chord("majorSeventh", "tonic", 0),
+                new Chord("majorSeventh", "subdominant", 2),
+                new Chord("dominantSeventh", "dominant", "tonicPedal")
+        ),
+        // 3-4
+        new Progression(
+                "major",
+                new Chord("minorSeventh", "supertonic", 3),
+                new Chord("dominantSeventh", "dominant", "tonicPedal"),
+                new Chord("major", "tonic", 0),
+                new Chord("dominantSeventh", "mediant", 2),
+                new Chord("minor", "submediant", 0)
+        ),
+        // 5-7a
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "supertonic", 2),
+                new Chord("halfDiminishedSeventh", "supertonic", 2),
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("major", "tonic", 2),
+                new Chord("minorSeventh", "sharpenedSubdominant", 0),
+                new Chord("dominantSeventh", "subtonic", 2),
+                new Chord("minor", "mediant", 0)
+        ),
+        // 7b-9a
+        new Progression(
+                "major",
+                new Chord("halfDiminishedSeventh", "sharpenedSubdominant", 2),
+                new Chord("major", "subtonic", 0),
+                new Chord("dominantSeventh", "dominant", 2),
+                new Chord("major", "tonic", 0)
+        ),
+        // 9-10 identical to 1-2
+        // 11-12
+        new Progression(
+                "major",
+                new Chord("minorSeventh", "supertonic", 3),
+                new Chord("dominantSeventh", "dominant", "tonicPedal"),
+                new Chord("major", "tonic", 0),
+                new Chord("dominantSeventh", "mediant", 2),
+        ),
+        // 13-14
+        new Progression(
+                "major",
+                new Chord("diminishedSeventh", "subtonic", 0),
+                new Chord("dominantSeventh", "dominant", 1),
+                new Chord("dominantSeventh", "submediant", 1),
+                new Chord("dominantSeventh", "dominant", 2),
+                new Chord("major", "tonic", 0),
+                new Chord("diminishedSeventh", "sharpenedSupertonic", 1)
+        ),
+        // 15-16
+        new Progression(
+                "major",
+                new Chord("major", "tonic", 2),
+                new Chord("major", "dominant", 2),
+                new Chord("dominantSeventhFlatFive", "supertonic", 3),
+                new Chord("diminishedSeventh", "subtonic", 0)
+        ),
+        // 17-19a
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "flattenedSubtonic", 0),
+                new Chord("halfDiminishedSeventh", "flattenedSubtonic", 0),
+                new Chord("dominantSeventhFlatFive", "mediant", 2),
+                new Chord("dominantSeventh", "submediant", 0),
+                new Chord("dominantSeventh", "supertonic", 2),
+                new Chord("major", "dominant", 0)
+        ),
+        // 19b-20a
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("major", "tonic", 0)
+        ),
+        // 20b-21a
+        new Progression(
+                "major",
+                new Chord("diminishedSeventh", "sharpenedSubdominant", 0),
+                new Chord("diminished", "submediant", 1),
+                new Chord("major", "dominant", 0)
+        ),
+        // 21b-24
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "dominant", 0),
+                new Chord("major", "tonic", 0),
+                new Chord("majorSeventh", "tonic", 0),
+                new Chord("majorSeventh", "subdominant", 2),
+                new Chord("dominantSeventh", "dominant", "tonicPedal"),
+                new Chord("halfDiminishedSeventh", "supertonic", 3),
+                new Chord("diminished", "subtonic", "tonicPedal")
+        ),
+        // 25-26
+        new Progression(
+                "minor",
+                new Chord("minor", "tonic", 0),
+                new Chord("minorSeventh", "subdominant", 2),
+                new Chord("halfDiminishedSeventh", "supertonic", 0)
+        ),
+        // 27-28
+        new Progression(
+                "minor",
+                new Chord("halfDiminishedSeventh", "supertonic", 3),
+                new Chord("halfDiminishedSeventh", "dominant", "tonicPedal"),
+                new Chord("halfDiminishedSeventh", "sharpenedMediant", 0)
+        ),
+        // 29-30
+        new Progression(
+                "minor",
+                new Chord("augmentedMajorSeventh", "submediant", 0),
+                new Chord("minor", "subdominant", 1),
+                new Chord("dominantThirteenth", "submediant", 0),
+                new Chord("major", "flattenedSupertonic", 2),
+                new Chord("dominantSeventh", "submediant", 0)
+        ),
+        // 31-32
+        new Progression(
+                "minor",
+                new Chord("dominantThirteenth", "submediant", "flattenedSupertonicPedal"),
+                new Chord("major", "flattenedSupertonic", 0),
+                new Chord("major", "submediant", "flattenedSupertonicPedal"),
+                new Chord("minorSeventh", "subtonic", 3),
+                new Chord("major", "submediant", 0)
+        ),
+        // 33-34
+        new Progression(
+                "minor",
+                new Chord("dominantThirteenth", "submediant", 0),
+                new Chord("major", "flattenedSupertonic", 2),
+                new Chord("major", "submediant", 0),
+                new Chord("minorSeventh", "subtonic", 3),
+                new Chord("major", "submediant", 0),
+                new Chord("minor", "tonic", 0),
+                new Chord("diminished", "sharpenedSubdominant", 2)
+        ),
+        // 35a
+        new Progression(
+                "minor",
+                new Chord("dominantThirteenth", "dominant", 0),
+                new Chord("minor", "tonic", 0)
+        ),
+        // 35b-36a
+        new Progression(
+                "minor",
+                new Chord("major", "subtonic", 1),
+                new Chord("major", "submediant", 1),
+                new Chord("minor", "dominant", 1),
+                new Chord("minor", "subdominant", 1),
+                new Chord("major", "mediant", 1),
+                new Chord("diminished", "supertonic", 1),
+                new Chord("minor", "tonic", 1)
+        ),
+        // 36b
+        new Progression(
+                "minor",
+                new Chord("diminished", "supertonic", 1),
+                new Chord("minor", "tonic", 1),
+                new Chord("major", "dominant", 2)
+        ),
+        // 37-40 identical to 25-28
+        // 41-42
+        new Progression(
+                "minor",
+                new Chord("dominantThirteenth", "mediant", 0),
+                new Chord("major", "submediant", 2),
+                new Chord("dominantSeventh", "mediant", 0),
+                new Chord("minorSeventh", "mediant", 1),
+                new Chord("dominantSeventh", "mediant", 1),
+                new Chord("dominantSeventh", "mediant", 0)
+        ),
+        // 43-44
+        new Progression(
+                "minor",
+                new Chord("dominantMinorThirteenth", "subdominant", 0),
+                new Chord("minor", "subtonic", 2),
+                new Chord("dominantSeventh", "subdominant", 0),
+                new Chord("minorSeventh", "subdominant", 1),
+                new Chord("dominantSeventh", "subdominant", 1),
+                new Chord("dominantSeventh", "subdominant", 0)
+        ),
+        // 45-47a
+        new Progression(
+                "minor",
+                new Chord("dominantMinorThirteenth", "subdominant", 0),
+                new Chord("minor", "subtonic", 0),
+                new Chord("dominantMinorThirteenth", "subdominant", 0),
+                new Chord("minor", "subtonic", 0),
+                new Chord("dominantThirteenth", "mediant", 0),
+                new Chord("major", "submediant", 0)
+        ),
+        // 47b-48
+        new Progression(
+                "minor",
+                new Chord("dominantMinorThirteenth", "tonic", 0),
+                new Chord("minor", "subdominant", 0),
+                new Chord("minorMajorSeventh", "subdominant", 0),
+                new Chord("halfDiminishedSeventh", "supertonic", 0)
+        ),
+        // 49-72a identical to 1-24
+        // 72b-74
+        new Progression(
+                "major",
+                new Chord("dominantSeventh", "dominant", "tonicPedal"),
+                new Chord("major", "tonic", 0)
+        )
+);
+        

@@ -11,47 +11,28 @@ import pygame as pg
 
 
 def above_tonic(note, key):
-    if "flattened" in note:
-        return(above_tonic(note[9:].lower(), key) - 1)
-
-    elif "sharpened" in note:
-        return(above_tonic(note[9:].lower(), key) + 1)
+    if "flattened" in note: return(above_tonic(note[9:].lower(), key) - 1)
+    elif "sharpened" in note: return(above_tonic(note[9:].lower(), key) + 1)
 
     elif key == "major":
-        if note == "tonic":
-            return 0
-        elif note == "supertonic":
-            return 2
-        elif note == "mediant":
-            return 4
-        elif note == "subdominant":
-            return 5
-        elif note == "dominant":
-            return 7
-        elif note == "submediant":
-            return 9
-        elif note == "subtonic":
-            return 11
-        else:
-            pass
+        if note == "tonic": return 0
+        elif note == "supertonic": return 2
+        elif note == "mediant": return 4
+        elif note == "subdominant": return 5
+        elif note == "dominant": return 7
+        elif note == "submediant": return 9
+        elif note == "subtonic": return 11
+        else: pass
 
     elif key == "minor":
-        if note == "tonic":
-            return 0
-        elif note == "supertonic":
-            return 2
-        elif note == "mediant":
-            return 3
-        elif note == "subdominant":
-            return 5
-        elif note == "dominant":
-            return 7
-        elif note == "submediant":
-            return 8
-        elif note == "subtonic":
-            return 10
-        else:
-            pass
+        if note == "tonic": return 0
+        elif note == "supertonic": return 2
+        elif note == "mediant": return 3
+        elif note == "subdominant": return 5
+        elif note == "dominant": return 7
+        elif note == "submediant": return 8
+        elif note == "subtonic": return 10
+        else: pass
 
     print("Note:", note)
     print("Key:", key)
@@ -59,38 +40,23 @@ def above_tonic(note, key):
 
 
 def chord_notes(chord_list):
-    if chord_list[0] == "major":
-        return [0, 4, 7]
-    elif chord_list[0] == "minor":
-        return [0, 3, 7]
-    elif chord_list[0] == "diminished":
-        return [0, 3, 6]
-    elif chord_list[0] == "augmented":
-        return [0, 4, 8]
-    elif chord_list[0] == "dominantSeventh":
-        return [0, 4, 7, 10]
-    elif chord_list[0] == "majorSeventh":
-        return [0, 4, 7, 11]
-    elif chord_list[0] == "minorSeventh":
-        return [0, 3, 7, 10]
-    elif chord_list[0] == "minorMajorSeventh":
-        return [0, 3, 7, 11]
-    elif chord_list[0] == "diminishedSeventh":
-        return [0, 3, 6, 9]
-    elif chord_list[0] == "halfDiminishedSeventh":
-        return [0, 3, 6, 10]
-    elif chord_list[0] == "augmentedSeventh":
-        return [0, 4, 8, 10]
-    elif chord_list[0] == "augmentedMajorSeventh":
-        return [0, 4, 8, 11]
-    elif chord_list[0] == "dominantSeventhFlatFive":
-        return [0, 4, 6, 10]
-    elif chord_list[0] == "minorSixth":
-        return [0, 3, 7, 9]
-    elif chord_list[0] == "germanAugmentedSixth":
-        return [0, 4, 7, 10]
-    elif chord_list[0] == "dominantNinth":
-        return [0, 4, 7, 10, 14]
+    if chord_list[0] == "major": return [0, 4, 7]
+    elif chord_list[0] == "minor": return [0, 3, 7]
+    elif chord_list[0] == "diminished": return [0, 3, 6]
+    elif chord_list[0] == "augmented": return [0, 4, 8]
+    elif chord_list[0] == "dominantSeventh": return [0, 4, 7, 10]
+    elif chord_list[0] == "majorSeventh": return [0, 4, 7, 11]
+    elif chord_list[0] == "minorSeventh": return [0, 3, 7, 10]
+    elif chord_list[0] == "minorMajorSeventh": return [0, 3, 7, 11]
+    elif chord_list[0] == "diminishedSeventh": return [0, 3, 6, 9]
+    elif chord_list[0] == "halfDiminishedSeventh": return [0, 3, 6, 10]
+    elif chord_list[0] == "augmentedSeventh": return [0, 4, 8, 10]
+    elif chord_list[0] == "augmentedMajorSeventh": return [0, 4, 8, 11]
+    elif chord_list[0] == "dominantSeventhFlatFive": return [0, 4, 6, 10]
+    elif chord_list[0] == "minorSixth": return [0, 3, 7, 9]
+    elif chord_list[0] == "germanAugmentedSixth": return [0, 4, 7, 10]
+    elif chord_list[0] == "dominantNinth": return [0, 4, 7, 10, 14]
+    elif chord_list[0] == "dominantMinorNinth": return [0, 4, 7, 10, 13]
 
     print("Chord:", chord_list[0])
     raise ValueError("Something went wrong. Most likely, the above chord has not been coded yet.")
@@ -98,190 +64,121 @@ def chord_notes(chord_list):
 
 def bass_note(chord_list, key):
     if chord_list[0] == "major":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 4
-        elif chord_list[2] == 2:
-            return 7
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 4
+        elif chord_list[2] == 2: return 7
+        else: pass
 
     elif chord_list[0] == "minor":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 3
-        elif chord_list[2] == 2:
-            return 7
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 3
+        elif chord_list[2] == 2: return 7
+        else: pass
 
     elif chord_list[0] == "diminished":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 3
-        elif chord_list[2] == 2:
-            return 6
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 3
+        elif chord_list[2] == 2: return 6
+        else: pass
 
     elif chord_list[0] == "augmented":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 4
-        elif chord_list[2] == 2:
-            return 8
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 4
+        elif chord_list[2] == 2: return 8
+        else: pass
 
     elif chord_list[0] == "dominantSeventh":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 4
-        elif chord_list[2] == 2:
-            return 7
-        elif chord_list[2] == 3:
-            return 10
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 4
+        elif chord_list[2] == 2: return 7
+        elif chord_list[2] == 3: return 10
+        else: pass
 
     elif chord_list[0] == "majorSeventh":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 4
-        elif chord_list[2] == 2:
-            return 7
-        elif chord_list[2] == 3:
-            return 11
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 4
+        elif chord_list[2] == 2: return 7
+        elif chord_list[2] == 3: return 11
+        else: pass
 
     elif chord_list[0] == "minorSeventh":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 3
-        elif chord_list[2] == 2:
-            return 7
-        elif chord_list[2] == 3:
-            return 10
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 3
+        elif chord_list[2] == 2: return 7
+        elif chord_list[2] == 3: return 10
+        else: pass
 
     elif chord_list[0] == "minorMajorSeventh":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 3
-        elif chord_list[2] == 2:
-            return 7
-        elif chord_list[2] == 3:
-            return 11
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 3
+        elif chord_list[2] == 2: return 7
+        elif chord_list[2] == 3: return 11
+        else: pass
 
     elif chord_list[0] == "diminishedSeventh":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 3
-        elif chord_list[2] == 2:
-            return 6
-        elif chord_list[2] == 3:
-            return 9
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 3
+        elif chord_list[2] == 2: return 6
+        elif chord_list[2] == 3: return 9
+        else: pass
 
     elif chord_list[0] == "halfDiminishedSeventh":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 3
-        elif chord_list[2] == 2:
-            return 6
-        elif chord_list[2] == 3:
-            return 10
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 3
+        elif chord_list[2] == 2: return 6
+        elif chord_list[2] == 3: return 10
+        else: pass
 
     elif chord_list[0] == "augmentedSeventh":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 4
-        elif chord_list[2] == 2:
-            return 8
-        elif chord_list[2] == 3:
-            return 10
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 4
+        elif chord_list[2] == 2: return 8
+        elif chord_list[2] == 3: return 10
+        else: pass
 
     elif chord_list[0] == "augmentedMajorSeventh":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 4
-        elif chord_list[2] == 2:
-            return 8
-        elif chord_list[2] == 3:
-            return 11
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 4
+        elif chord_list[2] == 2: return 8
+        elif chord_list[2] == 3: return 11
+        else: pass
 
     elif chord_list[0] == "dominantSeventhFlatFive":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 4
-        elif chord_list[2] == 2:
-            return 6
-        elif chord_list[2] == 3:
-            return 10
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 4
+        elif chord_list[2] == 2: return 6
+        elif chord_list[2] == 3: return 10
+        else: pass
 
     elif chord_list[0] == "minorSixth":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 3
-        elif chord_list[2] == 2:
-            return 7
-        elif chord_list[2] == 3:
-            return 9
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 3
+        elif chord_list[2] == 2: return 7
+        elif chord_list[2] == 3: return 9
+        else: pass
 
     elif chord_list[0] == "germanAugmentedSixth":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 4
-        elif chord_list[2] == 2:
-            return 7
-        elif chord_list[2] == 3:
-            return 10
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 4
+        elif chord_list[2] == 2: return 7
+        elif chord_list[2] == 3: return 10
+        else: pass
 
     elif chord_list[0] == "dominantNinth":
-        if chord_list[2] == 0:
-            return 0
-        elif chord_list[2] == 1:
-            return 4
-        elif chord_list[2] == 2:
-            return 7
-        elif chord_list[2] == 3:
-            return 10
-        elif chord_list[2] == 4:
-            return 14
-        else:  # pedal
-            pass
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 4
+        elif chord_list[2] == 2: return 7
+        elif chord_list[2] == 3: return 10
+        elif chord_list[2] == 4: return 14
+        else: pass
+
+    elif chord_list[0] == "dominantMinorNinth":
+        if chord_list[2] == 0: return 0
+        elif chord_list[2] == 1: return 4
+        elif chord_list[2] == 2: return 7
+        elif chord_list[2] == 3: return 10
+        elif chord_list[2] == 4: return 13
+        else: pass
 
     try:
         if chord_list[2].find("Pedal") == (len(chord_list[2]) - 5):
@@ -342,10 +239,13 @@ if __name__ == "__main__":
     # simply modify the below list and run
     progression = [
             "minor",
-            ["minor", "tonic", 0],
-            ["major", "mediant", 0],
+            ["halfDiminishedSeventh", "supertonic", 0],
+            ["diminishedSeventh", "sharpenedSubtonic", 0],
             ["major", "submediant", 0],
-            ["major", "mediant", 0]
+            ["minor", "tonic", 2],
+            ["dominantSeventh", "dominant", 0],
+            ["diminishedSeventh", "sharpenedSubtonic", 0],
+            ["major", "submediant", 0]
     ]
 
     tempo = 40
