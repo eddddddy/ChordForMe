@@ -1,2 +1,2 @@
 # About ChordForMe
-This application is still in progress, and is more of a hobby than something that's planned to ever be released.
+This is an Android application for composers, built with a Java (Android Studio) front-end and a Python (Tensorflow) back-end. It recognizes chords from microphone audio data and feeds it through a neural network, which then suggests subsequent chord progressions. 
