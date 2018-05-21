@@ -51,7 +51,7 @@ private List<Progression> chopinOp9No2 = Arrays.asList(
                 "major",
                 new Chord("minor", "submediant", 0),
                 new Chord("minor", "subtonic", 1),
-                new Chord("dominantThirteenth", "supertonic", 0),
+                new Chord("dominantMajorThirteenth", "supertonic", 0),
                 new Chord("major", "dominant", 0)
         ),
         // 12b
@@ -79,7 +79,7 @@ private List<Progression> chopinOp9No2 = Arrays.asList(
                 "major",
                 new Chord("dominantSeventh", "dominant", "tonicPedal"),
                 new Chord("major", "tonic", 0),
-                new Chord("dominantThirteenth", "dominant", 1),
+                new Chord("dominantMajorThirteenth", "dominant", 1),
                 new Chord("dominantSeventh", "dominant", 0),
                 new Chord("major", "tonic", 0)
         ),

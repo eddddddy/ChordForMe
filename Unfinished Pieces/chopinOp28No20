@@ -5,11 +5,11 @@ private List<Progression> chopinOp28No20 = Arrays.asList(
                 "minor",
                 new Chord("minor", "tonic", 0),
                 new Chord("minorSeventh", "subdominant", 0),
-                new Chord("dominantThirteenth", "dominant", 0),
+                new Chord("dominantMinorThirteenth", "dominant", 0),
                 new Chord("minor", "tonic", 0),
                 new Chord("major", "submediant", 0),
                 new Chord("major", "flattenedSupertonic", 0),
-                new Chord("dominantThirteenth", "mediant", 0),
+                new Chord("dominantMajorThirteenth", "mediant", 0),
                 new Chord("major", "submediant", 0)
         ),
         // 3-4
@@ -21,7 +21,7 @@ private List<Progression> chopinOp28No20 = Arrays.asList(
                 new Chord("major", "tonic", 0),
                 new Chord("dominantSeventh", "supertonic", 0),
                 new Chord("major", "dominant", 0),
-                new Chord("dominantThirteenth", "supertonic", 0),
+                new Chord("dominantMajorThirteenth", "supertonic", 0),
                 new Chord("major", "dominant", 0)
         ),
         // 5-6
@@ -45,7 +45,7 @@ private List<Progression> chopinOp28No20 = Arrays.asList(
                 new Chord("minor", "tonic", 0),
                 new Chord("major", "submediant", 0),
                 new Chord("major", "flattenedSupertonic", 0),
-                new Chord("dominantThirteenth", "dominant", 0),
+                new Chord("dominantMinorThirteenth", "dominant", 0),
                 new Chord("minor", "tonic", 0)
         ),
         // 9-12 identical to 5-8

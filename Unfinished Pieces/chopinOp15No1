@@ -116,14 +116,14 @@ private List<Progression> chopinOp15No1 = Arrays.asList(
                 "minor",
                 new Chord("augmentedMajorSeventh", "submediant", 0),
                 new Chord("minor", "subdominant", 1),
-                new Chord("dominantThirteenth", "submediant", 0),
+                new Chord("dominantMajorThirteenth", "submediant", 0),
                 new Chord("major", "flattenedSupertonic", 2),
                 new Chord("dominantSeventh", "submediant", 0)
         ),
         // 31-32
         new Progression(
                 "minor",
-                new Chord("dominantThirteenth", "submediant", "flattenedSupertonicPedal"),
+                new Chord("dominantMajorThirteenth", "submediant", "flattenedSupertonicPedal"),
                 new Chord("major", "flattenedSupertonic", 0),
                 new Chord("major", "submediant", "flattenedSupertonicPedal"),
                 new Chord("minorSeventh", "subtonic", 3),
@@ -132,7 +132,7 @@ private List<Progression> chopinOp15No1 = Arrays.asList(
         // 33-34
         new Progression(
                 "minor",
-                new Chord("dominantThirteenth", "submediant", 0),
+                new Chord("dominantMajorThirteenth", "submediant", 0),
                 new Chord("major", "flattenedSupertonic", 2),
                 new Chord("major", "submediant", 0),
                 new Chord("minorSeventh", "subtonic", 3),
@@ -143,7 +143,7 @@ private List<Progression> chopinOp15No1 = Arrays.asList(
         // 35a
         new Progression(
                 "minor",
-                new Chord("dominantThirteenth", "dominant", 0),
+                new Chord("dominantMinorThirteenth", "dominant", 0),
                 new Chord("minor", "tonic", 0)
         ),
         // 35b-36a
@@ -168,7 +168,7 @@ private List<Progression> chopinOp15No1 = Arrays.asList(
         // 41-42
         new Progression(
                 "minor",
-                new Chord("dominantThirteenth", "mediant", 0),
+                new Chord("dominantMajorThirteenth", "mediant", 0),
                 new Chord("major", "submediant", 2),
                 new Chord("dominantSeventh", "mediant", 0),
                 new Chord("minorSeventh", "mediant", 1),
@@ -192,7 +192,7 @@ private List<Progression> chopinOp15No1 = Arrays.asList(
                 new Chord("minor", "subtonic", 0),
                 new Chord("dominantMinorThirteenth", "subdominant", 0),
                 new Chord("minor", "subtonic", 0),
-                new Chord("dominantThirteenth", "mediant", 0),
+                new Chord("dominantMajorThirteenth", "mediant", 0),
                 new Chord("major", "submediant", 0)
         ),
         // 47b-48
