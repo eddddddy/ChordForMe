@@ -646,7 +646,7 @@ public class ProgressionLibrary {
                     new Chord("major", "tonic", 0),
                     new Chord("major", "supertonic", "tonicPedal"),
                     new Chord("diminishedSeventh", "sharpenedDominant", "tonicPedal"),
-                    new Chord("augmentedSeventh", "dominant", "tonicPedal)
+                    new Chord("augmentedSeventh", "dominant", "tonicPedal")
             ),
             // 39-42 identical to 23-26
             // 43-44 identical to 35-36
@@ -1625,7 +1625,7 @@ public class ProgressionLibrary {
                     "minor",
                     new Chord("diminishedSeventh", "sharpenedSubtonic", 0),
                     new Chord("minor", "dominant", 2),
-                    new Chord("dominantSeventh", "supertonic", "0),
+                    new Chord("dominantSeventh", "supertonic", 0),
                     new Chord("minor", "dominant", 0),
                     new Chord("dominantSeventh", "supertonic", "dominantPedal"),
                     new Chord("minor", "dominant", 0)
