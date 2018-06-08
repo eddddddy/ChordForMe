@@ -19,8 +19,8 @@ data = tf.placeholder(tf.float32, shape=[None, get_data.len_data])
 labels_chord_roots = tf.placeholder(tf.float32, shape=[None, 12])
 keep_prob = tf.placeholder(tf.float32)
 
-weights_chord_roots_hidden_1 =  tf.Variable(tf.random_normal([get_data.len_data, num_hidden_1], stddev=1/np.sqrt(get_data.len_data)), name="weights_chord_roots_hidden_1")
-weights_chord_roots_hidden_2 =  tf.Variable(tf.random_normal([num_hidden_1, num_hidden_2], stddev=1/np.sqrt(num_hidden_1)), name="weights_chord_roots_hidden_2")
+weights_chord_roots_hidden_1 = tf.Variable(tf.random_normal([get_data.len_data, num_hidden_1], stddev=1/np.sqrt(get_data.len_data)), name="weights_chord_roots_hidden_1")
+weights_chord_roots_hidden_2 = tf.Variable(tf.random_normal([num_hidden_1, num_hidden_2], stddev=1/np.sqrt(num_hidden_1)), name="weights_chord_roots_hidden_2")
 weights_chord_roots_out = tf.Variable(tf.random_normal([num_hidden_2, 12], stddev=1/np.sqrt(num_hidden_2)), name="weights_chord_roots_out")
 biases_chord_roots_hidden_1 = tf.Variable(tf.zeros(num_hidden_1), name="biases_chord_roots_hidden_1")
 biases_chord_roots_hidden_2 = tf.Variable(tf.zeros(num_hidden_2), name="biases_chord_roots_hidden_2")
@@ -50,8 +50,8 @@ while True:
     if counter % 10000 == 0:
         saver.save(sess, "model/chord_roots/chord_roots_model", write_meta_graph=False)
         total_accuracy_chord_roots = sess.run(accuracy_chord_roots, feed_dict={data: test_data, keep_prob: 1, labels_chord_roots: test_chord_roots})
-        print("Training step: ", counter)
-        print("Evaluation accuracy: ", str(round(100*total_accuracy_chord_roots, 1)) + "%\n")
+        print("Training step:", counter)
+        print("Evaluation accuracy:", str(round(100*total_accuracy_chord_roots, 1)) + "%\n")
         if total_accuracy_chord_roots > 0.95:
             break
     counter += 1

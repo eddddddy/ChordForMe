@@ -3,8 +3,6 @@ import tensorflow as tf
 import translate
 import get_data
 
-# James note to self: maybe add keep_prob
-
 train_data = get_data.train_data
 train_chord_types = get_data.train_chord_types
 test_data = get_data.test_data
@@ -21,8 +19,8 @@ epsilon = 1e-8
 data = tf.placeholder(tf.float32, shape=[None, get_data.len_data])
 labels_chord_types = tf.placeholder(tf.float32, shape=[None, translate.NUM_CHORD_TYPES])
 
-weights_chord_types_hidden_1 =  tf.Variable(tf.random_normal([get_data.len_data, num_hidden_1], stddev=1/np.sqrt(get_data.len_data)), name="weights_chord_types_hidden_1")
-weights_chord_types_hidden_2 =  tf.Variable(tf.random_normal([num_hidden_1, num_hidden_2], stddev=1/np.sqrt(num_hidden_1)), name="weights_chord_types_hidden_2")
+weights_chord_types_hidden_1 = tf.Variable(tf.random_normal([get_data.len_data, num_hidden_1], stddev=1/np.sqrt(get_data.len_data)), name="weights_chord_types_hidden_1")
+weights_chord_types_hidden_2 = tf.Variable(tf.random_normal([num_hidden_1, num_hidden_2], stddev=1/np.sqrt(num_hidden_1)), name="weights_chord_types_hidden_2")
 weights_chord_types_out = tf.Variable(tf.random_normal([num_hidden_2, translate.NUM_CHORD_TYPES], stddev=1/np.sqrt(num_hidden_2)), name="weights_chord_types_out")
 biases_chord_types_hidden_1 = tf.Variable(tf.zeros(num_hidden_1), name="biases_chord_types_hidden_1")
 biases_chord_types_hidden_2 = tf.Variable(tf.zeros(num_hidden_2), name="biases_chord_types_hidden_2")
@@ -50,8 +48,8 @@ while True:
     if counter % 10000 == 0:
         saver.save(sess, "model/chord_types/chord_types_model", write_meta_graph=False)
         total_accuracy_chord_types = sess.run(accuracy_chord_types, feed_dict={data: test_data, labels_chord_types: test_chord_types})
-        print("Training step: ", counter)
-        print("Evaluation accuracy: ", str(round(100*total_accuracy_chord_types, 1)) + "%")
+        print("Training step:", counter)
+        print("Evaluation accuracy:", str(round(100*total_accuracy_chord_types, 1)) + "%")
         if total_accuracy_chord_types > 0.95:
             break
     counter += 1
