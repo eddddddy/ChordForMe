@@ -32,7 +32,7 @@ try:
 
     weights_chord_roots_hidden_1 = tf.get_variable("weights_chord_roots_hidden_1", shape=[LEN_DATA, NUM_HIDDEN_CHORD_ROOTS_1], dtype=tf.float32, initializer=tf.random_normal_initializer(stddev=1/np.sqrt(LEN_DATA)))
     weights_chord_roots_hidden_2 = tf.get_variable("weights_chord_roots_hidden_2", shape=[NUM_HIDDEN_CHORD_ROOTS_1, NUM_HIDDEN_CHORD_ROOTS_2], dtype=tf.float32, initializer=tf.random_normal_initializer(stddev=1/np.sqrt(NUM_HIDDEN_CHORD_ROOTS_1)))
-    weights_chord_roots_out = tf.get_variable("weights_chord_roots_out", shape=[NUM_HIDDEN_CHORD_ROOTS_1, 12], dtype=tf.float32, initializer=tf.random_normal_initializer(stddev=1/np.sqrt(NUM_HIDDEN_CHORD_ROOTS_2)))
+    weights_chord_roots_out = tf.get_variable("weights_chord_roots_out", shape=[NUM_HIDDEN_CHORD_ROOTS_2, 12], dtype=tf.float32, initializer=tf.random_normal_initializer(stddev=1/np.sqrt(NUM_HIDDEN_CHORD_ROOTS_2)))
     biases_chord_roots_hidden_1 = tf.get_variable("biases_chord_roots_hidden_1", shape=[NUM_HIDDEN_CHORD_ROOTS_1], dtype=tf.float32, initializer=tf.zeros_initializer())
     biases_chord_roots_hidden_2 = tf.get_variable("biases_chord_roots_hidden_2", shape=[NUM_HIDDEN_CHORD_ROOTS_2], dtype=tf.float32, initializer=tf.zeros_initializer())
     biases_chord_roots_out = tf.get_variable("biases_chord_roots_out", shape=[12], dtype=tf.float32, initializer=tf.zeros_initializer())
@@ -62,7 +62,7 @@ counter = 0
 while True:
     batch_data, batch_labels_chord_roots = get_data.next_batch(BATCH_SIZE, train_data, train_chord_roots)
     sess.run(train_chord_roots_op, feed_dict={data: batch_data, keep_prob: KEEP_PROB, labels_chord_roots: batch_labels_chord_roots})
-    if counter % 10000 == 0:
+    if counter % 100 == 0:
         saver.save(sess, "model/chord_roots/chord_roots_model", write_meta_graph=False)
         total_accuracy_chord_roots = sess.run(accuracy_chord_roots, feed_dict={data: test_data, keep_prob: 1, labels_chord_roots: test_chord_roots})
         print("Training step:", counter)

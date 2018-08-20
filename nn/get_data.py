@@ -6,7 +6,7 @@ def next_batch(batch_size, data, labels):
     """
     batch_size: int,
     data: ndarray[][float],
-    labels: ndarray[][int] -> Tuple(ndarray[][float], ndarray[][int]
+    labels: ndarray[][int] -> Tuple(ndarray[][float], ndarray[][int])
 
     Gets the next random batch of training data and labels.
     """
